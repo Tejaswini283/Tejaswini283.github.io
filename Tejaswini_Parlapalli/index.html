@@ -1,0 +1,509 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Title</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<style>
+
+#header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px;
+    }
+
+    .logo {
+      float: left;
+    }
+
+    .content {
+      float: center;
+      margin-left: 20px;
+    }
+
+    .profile-image {
+      width: 100px;
+      height: 100px;
+    }
+		/* CSS to position and style the fixed navigation */
+		nav {
+		  position: fixed;
+		  top: 20px; /* adjust the top value to position the navigation vertically */
+		  right: 20px; /* adjust the right value to position the navigation horizontally */
+		  background-color: #f2f2f2;
+		  padding: 10px;
+		  border-radius: 5px;
+		}
+	
+		nav ul {
+		  list-style-type: none;
+		  margin: 0;
+		  padding: 0;
+		}
+	
+		nav ul li {
+		  display: inline;
+		  margin-right: 10px;
+		}
+	
+		nav ul li a {
+		  text-decoration: none;
+		  color: #333;
+		}
+        .profile-image {
+  display: block;
+  width: 230px;
+  height: 230px; 
+  border-radius: 70%; 
+  object-fit: cover;
+  object-position: top center;
+}
+/* Apply a fixed position to the header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  width: 100%;
+}
+
+/* Center the text within the header */
+h3 {
+  text-align: center;
+}
+
+.profile-image {
+  display: block;
+  margin: 0 auto;
+}
+.pdf-container {
+    text-align: right;
+  }
+  #Projects .project-entry .image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 180px; /* Set the desired height for the images */
+}
+
+#Projects .project-entry img {
+display: block;
+  margin-bottom: 5px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.project-entry:hover::before {
+  content: ''; /* Unicode character for the link symbol */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: #ffffff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-entry:hover::before {
+  opacity: 10;
+}
+/* CSS for Project Entries */
+.project-entry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.project-entry:hover {
+  cursor: pointer;
+  border-color: transparent; /* Set the border color to transparent on hover */
+}
+
+.project-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1cm;
+}
+
+.project-description {
+  margin-top: 1cm;
+}
+html, body {
+      width: 100vw;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h3 {
+      text-align: center;
+    }
+
+    hr {
+      margin: 1rem 0;
+      border: none;
+      border-top: 1px solid #ccc;
+    }
+
+    .tag-cloud {
+      display: flex;
+      justify-content: center;
+    }
+
+    ul.cloud {
+      list-style: none;
+      padding-left: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      line-height: 2.75rem;
+      max-width: 900px;
+    }
+
+    ul.cloud a {
+      --size: 4;
+      --color: #ff00ff;
+      color: var(--color);
+      font-size: calc(var(--size) * 0.25rem + 0.5rem);
+      display: block;
+      padding: 0.125rem 0.25rem;
+      position: relative;
+      text-decoration: none;
+	  border-bottom: none;
+    }
+
+    ul.cloud a[data-weight="1"] { --size: 1; }
+    ul.cloud a[data-weight="2"] { --size: 2; }
+    ul.cloud a[data-weight="3"] { --size: 3; }
+    ul.cloud a[data-weight="4"] { --size: 4; }
+    ul.cloud a[data-weight="5"] { --size: 6; }
+    ul.cloud a[data-weight="6"] { --size: 8; }
+    ul.cloud a[data-weight="7"] { --size: 10; }
+    ul.cloud a[data-weight="8"] { --size: 16; }
+
+    ul[data-show-value] a::after {
+      content: " (" attr(data-weight) ")";
+      font-size: 1rem;
+    }
+
+    ul.cloud li:nth-child(2n+1) a { --color: #00ffff; }
+    ul.cloud li:nth-child(3n+1) a { --color:  #00ff00; }
+    ul.cloud li:nth-child(4n+1) a { --color: #ffff00; }
+
+    ul.cloud a:focus {
+      outline: 1px dashed;
+    }
+
+    ul.cloud a::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 0;
+      height: 100%;
+      background: var(--color);
+      transform: translate(-50%, 0);
+      opacity: 0.15;
+      transition: width 0.25s;
+    }
+
+    ul.cloud a:focus::before,
+    ul.cloud a:hover::before {
+      width: 100%;
+    }
+
+    @media (prefers-reduced-motion) {
+      ul.cloud * {
+        transition: none !important;
+      }
+    }
+
+	.entry {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.entry img {
+  width: 100px;
+  height: auto;
+  margin-right: 1rem;
+}
+
+.entry-details {
+  flex-grow: 1;
+}
+
+.entry-details h4 {
+  margin: 0;
+  display: inline; /* Add this line */
+}
+.interactive {
+    font-family: "Arial", sans-serif;
+    color: silver;
+    transition: color 0.3s ease-in-out;
+  }
+
+  .interactive:hover {
+    color: white;
+    cursor: pointer;
+  }
+  .content {
+        font-family: "Georgia", serif;
+    }
+
+    .inner h3,
+    .inner p,
+    .inner article p,
+    .inner .interests h4,
+    .inner .interests ul li {
+        font-family: "Arial", sans-serif;
+    }
+  
+
+	  </style>
+	<body class="is-preload">
+
+			<div id="wrapper">
+
+				<div class="header">
+					
+					<p><img src="images/tejaswini.jpeg" alt="Tejaswini" class="profile-image"></p>
+				  </div>
+
+
+					<header id="header">
+						<div class="logo">
+							<span class=></span>
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h3 class="interactive">Tejaswini Parlapalli</h3>
+								<article id="Home">
+									<br>
+									<p class="interactive">Hello! <br>
+										I am Tejaswini Parlapalli, a Data Scientist with 4 years of experience in analytics. I have a strong passion for learning, exploring new concepts, and experimenting with data. This curiosity has led me to immerse myself in the fascinating world of Big Data and Data Science. In addition to my technical pursuits, I have diverse interests that include being an avid reader, a food enthusiast, and a singer. These hobbies have not only brought me joy but also instilled in me a sense of discipline and a commitment to continuous learning. I strive to combine my analytical skills with my creative flair to make meaningful contributions in the field of data science.</p>
+								</article>
+							</div>
+						</div>
+						
+					</header>
+					<nav>
+						<ul>
+							<li><a href="#Home">Home</a></li>
+							<li><a href="#intro">About</a></li>
+							<li><a href="#Projects">Projects</a></li>
+							<li><a href="Tejaswini_Parlapalli_Resume.pdf" target="_blank" style="float: right;">Resume</a></li>
+							
+							
+						</ul>
+					</nav>
+				<!-- Main -->
+					<div id="main">
+
+						
+						  
+
+						<article id="intro">
+							<!-- Rest of your "About" section code -->
+							<h3>Work Experience</h3>
+							<hr>
+							<div class="entry">
+								<img src="images/Iu.png" alt="Image 1">
+								<div class="entry-details">
+							<h4>Indiana University Marketing Analytics</h4>
+							<p>Designation: Data Scientist | Aug 2022 - May 2022</p>
+						     </div>
+					        </div>
+							<div class="entry">
+								<img src="images/emc.png" alt="Image 1">
+								<div class="entry-details">
+							<h4>EMC Insurance Group</h4>
+							<p>Data Science Intern | Jun 2022 - Aug 2022</p>
+						</div>
+					</div>
+							<div class="entry">
+								<img src="images/iu2.png" alt="Image 1">
+								<div class="entry-details">
+			
+							<h4>Indiana University</h4>
+							<p>Research Assistant - Data | Aug 2021 - May 2022</p>
+						</div>
+					</div>
+
+							<div class="entry">
+								<img src="images/deloitte.png" alt="Image 1">
+								<div class="entry-details">
+			
+							<h4>Deloitte</h4>
+							<p>Business Analyst | Dec 2019 - July 2021</p>
+						</div>
+					</div>
+
+							<div class="entry">
+								<img src="images/amazon.png" alt="Image 1">
+								<div class="entry-details">
+			
+							<h4>Amazon</h4>
+							<p>Actuarial Analyst | Aug 2019 - Dec 2019</p>
+						</div>
+					</div>
+			
+							<h3>Education</h3>
+							<hr>
+							<div class="entry">
+								<img src="images/iu2.png" alt="Image 1">
+								<div class="entry-details">
+							<h4>Indiana University Purdue University Indianapolis</h4>
+							<p>Master of Science, Applied Data Science (GPA 3.79/4.0) | Aug 2021 - Dec 2022</p>
+						</div>
+					</div>
+
+							<div class="entry">
+								<img src="images/jntu.png" alt="Image 1">
+								<div class="entry-details">
+			
+							<h4>Jawaharlal Nehru Technological University</h4>
+							<p>Bachelor of Technology, Electrical and Electronics Engineering (GPA 4.0/4.0) | Aug 2015 - Apr 2019</p>
+						</div>
+					</div>
+							
+							<h3>Core Competencies</h3>
+							<hr>
+							<div class="tag-cloud">
+								<ul class="cloud" role="navigation" aria-label="Webdev word cloud">
+							
+								  <li><a href="https://en.wikipedia.org/wiki/Python" data-weight="8">Python</a></li>
+								  <li><a href="https://en.wikipedia.org/wiki/D3.js" data-weight="2">D3.js</a></li>
+								  <li><a href="https://en.wikipedia.org/wiki/R_(programming_language)" data-weight="7">R</a></li>
+								  <li><a href="https://en.wikipedia.org/wiki/Predictive_modelling" data-weight="4">Predictive Modeling</a></li>
+								  <li><a href="https://en.wikipedia.org/wiki/Amazon_Web_Services" data-weight="6">AWS</a></li>
+								  <li><a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets" data-weight="1">CSS</a></li>
+								  <li><a href="https://en.wikipedia.org/wiki/Statistics" data-weight="4">Statistics</a></li>
+								  <li><a href="https://en.wikipedia.org/wiki/SQL" data-weight="8">SQL</a></li>
+								  <li><a href="https://en.wikipedia.org/wiki/Tableau_Software" data-weight="5">Tableau</a></li>
+								  <li><a href="https://en.wikipedia.org/wiki/Power_BI" data-weight="4">Power BI</a></li>
+								
+								  <li><a href="https://en.wikipedia.org/wiki/Data_science" data-weight="8">Data Science</a></li>
+								  <li><a href="https://en.wikipedia.org/wiki/Big_data" data-weight="3">Big Data</a></li>
+								  <li><a href="https://en.wikipedia.org/wiki/HTML" data-weight="7">HTML</a></li>
+								  <li><a href="https://en.wikipedia.org/wiki/Data_mining" data-weight="5">Data Mining</a></li>
+								  <li><a href="https://en.wikipedia.org/wiki/Exploratory_data_analysis" data-weight="3">Exploratory Data Analysis</a></li>
+								  <li><a href="https://en.wikipedia.org/wiki/Natural_language_processing" data-weight="6">Natural Language Processing</a></li>
+								  <li><a href="https://en.wikipedia.org/wiki/Machine_learning" data-weight="7">Machine Learning</a></li>
+								  <li><a href="https://en.wikipedia.org/wiki/Machine_learning" data-weight="5">Computer Vision</a></li>
+								</ul>
+							  </div>
+						</article>
+
+							<article id="Projects">
+								<h2 class="major">Projects</h2>
+								<div class="project-container">
+								  <a href="https://github.com/Tejaswini283/Age-Gender-Detection-system/blob/main/Deep_learning_project.ipynb" class="project-entry">
+									<span class="image main"><img src="images/age.jpeg" alt="" /></span>
+									<p class="project-title">Age Gender detection system using CNN and RNN deep learning techniques</p>
+									<p class="project-description">The Age, Gender, and Ethnicity Detection System is a deep learning-based framework developed to detect and classify age, gender, and ethnicity from real-world facial images. With the growing demand for such systems in various applications like airports, police stations, and personalized recommendation systems, this project aims to provide accurate and reliable results. The system utilizes CNN and RNN to extract facial features and train models for classification.</p>
+								  </a>
+								  <a href="https://github.com/Tejaswini283/Airport-Satisfaction-analysis-project/tree/main" class="project-entry">
+									<span class="image main"><img src="images/air.jpeg" alt="" /></span>
+									<p class="project-title">Analysis of Airline Passenger satisfaction</p>
+									<p class="project-description">The goal is to understand the key factors that contribute to customer contentment. The analysis was performed using R Studio, employing machine learning algorithms and data visualizations to identify correlations between variables and passenger satisfaction. The study finds that factors such as inflight entertainment, ease of online booking, and travel type significantly impact passenger satisfaction. Linear Discriminant Analysis (LDA) and Quadratic Discriminant Analysis (QDA) were found to be the most accurate machine learning models for this dataset.</p>
+								  </a>
+								  <a href="https://github.com/Tejaswini283/Zonal-Accident-Prediction-system/blob/main/Zonal_Accident_Risk_Analysis%20(1).ipynb" class="project-entry">
+									<span class="image main"><img src="images/zonal.jpeg" alt="" /></span>
+									<p class="project-title">Zonal Accident Risk Prediction system</p>
+									<p class="project-description">The Zonal Accident Risk Prediction project analyzed a dataset of road accidents to identify common patterns and features contributing to accidents. Models like linear regression and random forest classification were used to predict factors such as speed limits and fatalities. The project aimed to reduce accidents by implementing safety measures based on the findings. Limitations included the absence of predictors for road surface and weather conditions.</p>
+								  </a>
+								  <a href="https://github.com/Tejaswini283/IU-Commuter-pass" class="project-entry">
+									<span class="image main"><img src="images/iu.jpeg" alt="" /></span>
+									<p class="project-title">IU Commuter Pass</p>
+									<p class="project-description">The IUCommuterPass (IUCP) web application facilitates carpooling among students at Indiana University-Purdue University Indianapolis (IUPUI). It provides a platform for riders and passengers to connect, reducing transportation costs and environmental impact. The user-friendly interface includes features like trip cost calculation, check-in system, and messaging. The project is significant in offering affordable transportation, reducing pollution and traffic congestion, and promoting social connections among students.</p>
+								  </a>
+								  <a href="https://github.com/Tejaswini283/John_snow_visualization_project" class="project-entry">
+									<span class="image main"><img src="images/john.jpeg" alt="" /></span>
+									<p class="project-title">John snows cholera map visualization using D3.js</p>
+									<p>Dr. John Snow's map recreated the 1854 cholera epidemic in London, revealing patterns and mitigating its effects through visualization. Interactive visualizations included a timeline chart, map, and pie charts showcasing variations in deaths by age and gender. Discoveries highlighted higher death rates among the elderly and children, with contaminated water pumps identified as hotspots.</p>
+								  </a>
+								</div>
+							  </article>
+							  
+							  
+							
+								<ul class="icons">
+									<li><a href="https://www.linkedin.com/in/tejaswini-parlapalli/" class="icon brands fa-linkedin"><span class="label">linkedin</span></a></li>
+									<li><a href="https://tejaswinireddy283@gmail.com" ><span class="label">M</span></a></li>
+									<li><a href="ttps://twitter.com/ItsMe_Tejaswini" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="https://github.com/Tejaswini283" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+
+								</ul>
+							</article>
+							<article id="elements">
+								<h2 class="major">Elements</h2>							
+
+								<section>
+									<h4>Icons</h4>
+									<ul class="icons">
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+									</ul>
+
+									<h4>Actions</h4>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions stacked">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+								</section>
+
+
+
+
+							</article>
+
+					</div>
+
+
+				<!-- Footer -->
+				<footer id="footer">
+					<p><img src="images/linkedin.png" alt="LinkedIn Logo"><a href="https://www.linkedin.com/in/tejaswini-parlapalli/">LinkedIn</a></p>
+					<p><img src="images/gmail.png" alt="Gmail Logo"><a href="https://tejaswinireddy283@gmail.com">Gmail</a></p>
+					<p><img src="images/github.jpeg" alt="GitHub Logo"><a href="https://github.com/Tejaswini283">GitHub</a></p>
+					<p><img src="images/twitter.png" alt="Twitter Logo"><a href="https://twitter.com/ItsMe_Tejaswini">Twitter</a></p>
+				  </footer>
+
+			</div>
+		</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
