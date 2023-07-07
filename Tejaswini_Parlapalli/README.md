@@ -1,2 +1,0 @@
-# Tejaswini_Parlapalli
-Portfolio
