@@ -13,6 +13,7 @@
             background-color: #f8f8f8;
             margin: 0;
             padding: 0;
+            scroll-behavior: smooth;
         }
         .header {
             text-align: center;
@@ -24,11 +25,16 @@
             border-radius: 50%;
             width: 150px;
             height: 150px;
+            object-fit: cover;
+            object-position: center;
         }
         nav {
             background-color: #333;
             padding: 10px;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         nav a {
             color: white;
@@ -58,6 +64,8 @@
             height: 100px;
             margin-right: 20px;
             border-radius: 10px;
+            object-fit: cover;
+            object-position: center;
         }
         .entry-details, .project-description {
             flex-grow: 1;
@@ -208,8 +216,8 @@
                     <img src="images/heart.jpeg" alt="Heart Disease Prediction">
                     <div class="project-description">
                         <h4>Heart Disease Prediction using Advanced Machine Learning Techniques</h4>
-                        <p>Heart Disease Prediction is a critical healthcare application that utilizes machine learning techniques to predict the likelihood of a patient developing heart disease...</p>
-                        <a href="https://github.com/Tejaswini283/Heart-Disease-Prediction/blob/main/Heart_Disease_Final.ipynb">View Project</a>
+                        <p>The Heart Disease Prediction project aims to leverage advanced machine learning algorithms to predict the likelihood of heart disease in individuals...</p>
+                        <a href="https://github.com/Tejaswini283/Heart-Disease-Prediction/blob/main/Heart_disease_prediction.ipynb">View Project</a>
                     </div>
                 </div>
             </div>
@@ -217,18 +225,10 @@
     </div>
 
     <footer>
-        <p><img src="images/linkedin.png" alt="LinkedIn Logo"><a href="https://www.linkedin.com/in/tejaswini-parlapalli/">LinkedIn</a></p>
-        <p><img src="images/gmail.png" alt="Gmail Logo"><a href="mailto:tejaswinireddy283@gmail.com">Gmail</a></p>
-        <p><img src="images/github.jpeg" alt="GitHub Logo"><a href="https://github.com/Tejaswini283">GitHub</a></p>
-        <p><img src="images/twitter.png" alt="Twitter Logo"><a href="https://twitter.com/ItsMe_Tejaswini">Twitter</a></p>
+        <p>&copy; 2024 Tejaswini Parlapalli</p>
+        <a href="https://www.linkedin.com/in/tejaswini-parlapalli/">LinkedIn</a>
+        <a href="https://github.com/Tejaswini283">GitHub</a>
     </footer>
 
-    <div id="bg"></div>
-
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
 </body>
 </html>
