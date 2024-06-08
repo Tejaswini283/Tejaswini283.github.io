@@ -1,396 +1,230 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
-    <title>Portfolio</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tejaswini Parlapalli Portfolio</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css"></noscript>
     <style>
-        #header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 10px;
-        }
-
-        .logo {
-            float: left;
-        }
-
-        .content {
-            margin-left: 20px;
-        }
-
-        .profile-image {
-            width: 100px;
-            height: 100px;
-        }
-
-        nav {
-            position: fixed;
-            top: 40px;
-            right: 40px;
-            background-color: #f2f2f2;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
-        .menu-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .menu a {
-            text-decoration: none;
+        body {
+            font-family: 'Arial', sans-serif;
             color: #333;
-            margin-right: 20px;
-        }
-
-        .resume-link {
-            text-decoration: none;
-            color: #333;
-            float: right;
-        }
-
-        .profile-image {
-            display: block;
-            width: 230px;
-            height: 230px; 
-            border-radius: 70%; 
-            object-fit: cover;
-            object-position: top center;
-        }
-
-        .header {
-            position: fixed;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 10px;
-            width: 100%;
-        }
-
-        h3 {
-            text-align: center;
-        }
-
-        .pdf-container {
-            text-align: right;
-        }
-
-        #Projects .project-entry .image {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 180px;
-        }
-
-        #Projects .project-entry img {
-            display: block;
-            margin-bottom: 5px;
-            max-width: 100%;
-            max-height: 100%;
-        }
-
-        .project-entry:hover::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 24px;
-            color: #ffffff;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .project-entry:hover::before {
-            opacity: 1;
-        }
-
-        .project-entry {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 0.75rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-entry:hover {
-            cursor: pointer;
-            border-color: transparent;
-        }
-
-        .project-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 1cm;
-        }
-
-        .project-description {
-            margin-top: 1cm;
-        }
-
-        html, body {
-            width: 100vw;
+            background-color: #f8f8f8;
             margin: 0;
             padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
-
-        hr {
-            margin: 1rem 0;
-            border: none;
-            border-top: 1px solid #ccc;
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
         }
-
-        .tag-cloud {
-            display: flex;
-            justify-content: center;
+        .header img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
         }
-
-        ul.cloud {
-            list-style: none;
-            padding-left: 0;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            line-height: 2.75rem;
-            max-width: 900px;
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
         }
-
-        ul.cloud a {
-            --size: 4;
-            --color: #ff00ff;
-            color: var(--color);
-            font-size: calc(var(--size) * 0.25rem + 0.5rem);
-            display: block;
-            padding: 0.125rem 0.25rem;
-            position: relative;
+        nav a {
+            color: white;
             text-decoration: none;
-            border-bottom: none;
+            margin: 0 15px;
+            font-size: 18px;
         }
-
-        ul.cloud a[data-weight="1"] { --size: 1; }
-        ul.cloud a[data-weight="2"] { --size: 2; }
-        ul.cloud a[data-weight="3"] { --size: 3; }
-        ul.cloud a[data-weight="4"] { --size: 4; }
-        ul.cloud a[data-weight="5"] { --size: 6; }
-        ul.cloud a[data-weight="6"] { --size: 8; }
-        ul.cloud a[data-weight="7"] { --size: 10; }
-        ul.cloud a[data-weight="8"] { --size: 16; }
-
-        ul[data-show-value] a::after {
-            content: " (" attr(data-weight) ")";
-            font-size: 1rem;
+        nav a:hover {
+            text-decoration: underline;
         }
-
-        ul.cloud li:nth-child(2n+1) a { --color: #00ffff; }
-        ul.cloud li:nth-child(3n+1) a { --color:  #00ff00; }
-        ul.cloud li:nth-child(4n+1) a { --color: #ffff00; }
-
-        ul.cloud a:focus {
-            outline: 1px dashed;
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
         }
-
-        ul.cloud a::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 0;
-            height: 100%;
-            background: var(--color);
-            transform: translate(-50%, 0);
-            opacity: 0.15;
-            transition: width 0.25s;
-        }
-
-        ul.cloud a:focus::before,
-        ul.cloud a:hover::before {
-            width: 100%;
-        }
-
-        @media (prefers-reduced-motion) {
-            ul.cloud * {
-                transition: none !important;
-            }
-        }
-
-        .entry {
+        .entry, .project-entry {
             display: flex;
             align-items: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
-        .entry img {
+        .entry img, .project-entry img {
             width: 100px;
-            height: auto;
-            margin-right: 1rem;
+            height: 100px;
+            margin-right: 20px;
+            border-radius: 10px;
         }
-
-        .entry-details {
+        .entry-details, .project-description {
             flex-grow: 1;
         }
-
-        .entry-details h4 {
-            margin: 0;
-            display: inline;
+        h2, h3, h4 {
+            color: #333;
         }
-
-        .interactive {
-            font-family: "Arial", sans-serif;
-            color: silver;
-            transition: color 0.3s ease-in-out;
+        .tag-cloud {
+            text-align: center;
         }
-
-        .interactive:hover {
+        .tag-cloud ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .tag-cloud li {
+            margin: 5px;
+        }
+        .tag-cloud a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .tag-cloud a:hover {
+            background-color: #f0f0f0;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
             color: white;
-            cursor: pointer;
         }
-
-        .content {
-            font-family: "Georgia", serif;
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
         }
-
-        .inner h3,
-        .inner p,
-        .inner article p,
-        .inner .interests h4,
-        .inner .interests ul li {
-            font-family: "Arial", sans-serif;
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
-<body class="is-preload">
-    <div id="wrapper">
-        <div class="header">
-            <p><img src="images/tejaswini.jpeg" alt="Tejaswini" class="profile-image"></p>
-        </div>
+<body>
 
-        <header id="header">
-            <div class="logo">
-                <span class=></span>
-            </div>
-            <div class="content">
-                <div class="inner">
-                    <h3 class="interactive">Tejaswini Parlapalli</h3>
-                    <article id="Home">
-                        <br>
-                        <p class="interactive">Hello! <br>
-                            I am Tejaswini Parlapalli, a Data Scientist with 4 years of experience in analytics. I have a strong passion for learning, exploring new concepts, and experimenting with data. This curiosity has led me to immerse myself in the fascinating world of Big Data and Data Science. In addition to my technical pursuits, I have diverse interests that include being an avid reader, a food enthusiast, and a singer. These hobbies have not only brought me joy but also instilled in me a sense of discipline and a commitment to continuous learning. I strive to combine my analytical skills with my creative flair to make meaningful contributions in the field of data science.</p>
-                    </article>
-                </div>
-            </div>
-        </header>
-        <nav>
-            <div class="menu-container">
-                <div class="menu">
-                    <a href="#Home">Home</a>
-                    <a href="#About">About</a>
-                    <a href="#Projects">Projects</a>
-                </div>
-                <a href="Tejaswini_Parlapalli_Resume.pdf" target="_blank" class="resume-link">Resume</a>
-            </div>
-        </nav>
-        <div id="main">
-            <article id="About">
-                <h2 class="major">About</h2>
-                <h3>Work Experience</h3>
-                <hr>
-                <div class="entry">
-                    <img src="images/Iu.png" alt="Indiana University Marketing Analytics">
-                    <div class="entry-details">
-                        <h4>Indiana University Marketing Analytics</h4>
-                        <p>Designation: Data Scientist | Aug 2022 - May 2022</p>
-                        <p>Research Assistant | Aug 2021 - May 2022</p>
-                    </div>
-                </div>
-                <div class="entry">
-                    <img src="images/kantar.png" alt="Kantar">
-                    <div class="entry-details">
-                        <h4>Kantar</h4>
-                        <p>Designation: Data Analyst | Jan 2020 - June 2021</p>
-                    </div>
-                </div>
-                <div class="entry">
-                    <img src="images/novartis.png" alt="Novartis">
-                    <div class="entry-details">
-                        <h4>Novartis</h4>
-                        <p>Designation: Data Analyst | Sep 2018 - Dec 2019</p>
-                    </div>
-                </div>
-                <h3>Education</h3>
-                <hr>
-                <div class="entry">
-                    <img src="images/iu2.png" alt="Indiana University Purdue University Indianapolis">
-                    <div class="entry-details">
-                        <h4>Indiana University Purdue University Indianapolis</h4>
-                        <p>Master of Science, Applied Data Science (GPA 3.79/4.0) | Aug 2021 - Dec 2022</p>
-                    </div>
-                </div>
-                <div class="entry">
-                    <img src="images/jntuh.png" alt="JNTU Hyderabad">
-                    <div class="entry-details">
-                        <h4>JNTU Hyderabad</h4>
-                        <p>Bachelor of Science, Computer Science Engineering (GPA 3.8/4.0) | Aug 2014 - May 2018</p>
-                    </div>
-                </div>
-                <h3>Core Competencies</h3>
-                <hr>
-                <div class="tag-cloud">
-                    <ul class="cloud">
-                        <li><a href="https://en.wikipedia.org/wiki/Python" data-weight="8">Python</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/SQL" data-weight="6">SQL</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Big_data" data-weight="7">Big Data</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Machine_learning" data-weight="7">Machine Learning</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Tableau_software" data-weight="4">Tableau</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Microsoft_Power_BI" data-weight="4">Power BI</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/R_(programming_language)" data-weight="6">R</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Java_(programming_language)" data-weight="6">Java</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/HTML" data-weight="5">HTML</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/CSS" data-weight="5">CSS</a></li>
-                    </ul>
-                </div>
-            </article>
-            <article id="Projects">
-                <h2 class="major">Projects</h2>
-                <div class="project-container">
-                    <a href="https://github.com/Tejaswini283/Age-Gender-Detection-system/blob/main/Deep_learning_project.ipynb" class="project-entry">
-                        <span class="image main"><img src="images/age.jpeg" alt=""></span>
-                        <p class="project-title">Age Gender Detection System using CNN and RNN Deep Learning Techniques</p>
-                        <p class="project-description">The Age, Gender, and Ethnicity Detection System is a deep learning-based framework developed to automatically identify an individual's age, gender, and ethnicity from facial images...</p>
-                    </a>
-                    <a href="https://github.com/Tejaswini283/Chatbot/blob/main/Chatbot_final1.ipynb" class="project-entry">
-                        <span class="image main"><img src="images/chatbot.png" alt=""></span>
-                        <p class="project-title">Chatbot for IT Helpdesk using RASA</p>
-                        <p class="project-description">The IT Helpdesk Chatbot is an advanced conversational agent designed to assist users with common IT-related queries and tasks...</p>
-                    </a>
-                    <a href="https://github.com/Tejaswini283/Heart-Disease-Prediction/blob/main/Heart_Disease_Final.ipynb" class="project-entry">
-                        <span class="image main"><img src="images/heart.jpeg" alt=""></span>
-                        <p class="project-title">Heart Disease Prediction using Advanced Machine Learning Techniques</p>
-                        <p class="project-description">Heart Disease Prediction is a critical healthcare application that utilizes machine learning techniques to predict the likelihood of a patient developing heart disease...</p>
-                    </a>
-                </div>
-            </article>
-            <footer id="footer">
-                <p><img src="images/linkedin.png" alt="LinkedIn Logo"><a href="https://www.linkedin.com/in/tejaswini-parlapalli/">LinkedIn</a></p>
-                <p><img src="images/gmail.png" alt="Gmail Logo"><a href="mailto:tejaswinireddy283@gmail.com">Gmail</a></p>
-                <p><img src="images/github.jpeg" alt="GitHub Logo"><a href="https://github.com/Tejaswini283">GitHub</a></p>
-                <p><img src="images/twitter.png" alt="Twitter Logo"><a href="https://twitter.com/ItsMe_Tejaswini">Twitter</a></p>
-            </footer>
-        </div>
+    <div class="header">
+        <img src="images/tejaswini.jpeg" alt="Tejaswini">
+        <h1>Tejaswini Parlapalli</h1>
+        <p>Data Scientist with a passion for analytics, learning, and creativity.</p>
     </div>
+
+    <nav>
+        <a href="#Home">Home</a>
+        <a href="#About">About</a>
+        <a href="#Projects">Projects</a>
+        <a href="Tejaswini_Parlapalli_Resume.pdf" target="_blank">Resume</a>
+    </nav>
+
+    <div class="content">
+        <section id="Home">
+            <h2>Welcome</h2>
+            <p>Hello! I am Tejaswini Parlapalli, a Data Scientist with 4 years of experience in analytics. I have a strong passion for learning, exploring new concepts, and experimenting with data...</p>
+        </section>
+
+        <section id="About">
+            <h2>About Me</h2>
+            <h3>Work Experience</h3>
+            <div class="entry">
+                <img src="images/Iu.png" alt="Indiana University Marketing Analytics">
+                <div class="entry-details">
+                    <h4>Indiana University Marketing Analytics</h4>
+                    <p>Data Scientist | Aug 2022 - May 2022</p>
+                    <p>Research Assistant | Aug 2021 - May 2022</p>
+                </div>
+            </div>
+            <div class="entry">
+                <img src="images/kantar.png" alt="Kantar">
+                <div class="entry-details">
+                    <h4>Kantar</h4>
+                    <p>Data Analyst | Jan 2020 - June 2021</p>
+                </div>
+            </div>
+            <div class="entry">
+                <img src="images/novartis.png" alt="Novartis">
+                <div class="entry-details">
+                    <h4>Novartis</h4>
+                    <p>Data Analyst | Sep 2018 - Dec 2019</p>
+                </div>
+            </div>
+
+            <h3>Education</h3>
+            <div class="entry">
+                <img src="images/iu2.png" alt="Indiana University Purdue University Indianapolis">
+                <div class="entry-details">
+                    <h4>Indiana University Purdue University Indianapolis</h4>
+                    <p>Master of Science, Applied Data Science (GPA 3.79/4.0) | Aug 2021 - Dec 2022</p>
+                </div>
+            </div>
+            <div class="entry">
+                <img src="images/jntuh.png" alt="JNTU Hyderabad">
+                <div class="entry-details">
+                    <h4>JNTU Hyderabad</h4>
+                    <p>Bachelor of Science, Computer Science Engineering (GPA 3.8/4.0) | Aug 2014 - May 2018</p>
+                </div>
+            </div>
+
+            <h3>Core Competencies</h3>
+            <div class="tag-cloud">
+                <ul>
+                    <li><a href="https://en.wikipedia.org/wiki/Python" data-weight="8">Python</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/SQL" data-weight="6">SQL</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Big_data" data-weight="7">Big Data</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Machine_learning" data-weight="7">Machine Learning</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Tableau_software" data-weight="4">Tableau</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Microsoft_Power_BI" data-weight="4">Power BI</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/R_(programming_language)" data-weight="6">R</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Java_(programming_language)" data-weight="6">Java</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/HTML" data-weight="5">HTML</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/CSS" data-weight="5">CSS</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="Projects">
+            <h2>Projects</h2>
+            <div class="project-container">
+                <div class="project-entry">
+                    <img src="images/age.jpeg" alt="Age Gender Detection System">
+                    <div class="project-description">
+                        <h4>Age Gender Detection System using CNN and RNN Deep Learning Techniques</h4>
+                        <p>The Age, Gender, and Ethnicity Detection System is a deep learning-based framework developed to automatically identify an individual's age, gender, and ethnicity from facial images...</p>
+                        <a href="https://github.com/Tejaswini283/Age-Gender-Detection-system/blob/main/Deep_learning_project.ipynb">View Project</a>
+                    </div>
+                </div>
+                <div class="project-entry">
+                    <img src="images/chatbot.png" alt="Chatbot for IT Helpdesk">
+                    <div class="project-description">
+                        <h4>Chatbot for IT Helpdesk using RASA</h4>
+                        <p>The IT Helpdesk Chatbot is an advanced conversational agent designed to assist users with common IT-related queries and tasks...</p>
+                        <a href="https://github.com/Tejaswini283/Chatbot/blob/main/Chatbot_final1.ipynb">View Project</a>
+                    </div>
+                </div>
+                <div class="project-entry">
+                    <img src="images/heart.jpeg" alt="Heart Disease Prediction">
+                    <div class="project-description">
+                        <h4>Heart Disease Prediction using Advanced Machine Learning Techniques</h4>
+                        <p>Heart Disease Prediction is a critical healthcare application that utilizes machine learning techniques to predict the likelihood of a patient developing heart disease...</p>
+                        <a href="https://github.com/Tejaswini283/Heart-Disease-Prediction/blob/main/Heart_Disease_Final.ipynb">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p><img src="images/linkedin.png" alt="LinkedIn Logo"><a href="https://www.linkedin.com/in/tejaswini-parlapalli/">LinkedIn</a></p>
+        <p><img src="images/gmail.png" alt="Gmail Logo"><a href="mailto:tejaswinireddy283@gmail.com">Gmail</a></p>
+        <p><img src="images/github.jpeg" alt="GitHub Logo"><a href="https://github.com/Tejaswini283">GitHub</a></p>
+        <p><img src="images/twitter.png" alt="Twitter Logo"><a href="https://twitter.com/ItsMe_Tejaswini">Twitter</a></p>
+    </footer>
+
     <div id="bg"></div>
+
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
     <script src="assets/js/breakpoints.min.js"></script>
