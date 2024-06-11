@@ -113,6 +113,9 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             margin-bottom: 30px;
             padding: 20px;
+
+
+			
         }
 
         .entry img, .project-entry img {
@@ -239,7 +242,49 @@
     border-radius: 50%;
     z-index: 1;
 }
+.education-entry {
+    position: relative; /* Add relative positioning */
+    margin-bottom: 50px;
+    text-align: center;
+}
 
+.college-image {
+    position: relative; /* Change to relative positioning */
+    width: 680px;
+    height: 450px;
+
+    margin: 0 auto 50px; /* Center the image horizontally and add margin-bottom */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.education-details {
+    position: absolute; /* Add absolute positioning */
+    top: 50%; /* Position it in the middle of the image */
+    left: 10%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.7); /* Adjust the background color and opacity */
+    padding: 20px;
+	z-index: 1;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+	margin-top: -0px;
+}
+
+
+.education-details h3,
+.education-details h4 {
+    margin: 10px 0;
+    color: #333;
+}
+
+.education-details p {
+    margin: 5px 0;
+    color: #666;
+}
 
 .container.right {
     left: 0%;
@@ -293,6 +338,7 @@
         border-radius: 50%; /* Create a circular shape */
         margin-right: 10px; /* Adjust the space between the bullet and the text */
     }
+
 
         }
     </style>
@@ -430,13 +476,38 @@
             <!-- Add more projects as needed -->
         </section>
     </div>
+</section>		
+<section id="Education">
+    <h2 class="section-title" style="margin-bottom: 100px; text-align: left; font-size: 24px; margin-left: -150px;">Education</h2>
+    <div class="education-entry">
+        <img src="images/iupui.png" alt="College" loading="lazy" class="college-image">
+        <div class="education-details">
+            <h3 style="letter-spacing: 0.9px;">Indiana University Purdue University Indianapolis</h3>
+            <h4>Masters, Applied Data Science </h4>
+            <p style="color: #FF9F55;">GPA 3.8</p>
+            <p><strong style="color: rgba(43, 41, 41, 0.829);">Courses:</strong> Database Management, Programming - Data Science, Cloud computing, Web Database development, Data Analytics with R, Machine Learning, Deep Learning & AI, Statistical Learning and Data visualization.</p>
+        </div>
+    </div> <!-- Close the first education-entry div -->
+    <div class="education-entry">
+        <img src="images/gnits.jpg" alt="College" class="college-image">
+        <div class="education-details">
+            <h3 style="letter-spacing: 0.9px;">Jawaharlal Nehru Technological University</h3>
+            <h4>Bachelors, Electronics Engineering </h4>
+            <p style="color: #FF9F55;">GPA 4.0</p>
+            <p><strong style="color: rgba(43, 41, 41, 0.829);">Courses:</strong> C, Java ,Matlab, Python, Database management,Data processing at scale, Advanced computer networks,Operating systems </p>
+        </div>
+    </div>
+</section>
+
+
+
 	
-	<section id="Skills">
-		<h2 class="section-title"></h2>
+	<section id="Skills" >
+		<h2 class="section-title" ></h2>
 
 		<!-- Skills -->
 		<div class="tag-cloud" id="Skills">
-			<h2 class="section-title">Skills</h2>
+			<h2 class="section-title" >Skills</h2>
 			<ul>
 				<li><a href="#">Python</a></li>
 				<li><a href="#">SQL</a></li>
