@@ -137,37 +137,6 @@
             color: #333; /* Dark font color */
         }
 
-        /* Tag Cloud */
-        .tag-cloud {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .tag-cloud ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .tag-cloud li {
-            margin: 5px;
-        }
-
-        .tag-cloud a {
-            text-decoration: none;
-            color: #333; /* Dark font color */
-            padding: 10px 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .tag-cloud a:hover {
-            background-color: #f0f0f0;
-        }
-
         /* Footer */
         footer {
             text-align: center;
@@ -192,6 +161,72 @@
     max-width: 1200px;
     margin: 0 auto;
 }
+
+hr {
+      margin: 1rem 0;
+      border: none;
+      border-top: 1px solid #ccc;
+    }
+    .tag-cloud {
+      display: flex;
+      justify-content: center;
+    }
+    .cloud {
+      list-style: none;
+      padding-left: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      line-height: 2.75rem;
+      max-width: 900px;
+    }
+    ul.cloud a {
+      --size: 4;
+      --color: #817c8198;
+      color: var(--color);
+      font-size: calc(var(--size) * 0.25rem + 0.5rem);
+      display: block;
+      padding: 0.105rem 0.105rem;
+      position: relative;
+      text-decoration: none;
+	  border-bottom: none;
+    }
+    ul.cloud a[data-weight="1"] { --size: 1; }
+    ul.cloud a[data-weight="2"] { --size: 2; }
+    ul.cloud a[data-weight="3"] { --size: 3; }
+    ul.cloud a[data-weight="4"] { --size: 4; }
+    ul.cloud a[data-weight="5"] { --size: 6; }
+    ul.cloud a[data-weight="6"] { --size: 8; }
+    ul.cloud a[data-weight="7"] { --size: 10; }
+    ul.cloud a[data-weight="8"] { --size: 16; }
+    ul[data-show-value] a::after {
+      content: " (" attr(data-weight) ")";
+      font-size: 1rem;
+    }
+    ul.cloud li:nth-child(2n+1) a { color: #3D5A80; } /* Blue */
+ul.cloud li:nth-child(3n+1) a { color: #98C1D9; } /* Light Blue */
+ul.cloud li:nth-child(4n+1) a { color: #008185b0; } /* Cyan */
+    ul.cloud a:focus {
+      outline: 1px dashed;
+    }
+    ul.cloud a::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0%;
+      width: 0;
+      height: 0%;
+      background: var(--color);
+      transform: translate(-50%, 0);
+      opacity: 0.15;
+      transition: width 0.25s;
+    }
+    ul.cloud a:focus::before,
+    ul.cloud a:hover::before {
+      width: 100%;
+    }
+
 
 .line {
     position: absolute;
@@ -339,6 +374,11 @@
         margin-right: 10px; /* Adjust the space between the bullet and the text */
     }
 
+.skills-container {
+    width: 100%; /* Make the container full width */
+    padding: 0 20px; /* Add some padding if needed */
+    box-sizing: border-box; /* Ensure padding is included in the width */
+}
 
         }
     </style>
@@ -478,7 +518,7 @@
     </div>
 </section>		
 <section id="Education">
-    <h2 class="section-title" style="margin-bottom: 100px; text-align: left; font-size: 24px; margin-left: -150px;">Education</h2>
+    <h2 class="section-title" style="margin-bottom: 60px; text-align: left; font-size: 24px; margin-left: -150px;">Education</h2>
     <div class="education-entry">
         <img src="images/iupui.png" alt="College" loading="lazy" class="college-image">
         <div class="education-details">
@@ -501,25 +541,52 @@
 
 
 
-	
-	<section id="Skills" >
-		<h2 class="section-title" ></h2>
 
+	<section id="Skills" >
+        <h2 class="section-title" style="margin-bottom: 60px; text-align: left; font-size: 24px; margin-left: -200px;" >Skills</h2>
+        <div class="skills-container">
+       
 		<!-- Skills -->
-		<div class="tag-cloud" id="Skills">
-			<h2 class="section-title" >Skills</h2>
-			<ul>
-				<li><a href="#">Python</a></li>
-				<li><a href="#">SQL</a></li>
-				<li><a href="#">Machine Learning</a></li>
-				<li><a href="#">Data Visualization</a></li>
-				<li><a href="#">Statistical Analysis</a></li>
-				<li><a href="#">Big Data</a></li>
-				<li><a href="#">HTML</a></li>
-				<li><a href="#">CSS</a></li>
-				<!-- Add more skills as needed -->
-			</ul>
-		</div>
+        <div class="tag-cloud">
+            <ul class="cloud" role="navigation" aria-label="Webdev word cloud">
+        
+              <li><a href="https://en.wikipedia.org/wiki/Python" data-weight="8">Python</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/D3.js" data-weight="2">D3.js</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/R_(programming_language)" data-weight="7">R</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Predictive_modelling" data-weight="4">Predictive Modeling</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Amazon_Web_Services" data-weight="6">AWS</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets" data-weight="1">CSS</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Statistics" data-weight="4">Statistics</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/SQL" data-weight="8">SQL</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Tableau_Software" data-weight="5">Tableau</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Power_BI" data-weight="4">Power BI</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Data_science" data-weight="8">Data Science</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Big_data" data-weight="3">Big Data</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/HTML" data-weight="7">HTML</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Data_mining" data-weight="5">Data Mining</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Exploratory_data_analysis" data-weight="3">Exploratory Data Analysis</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Google_Analytics" data-weight="5">Google Analytics</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Natural_language_processing" data-weight="6">Natural Language Processing</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Google_Cloud_Platform" data-weight="8">GCP</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Machine_learning" data-weight="8">Machine Learning</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Machine_learning" data-weight="5">Computer Vision</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Git" data-weight="2">Git</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Apache_Hive" data-weight="4">Hive</a></li>
+              
+              <li><a href="https://en.wikipedia.org/wiki/Adobe_Analytics" data-weight="6">Adobe Analytics</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Databricks" data-weight="3">Databricks</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Datorama" data-weight="5">Datorama</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Apache_Spark" data-weight="8">Spark</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Snowflake_(data_company)" data-weight="7">Snowflake</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Alteryx" data-weight="6">Alteryx</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Google_BigQuery" data-weight="5">Big Query</a></li>
+              
+             
+              
+              
+            </ul>
+          </div>
+        </div>
 	</section>
 
     <!-- Footer -->
