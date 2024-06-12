@@ -16,6 +16,67 @@
             scroll-behavior: smooth;
             transition: background-color 0.5s, color 0.5s; /* Smooth transition for background and font color change */
         }
+/* CSS for Project Entries */
+.project-entry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 0.25rem;
+}
+.project-entry:hover {
+  cursor: pointer;
+  border-color: transparent; /* Set the border color to transparent on hover */
+}
+.project-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5cm;
+}
+.project-description {
+  margin-top: 1cm;
+}
+#Projects .project-entry .image {
+    height: 150px; /* Adjust height */
+}
+
+.entry img, .project-entry img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            margin-right: 20px;
+            margin-bottom: 10px;
+            float: left;
+        }
+
+        /* Content */
+        .content {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            margin-bottom: 10px;
+            font-size: 30px;
+            color: #333;
+            text-align: center;
+        }
+
+        .entry, .project-entry {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            padding: 10px;
+
+
+			
+        }
 
         /* Header Section */
         header {
@@ -92,42 +153,35 @@
             cursor: pointer;
             color: #fff;
         }
-
-        /* Content */
-        .content {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 10px;
-        }
-
-        .section-title {
-            margin-bottom: 30px;
-            font-size: 30px;
-            color: #333;
-            text-align: center;
-        }
-
-        .entry, .project-entry {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-            padding: 20px;
-
-
-			
-        }
-
-        .entry img, .project-entry img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: center;
-            margin-right: 20px;
-            margin-bottom: 10px;
-            float: left;
-        }
+		.pdf-container {
+    text-align: right;
+  }
+  #Projects .project-entry .image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 180px; /* Set the desired height for the images */
+}
+#Projects .project-entry img {
+display: block;
+  margin-bottom: 5px;
+  max-width: 30%;
+  max-height: 100%;
+}
+.project-entry:hover::before {
+  content: ''; /* Unicode character for the link symbol */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: #ffffff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.project-entry:hover::before {
+  opacity: 10;
+}
 
         .entry-details, .project-description {
             flex-grow: 1;
@@ -139,9 +193,11 @@
 
         /* Footer */
         footer {
+			position: relative;
             text-align: center;
             background-color: #333;
             color: #fff;
+			right: 50%
         }
 
 
@@ -287,6 +343,7 @@ ul.cloud li:nth-child(4n+1) a { color: #008185b0; } /* Cyan */
     position: relative; /* Change to relative positioning */
     width: 680px;
     height: 450px;
+	left: 20%;
 
     margin: 0 auto 50px; /* Center the image horizontally and add margin-bottom */
     border-radius: 10px;
@@ -296,7 +353,7 @@ ul.cloud li:nth-child(4n+1) a { color: #008185b0; } /* Cyan */
 .education-details {
     position: absolute; /* Add absolute positioning */
     top: 50%; /* Position it in the middle of the image */
-    left: 10%;
+    left: 30%;
     transform: translate(-50%, -50%);
     background-color: rgba(255, 255, 255, 0.7); /* Adjust the background color and opacity */
     padding: 20px;
@@ -322,7 +379,7 @@ ul.cloud li:nth-child(4n+1) a { color: #008185b0; } /* Cyan */
 }
 
 .container.right {
-    left: 0%;
+    left: 8%;
     transform: translateX(50%);
     margin-left: 0; /* Adjust the left margin */
 }
@@ -380,6 +437,12 @@ ul.cloud li:nth-child(4n+1) a { color: #008185b0; } /* Cyan */
     box-sizing: border-box; /* Ensure padding is included in the width */
 }
 
+.profile-image {
+  display: block;
+  margin: 0 auto;
+}
+
+
         }
     </style>
 </head>
@@ -403,7 +466,7 @@ ul.cloud li:nth-child(4n+1) a { color: #008185b0; } /* Cyan */
             <h2 class="section-title" style="margin-bottom: 20px;">Welcome</h2>
             <p>Hello,</p>
             <p>I am a Data enthusiast with 6 years of experience in analytics. I have gained expertise in a wide range of technologies during this time. My portfolio showcases a selection of my work, including <a href="#Projects" style="font-size: xx-large;">Projects</a> that demonstrate my abilities in building and deploying machine learning models /Data science and analysis projects. In addition to my technical pursuits, I have diverse interests that include being an avid reader, a food enthusiast, and a singer. These hobbies have not only brought me joy but also instilled in me a sense of discipline and a commitment to continuous learning. I strive to combine my analytical skills with my creative flair to make meaningful contributions in the field of data science.</p>
-            <a href="link-to-your-resume" class="resume-link" style="font-size: 14px; color: #fff; text-decoration: none; background-color: #494d49; padding: 12px 24px; border-radius: 25px; display: inline-block; margin-top: 20px; box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); transition: background-color 0.3s, transform 0.3s;">
+            <a href="Tejaswini.Parlapalli.Resume.pdf" class="resume-link" style="font-size: 14px; color: #fff; text-decoration: none; background-color: #494d49; padding: 12px 24px; border-radius: 25px; display: inline-block; margin-top: 20px; box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); transition: background-color 0.3s, transform 0.3s;">
                 Download Resume
             </a>
         </div>
@@ -491,32 +554,46 @@ ul.cloud li:nth-child(4n+1) a { color: #008185b0; } /* Cyan */
 
 
 </section>
-    <!-- Content -->
-    <div class="content">
+
 
 
 
         <!-- Projects Section -->
         <section id="Projects">
-			<h2 class="section-title" style="margin-bottom: 10px;   text-align: left ;font-size: 24px; margin-left: -180px;">Projects</h2>
-
-            <!-- Project 1 -->
-            <div class="project-entry">
-                <h3>Project Title 1</h3>
-                <p>Description of Project 1
-					. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla felis justo, vestibulum at dapibus ac, tincidunt at libero.</p>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="project-entry">
-                <h3>Project Title 2</h3>
-                <p>Description of Project 2. Phasellus eget dolor metus. Sed sodales fringilla diam non porttitor.</p>
-            </div>
-
-            <!-- Add more projects as needed -->
+			<h2 class="section-title" style="margin-bottom: 10px;   text-align: left ;font-size: 24px; margin-left: -150px;letter-spacing: 3px;">Things I've Built</h2>
+				<div class="project-entry">
+				  <a href="https://github.com/Tejaswini283/Age-Gender-Detection-system/blob/main/Deep_learning_project.ipynb" class="project-entry">
+					<span class="image main"><img src="images/age.jpeg" alt="" /></span>
+					<p class="project-title">Age Gender detection system using CNN and RNN deep learning techniques</p>
+					<p class="project-description">The Age, Gender, and Ethnicity Detection System is a deep learning-based framework developed to detect and classify age, gender, and ethnicity from real-world facial images. With the growing demand for such systems in various applications like airports, police stations, and personalized recommendation systems, this project aims to provide accurate and reliable results. The system utilizes CNN and RNN to extract facial features and train models for classification.</p>
+				  </a>
+				  <a href="https://github.com/Tejaswini283/Airport-Satisfaction-analysis-project/tree/main" class="project-entry">
+					<span class="image main"><img src="images/air.jpeg" alt="" /></span>
+					<p class="project-title">Analysis of Airline Passenger satisfaction</p>
+					<p class="project-description">The goal is to understand the key factors that contribute to customer contentment. The analysis was performed using R Studio, employing machine learning algorithms and data visualizations to identify correlations between variables and passenger satisfaction. The study finds that factors such as inflight entertainment, ease of online booking, and travel type significantly impact passenger satisfaction. Linear Discriminant Analysis (LDA) and Quadratic Discriminant Analysis (QDA) were found to be the most accurate machine learning models for this dataset.</p>
+				  </a>
+				  <a href="https://github.com/Tejaswini283/Zonal-Accident-Prediction-system/blob/main/Zonal_Accident_Risk_Analysis%20(1).ipynb" class="project-entry">
+					<span class="image main"><img src="images/zonal.jpeg" alt="" /></span>
+					<p class="project-title">Zonal Accident Risk Prediction system</p>
+					<p class="project-description">The Zonal Accident Risk Prediction project analyzed a dataset of road accidents to identify common patterns and features contributing to accidents. Models like linear regression and random forest classification were used to predict factors such as speed limits and fatalities. The project aimed to reduce accidents by implementing safety measures based on the findings. Limitations included the absence of predictors for road surface and weather conditions.</p>
+				  </a>
+				  <a href="https://github.com/Tejaswini283/IU-Commuter-pass" class="project-entry">
+					<span class="image main"><img src="images/iu.jpeg" alt="" /></span>
+					<p class="project-title">IU Commuter Pass</p>
+					<p class="project-description">The IUCommuterPass (IUCP) web application facilitates carpooling among students at Indiana University-Purdue University Indianapolis (IUPUI). It provides a platform for riders and passengers to connect, reducing transportation costs and environmental impact. The user-friendly interface includes features like trip cost calculation, check-in system, and messaging. The project is significant in offering affordable transportation, reducing pollution and traffic congestion, and promoting social connections among students.</p>
+				  </a>
+				  <a href="https://github.com/Tejaswini283/John_snow_visualization_project" class="project-entry">
+					<span class="image main"><img src="images/john.jpeg" alt="" /></span>
+					<p class="project-title">John snows cholera map visualization using D3.js</p>
+					<p>Dr. John Snow's map recreated the 1854 cholera epidemic in London, revealing patterns and mitigating its effects through visualization. Interactive visualizations included a timeline chart, map, and pie charts showcasing variations in deaths by age and gender. Discoveries highlighted higher death rates among the elderly and children, with contaminated water pumps identified as hotspots.</p>
+				  </a>
+				</div>
+			  </article>
         </section>
-    </div>
+
 </section>		
+    <!-- Content -->
+    <div class="content">
 <section id="Education">
     <h2 class="section-title" style="margin-bottom: 60px; text-align: left; font-size: 24px; margin-left: -150px;">Education</h2>
     <div class="education-entry">
@@ -537,6 +614,7 @@ ul.cloud li:nth-child(4n+1) a { color: #008185b0; } /* Cyan */
             <p><strong style="color: rgba(43, 41, 41, 0.829);">Courses:</strong> C, Java ,Matlab, Python, Database management,Data processing at scale, Advanced computer networks,Operating systems </p>
         </div>
     </div>
+</div>
 </section>
 
 
@@ -590,7 +668,7 @@ ul.cloud li:nth-child(4n+1) a { color: #008185b0; } /* Cyan */
 	</section>
 
     <!-- Footer -->
-    <footer id="Contact" style="padding: 0px; width: 100%;">
+    <footer id="Contact" style="padding: 0.1%; width: 180%;">
         <p>Designed and built by <a href="https://github.com/Tejaswini283/Tejaswini283.github.io/blob/main/index.html" target="_blank">Tejaswini Parlapalli</a>.</p>
     </footer>
 
