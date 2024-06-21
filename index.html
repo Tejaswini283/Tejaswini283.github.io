@@ -42,58 +42,63 @@ time, mark, audio, video {
 	    overflow-x: hidden; 
             transition: background-color 0.5s, color 0.5s; /* Smooth transition for background and font color change */
         }
-        /* CSS for Project Entries */
-        #Projects {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            padding: 20px;
-        }
+       /* CSS for Project Entries */
+#Projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
 
-        .project-entry {
+.project-entry {
     flex: 0 0 calc(33.33% - 20px); /* Adjust width for three projects per row */
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 20px;
+    background-color: #fff; /* White background for the boxes */
     border: 1px solid #ccc;
     border-radius: 4px;
-    transition: border-color 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for transform and box-shadow */
     margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Initial subtle shadow */
 }
 
-        .project-entry:hover {
-            cursor: pointer;
-            border-color: transparent; /* Set the border color to transparent on hover */
-        }
+.project-entry:hover {
+    cursor: pointer;
+    transform: translateY(-10px); /* Lift the box up on hover */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+    border-color: transparent; /* Set the border color to transparent on hover */
+}
 
-        .project-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
+.project-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 
-        .project-description {
-            margin-top: 10px;
-        }
+.project-description {
+    margin-top: 10px;
+}
 
-        .project-entry .image {
-            height: 150px; /* Adjust height */
-        }
+.project-entry .image {
+    height: 150px; /* Adjust height */
+}
 
-        .project-entry img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: center;
-            margin-right: 20px;
-            margin-bottom: 10px;
-            float: left;
-        }
-        @media screen and (max-width: 1024px) {
+.project-entry img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    float: left;
+}
+
+@media screen and (max-width: 1024px) {
     .project-entry {
         flex-basis: calc(50% - 20px); /* Adjust width for two projects per row on medium screens */
     }
@@ -104,6 +109,7 @@ time, mark, audio, video {
         flex-basis: calc(100% - 20px); /* Adjust width for one project per row on small screens */
     }
 }
+
 
         /* Header Section */
         header {
