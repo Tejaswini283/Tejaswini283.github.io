@@ -7,31 +7,34 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-	    html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-	    *,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+        /* CSS Reset */
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        /* Base Body Styles */
         body {
             font-family: 'Arial', sans-serif; /* Professional font */
             background-color: #f9f9f9;
@@ -39,77 +42,107 @@ time, mark, audio, video {
             margin: 0;
             padding: 0;
             scroll-behavior: smooth;
-	    overflow-x: hidden; 
+            overflow-x: hidden; 
             transition: background-color 0.5s, color 0.5s; /* Smooth transition for background and font color change */
         }
-       /* CSS for Project Entries */
-#Projects {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
-}
 
-.project-entry {
-    flex: 0 0 calc(25% - 20px); /* Adjust width for smaller projects per row */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 10px; /* Reduced padding */
-    background-color: #fff; /* White background for the boxes */
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for transform and box-shadow */
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Initial subtle shadow */
-}
+        /* Project Section Styles */
+        #Projects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
 
-.project-entry:hover {
-    cursor: pointer;
-    transform: translateY(-10px); /* Lift the box up on hover */
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
-    border-color: transparent; /* Set the border color to transparent on hover */
-}
+        .project-entry {
+            flex: 0 0 calc(25% - 20px); /* Adjust width for smaller projects per row */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 10px; /* Reduced padding */
+            background-color: #fff; /* White background for the boxes */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for transform and box-shadow */
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Initial subtle shadow */
+        }
 
-.project-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
+        .project-entry:hover {
+            cursor: pointer;
+            transform: translateY(-10px); /* Lift the box up on hover */
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+            border-color: transparent; /* Set the border color to transparent on hover */
+        }
 
-.project-description {
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
     margin-top: 10px;
-    font-size: 0.9rem; /* Reduced font size */
+    font-family: sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    text-align: justify;
 }
 
-.project-entry .image {
-    height: 100px; /* Adjust height */
-}
+        .project-entry .image {
+            height: 100px; /* Adjust height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 180px; /* Set the desired height for the images */
+        }
 
-.project-entry img {
-    width: 60px; /* Reduced image size */
-    height: 60px; /* Reduced image size */
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    float: left;
-}
+        .project-entry img {
+            width: 60px; /* Reduced image size */
+            height: 60px; /* Reduced image size */
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            float: left;
+            display: block;
+            margin-bottom: 5px;
+            max-width: 30%;
+            max-height: 100%;
+        }
 
-@media screen and (max-width: 1024px) {
-    .project-entry {
-        flex-basis: calc(50% - 20px); /* Adjust width for two projects per row on medium screens */
-    }
-}
+        /* Project Entry Hover Link Effect */
+        .project-entry:hover::before {
+            content: ''; /* Unicode character for the link symbol */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: #ffffff;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .project-entry:hover::before {
+            opacity: 10;
+        }
 
-@media screen and (max-width: 768px) {
-    .project-entry {
-        flex-basis: calc(100% - 20px); /* Adjust width for one project per row on small screens */
-    }
-}
+        /* Responsive Project Entries */
+        @media screen and (max-width: 1024px) {
+            .project-entry {
+                flex-basis: calc(50% - 20px); /* Adjust width for two projects per row on medium screens */
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .project-entry {
+                flex-basis: calc(100% - 20px); /* Adjust width for one project per row on small screens */
+            }
+        }
 
 
         /* Header Section */
@@ -119,27 +152,32 @@ time, mark, audio, video {
             text-align: left;
             padding: 20px;
             position: relative;
-            height: 400px; /* Increase the height as needed */
+            height: 330px; /* Increase the height as needed */
         }
 
         header img {
-            width: 140px;
-            height: 140px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
             object-position: center;
-            position: absolute;
-            top: 20px;
-            left: 20px;
+            margin-right: 20px;
+            float: left;
         }
 
+        
+
         header div {
-            margin-left: 150px; /* Adjust as needed */
+            margin-left: 220px; /* Adjusted to match image width */
         }
 
         header h1 {
             margin: 10px 0;
             font-size: 36px;
+            font-family: 'Comic Sans MS', cursive;
+            margin-bottom: 10px;
+            text-transform: uppercase; /* This makes the text all caps */
+    letter-spacing: 5px;
         }
 
         header p {
@@ -187,36 +225,11 @@ time, mark, audio, video {
             cursor: pointer;
             color: #fff;
         }
-		.pdf-container {
-    text-align: right;
-  }
-  #Projects .project-entry .image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 180px; /* Set the desired height for the images */
-}
-#Projects .project-entry img {
-display: block;
-  margin-bottom: 5px;
-  max-width: 30%;
-  max-height: 100%;
-}
-.project-entry:hover::before {
-  content: ''; /* Unicode character for the link symbol */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 24px;
-  color: #ffffff;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.project-entry:hover::before {
-  opacity: 10;
-}
+        .pdf-container {
+            text-align: right;
+        }
 
+        /* General Content Styles */
         .entry-details, .project-description {
             flex-grow: 1;
         }
@@ -227,11 +240,69 @@ display: block;
 
         /* Footer */
         footer {
-			position: relative;
+            position: relative;
             text-align: center;
             background-color: #333;
             color: #fff;
-			right: 50%
+            padding: 30px 20px; /* Updated padding */
+            width: 100%; /* Ensure full width */
+            box-sizing: border-box;
+        }
+        
+        /* New Footer Styles */
+        .contact-header {
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #FF9F55; /* Accent color */
+            letter-spacing: 2px;
+        }
+        
+        /* --- ✨ NEW ✨ --- Horizontal Footer Icons */
+        .footer-contact-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px; /* Adds space between icons */
+            margin-top: 20px; /* Space below "Get In Touch" */
+        }
+
+        .footer-contact-icons img {
+            width: 30px;
+            height: 30px;
+            filter: invert(1); /* Make icons white for the dark footer */
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .footer-contact-icons a:hover img {
+            transform: scale(1.2); /* Grow effect on hover */
+        }
+        /* --- ✨ END NEW ✨ --- */
+
+        /* Fixed Sidebar Styles */
+        .fixed-contact-sidebar {
+            position: fixed;
+            bottom: 20px; 
+            left: 20px; 
+            z-index: 900; 
+            display: flex;
+            flex-direction: column;
+            gap: 10px; 
+        }
+
+        .fixed-contact-sidebar img {
+            width: 30px;
+            height: 30px;
+            filter: invert(0.8); /* Make icons look better on light background */
+            transition: transform 0.2s;
+        }
+
+        .dark-theme .fixed-contact-sidebar img {
+            filter: invert(1); /* Ensure icons are white in dark mode */
+        }
+
+        .fixed-contact-sidebar a:hover img {
+            transform: scale(1.15); /* Subtle hover effect */
         }
 
 
@@ -244,516 +315,93 @@ display: block;
             background-color: #1a1a1a; /* Dark background color */
             color: #fff; /* Light font color */
         }
-
-        /* Timeline styles */
-		.timeline {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-hr {
-      margin: 1rem 0;
-      border: none;
-      border-top: 1px solid #ccc;
-    }
-    .tag-cloud {
-      display: flex;
-      justify-content: center;
-    }
-    .cloud {
-      list-style: none;
-      padding-left: 0;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      line-height: 2.75rem;
-      max-width: 900px;
-    }
-    ul.cloud a {
-      --size: 4;
-      --color: #817c8198;
-      color: var(--color);
-      font-size: calc(var(--size) * 0.2rem + 0.1rem);
-      display: block;
-      padding: 0.105rem 0.105rem;
-      position: relative;
-      text-decoration: none;
-	  border-bottom: none;
-    }
-    ul.cloud a[data-weight="1"] { --size: 1; }
-    ul.cloud a[data-weight="2"] { --size: 2; }
-    ul.cloud a[data-weight="3"] { --size: 3; }
-    ul.cloud a[data-weight="4"] { --size: 4; }
-    ul.cloud a[data-weight="5"] { --size: 6; }
-    ul.cloud a[data-weight="6"] { --size: 8; }
-    ul.cloud a[data-weight="7"] { --size: 10; }
-    ul.cloud a[data-weight="8"] { --size: 16; }
-    ul[data-show-value] a::after {
-      content: " (" attr(data-weight) ")";
-      font-size: 1rem;
-    }
-    ul.cloud li:nth-child(2n+1) a { color: #3D5A80; } /* Blue */
-ul.cloud li:nth-child(3n+1) a { color: #98C1D9; } /* Light Blue */
-ul.cloud li:nth-child(4n+1) a { color: #008185b0; } /* Cyan */
-    ul.cloud a:focus {
-      outline: 1px dashed;
-    }
-    ul.cloud a::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0%;
-      width: 0;
-      height: 0%;
-      background: var(--color);
-      transform: translate(-50%, 0);
-      opacity: 0.15;
-      transition: width 0.25s;
-    }
-    ul.cloud a:focus::before,
-    ul.cloud a:hover::before {
-      width: 100%;
-    }
-
-
-.line {
-    position: absolute;
-    width: 6px;
-    background-color: rgb(143, 139, 139);
-    top: 0;
-    bottom: 0;
-    left: 18%;
-    margin-left: 250px; /* Half of the line width */
-}
-.experience-image {
-    width: 200px; /* Adjust the width of the image */
-    height: 200px; /* Make the height equal to the width for a square shape */
-    border-radius: 15px; /* Set the border-radius to create rounded corners */
-    object-fit: cover; /* Ensure the image covers its container */
-    margin-right: 20px; /* Adjust the margin as needed */
-	right: -40px; 
-    top: 10px; /* Adjust this value to shift the image down */
-    border: 2px solid #333; /* Add border here */
-    padding: 5px; /* Optional: Add padding inside the border */
-}
-
-.container {
-    padding: 10px 20px;
-    position: relative;
-    background-color: inherit;
-    width: 80%;
-    display: flex; /* Add flex display */
-    align-items: center;
-	margin-left: -10px; /* Vertically center content */
-	top: -205px;
-}
-.container h2,
-.container h3,
-.container p {
-    margin: 12px 0; /* Adjust the margin to reduce space between lines */
-}
-
-.container::after {
-    content: '';
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    left: -120px; /* Adjust the left position */
-    background-color: #fff;
-	top: 60px;
-    border: 4px solid #FF9F55;
-    border-radius: 50%;
-    z-index: 1;
-}
-.education-entry {
-    position: relative; /* Add relative positioning */
-    margin-bottom: 50px;
-    text-align: center;
-}
-
-.college-image {
-    position: relative; /* Change to relative positioning */
-    width: 680px;
-    height: 450px;
-	left: 20%;
-
-    margin: 0 auto 50px; /* Center the image horizontally and add margin-bottom */
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.education-details {
-    position: absolute; /* Add absolute positioning */
-    top: 50%; /* Position it in the middle of the image */
-    left: 30%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.7); /* Adjust the background color and opacity */
-    padding: 20px;
-	z-index: 1;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 600px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: left;
-	margin-top: -0px;
-}
-
-
-.education-details h3,
-.education-details h4 {
-    margin: 10px 0;
-    color: #333;
-}
-
-.education-details p {
-    margin: 5px 0;
-    color: #666;
-}
-
-.container.right {
-    left: 8%;
-    transform: translateX(50%);
-    margin-left: 0; /* Adjust the left margin */
-}
-
-
-.container.right .content {
-    text-align: right; /* Align text to the right */
-}
-
-
-
-        @media screen
-		and (max-width: 600px) {
-            .timeline::after {
-                left: 31px;
-            }
-
-            .container {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-
-            .container::before {
-                left: 60px;
-                border: medium solid #fff;
-                border-width: 
-				10px 10px 10px 0;
-                border-color: transparent #fff transparent transparent;
-            }
-
-            .right::after {
-                left: 15px;
-            }
-
-    .content p {
-        list-style-type: none; /* Remove default bullet points */
-        padding-left: 20px; /* Add padding to create space for the custom bullet */
-        font-size: 14px; /* Adjust the font size */
-    }
-
-    /* Define the style for the custom bullet */
-    .bullet {
-        display: inline-block;
-        width: 10px;
-        height: 10px;
-        background-color: #FF9F55; /* Customize the bullet color */
-        border-radius: 50%; /* Create a circular shape */
-        margin-right: 10px; /* Adjust the space between the bullet and the text */
-    }
-
-.skills-container {
-    width: 100%; /* Make the container full width */
-    padding: 0 20px; /* Add some padding if needed */
-    box-sizing: border-box; /* Ensure padding is included in the width */
-}
-
-.profile-image {
-  display: block;
-  margin: 0 auto;
-}
-
-
+        .dark-theme h2, .dark-theme h3, .dark-theme h4, .dark-theme h5, .dark-theme p {
+            color: #fff;
         }
-    </style>
-</head>
-<body>
-    <!-- Navigation -->
-    <nav>
-
-        <a href="#About">About</a>
-        <a href="#Projects">Projects</a>
-        <a href="#Skills">Skills</a>
-        <a href="#Contact">Contact</a>
-        <a href="#" class="resume-link"><i class="fas fa-file-download"></i> Resume</a> <!-- Download icon combined with "Resume" text -->
-        <i class="far fa-lightbulb bulb-icon" onclick="toggleTheme()"></i> <!-- Fun light bulb icon -->
-    </nav>
-
-    <!-- Header -->
-    <header style="position: relative;">
-        <img src="images/tejaswini.jpeg" alt="Tejaswini Parlapalli" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; object-position: center; margin-right: 20px; float: left;">
-        <div style="margin-left: 220px;">
-            <h1 style="font-family: 'Comic Sans MS', cursive; margin-bottom: 10px;">Tejaswini Parlapalli</h1>
-            <h2 class="section-title" style="margin-bottom: 20px;">Welcome</h2>
-            <p>Hello,</p>
-            <p>I am a Data enthusiast with 6 years of experience in analytics. I have gained expertise in a wide range of technologies during this time. My portfolio showcases a selection of my work, including <a href="#Projects" style="font-size: xx-large;">Projects</a> that demonstrate my abilities in building and deploying machine learning models /Data science and analysis projects. In addition to my technical pursuits, I have diverse interests that include being an avid reader, a food enthusiast, and a singer. These hobbies have not only brought me joy but also instilled in me a sense of discipline and a commitment to continuous learning. I strive to combine my analytical skills with my creative flair to make meaningful contributions in the field of data science.</p>
-           <br>
-		<br>
- <a href="Tejaswini.Parlapalli.Resume.pdf" class="resume-link" style="font-size: 14px; color: #fff; text-decoration: none; background-color: #494d49; padding: 12px 24px; border-radius: 25px; display: inline-block; margin-top: 20px; box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); transition: background-color 0.3s, transform 0.3s;">
-                Download Resume
-            </a>
-        </div>
-    </header>
-    <div class="content">
-        <!-- About Section -->
-        <section id="About">
-		<br>
-		<br>
-            <h4 class="section-title" style="margin-bottom: 10px;   text-align: left ;font-size: 24px; margin-left: -100px;">Experiences</h4>
-
-<br>
-		<br>
-			<div class="timeline">
-				<div class="line"></div>
-				<!-- Experience 1 -->
-				<div class="experience">
-					<img src="images/riv2.png" alt="" class="experience-image" style="margin-top: -1px; ">
-					<div class="container right">
-						<div class="content" style="text-align: left; width: 100%;">
-							<h6 style="color: rgb(161, 153, 153); margin-bottom: -10px;letter-spacing: 0.9px;margin-top: -40px;">Apr 2023 - Present</h6>
-							<h2 style="margin-bottom: 5px;">Rivian </h2>
-							<h5 style="color: #4f524f; margin-bottom: -5px;">Data Scientist</h5>
-							<p style="font-family: sans-serif; font-size: 14px; margin-bottom: -170px; letter-spacing: 0.9px; color: #333;font-weight: normal;text-transform: none; text-align: justify;">Embarking on a journey of innovation, I implemented predictive machine learning models to combat part shortages, reducing line side downtime by 5% and boosting overall supply chain efficiency by 12%. Transitioning to demand forecasting, optimization solutions with predictive analytics were implemented, slashing stockouts by 15% and streamlining inventory. I later had the opportunity to enhance demand management strategies, achieving a 20% accuracy boost while Seamlessly integrating SAP & MES systems, I spearheaded Power BI/Tableau visualization for actionable insights. further Leveraging Alteryx pipelines, production bottlenecks were addressed, enhancing efficiency by 20%. </p>
-						</div>
-					</div>
-				</div>
-				<!-- Experience 2 -->
-				<div class="experience">
-					<img src="images/Iu.png" alt="" class="experience-image" style="margin-top: -1px; ">
-					<div class="container right">
-						<div class="content" style="text-align: left; width: 100%;">
-							<h6 style="color: rgb(161, 153, 153); margin-bottom: -10px;letter-spacing: 0.9px;margin-top: -40px;">Aug 2022 - May 2023</h6>
-							<h2 style="margin-bottom: 5px;">IU Marketing Analytics</h2>
-							<h5 style="color: #4f524f; margin-bottom: -5px;">Data Scientist</h5>
-							<p style="font-family: sans-serif; font-size: 14px; margin-bottom: -170px; letter-spacing: 0.9px; color: #333;font-weight: normal;text-transform: none; text-align: justify;">Implemented advanced Alteryx ETL model automations to enhance API connector performance, reducing data processing time and enabling seamless integration into Big Query. This initiative saved 10 man-hours per week and streamlined workflow efficiency. Additionally, optimized pipeline development strategies within marketing funnels by leveraging Big Data tools like Hive and Spark, leading to a significant 15% reduction in data maintenance costs. Furthermore, implemented GA4 processes to track user behavior and improve marketing effectiveness. By translating these insights into Looker Studio visuals, decision-making was facilitated, resulting in a notable 2% increase in website conversions.</p>
-						</div>
-					</div>
-				</div>
-				<div class="experience">
-					<img src="images/iu2.png" alt="" class="experience-image" style="margin-top: -1px; ">
-					<div class="container right">
-						<div class="content" style="text-align: left; width: 100%;">
-							<h6 style="color: rgb(161, 153, 153); margin-bottom: -10px;letter-spacing: 0.9px;margin-top: -40px;">Aug 2021 - Apr 2022</h6>
-							<h2 style="margin-bottom: 5px;">Indiana University </h2>
-							<h5 style="color: #4f524f; margin-bottom: -5px;">Research Assistant</h5>
-							<p style="font-family: sans-serif; font-size: 14px; margin-bottom: -170px; letter-spacing: 0.9px; color: #333;font-weight: normal;text-transform: none; text-align: justify;">Pioneering a data-driven approach, spearheaded the integration of state-of-the-art Ml & DL techniques into our research framework. This involved the development and deployment of ML and DL classification models, alongside neural network architectures, to accurately determine the age of real-world images with an precision rate of 78.3%. Additionally, leveraging NLP algorithms such as FastText, developed a failure mode prediction systems, resulting in a substantial 53% enhancement in quality metrics. Moreover, by employing NLP techniques for feature engineering, extracted valuable insights from textual data linked to images.This modified our models with crucial features, significantly improving their predictive capabilities.</p>
-						</div>
-					</div>
-				</div>
-				<div class="experience">
-					<img src="images/emc2.png" alt="" class="experience-image" style="margin-top: -1px; max-width: 100%; max-height: 100%;">
-					<div class="container right">
-						<div class="content" style="text-align: left; width: 100%;">
-							<h6 style="color: rgb(161, 153, 153); margin-bottom: -10px;letter-spacing: 0.9px;margin-top: -40px;">Jun 2022 - Aug 2022</h6>
-							<h2 style="margin-bottom: 5px;">EMC Insurance Group </h2>
-							<h5 style="color: #4f524f; margin-bottom: -5px;">Data scientist</h5>
-							<p style="font-family: sans-serif; font-size: 14px; margin-bottom: -170px; letter-spacing: 0.9px; color: #333;font-weight: normal;text-transform: none; text-align: justify;">By implementing regression models such as Random Forest, Gradient Boost, and XGBoost, alongside meticulous feature engineering and optimization of hyperparameters on AWS and Snowflake data, I achieved an impressive 60.1% damage prediction rate. Delving into extensive research and deep analysis of large datasets, I identified crucial trends and integrated BERT, leading to a notable 10% improvement in the accuracy of insurance analysis. Moreover, through the development of interactive dashboards and visualizations using Power BI, stakeholders gained enhanced insights, aiding in the identification and rectification of faulty investments totaling $260k.</p>
-						</div>
-					</div>
-				</div>
-				
-				<div class="experience">
-					<img src="images/deloitte.png" alt="" class="experience-image" style="margin-top: -1px; ">
-					<div class="container right">
-						<div class="content" style="text-align: left; width: 100%;">
-							<h6 style="color: rgb(161, 153, 153); margin-bottom: -10px;letter-spacing: 0.9px;margin-top: -40px;">Dec 2019 - Jul 2021</h6>
-							<h2 style="margin-bottom: 5px;">Deloitte </h2>
-							<h5 style="color: #4f524f; margin-bottom: -5px;">Business Intelligence Analyst</h5>
-							<p style="font-family: sans-serif; font-size: 14px; margin-bottom: -200px; letter-spacing: 0.9px; color: #333;font-weight: normal;text-transform: none; text-align: justify;">Played a pivotal role in developing an Oracle Cloud RDBMS framework and implementing data analysis procedures, resulting in a seamless migration .Also by leveraging MySQL, Python, and Bash scripts, optimized data processes, ultimately reducing migration time by 3%.Utilizing statistical methods conducted data trend analysis with an impressive accuracy rate of over 85%, providing valuable insights for strategic decision-making.</p>
-						</div>
-					</div>
-				</div>
-				<div class="experience">
-					<img src="images/amazon2.jpeg" alt="" class="experience-image" style="margin-top: -1px; ">
-					<div class="container right">
-						<div class="content" style="text-align: left; width: 100%;">
-							<h6 style="color: rgb(161, 153, 153); margin-bottom: -10px;letter-spacing: 0.9px;margin-top: -40px;">ADec 2019 - Dec 2019</h6>
-							<h2 style="margin-bottom: 5px;">Amazon</h2>
-							<h5 style="color: #4f524f; margin-bottom: -5px;">Data Scientist</h5>
-							<p style="font-family: sans-serif; font-size: 14px; margin-bottom: -200px; letter-spacing: 0.9px; color: #333;font-weight: normal;text-transform: none; text-align: justify;">Played a pivotal role in developing an Oracle Cloud RDBMS framework and implementing data analysis procedures, resulting in a seamless migration .Also by leveraging MySQL, Python, and Bash scripts, optimized data processes, ultimately reducing migration time by 3%.Utilizing statistical methods conducted data trend analysis with an impressive accuracy rate of over 85%, providing valuable insights for strategic decision-making.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-
-
-
-</section>
-
-
-<br>
-		<br>
-
-<section id="Projects">
-    <h2 class="section-title" style="margin-bottom: 10px; text-align: left; font-size: 24px; margin-left: -150px; letter-spacing: 3px;">Things I've Built</h2>
-    <div class="project-entry">
-        <a href="https://github.com/Tejaswini283/Age-Gender-Detection-system/blob/main/Deep_learning_project.ipynb" class="project-entry">
-            <span class="image main"><img src="images/age.jpeg" alt="" /></span>
-            <p class="project-title">Age Gender detection system using CNN and RNN deep learning techniques</p>
-            <p class="project-description">The Age, Gender, and Ethnicity Detection System is a deep learning framework designed to classify age, gender, and ethnicity from facial images. Utilizing CNN and RNN models, this system aims to provide accurate and reliable results for applications in airports, police stations, and personalized recommendation systems.</p>
-        </a>
-    </div>
-    <div class="project-entry">
-        <a href="https://github.com/Tejaswini283/Airport-Satisfaction-analysis-project/tree/main" class="project-entry">
-            <span class="image main"><img src="images/air.jpeg" alt="" /></span>
-            <p class="project-title">Analysis of Airline Passenger satisfaction</p>
-            <p class="project-description">The goal is to identify key factors contributing to passenger satisfaction. Using R Studio, machine learning algorithms, and data visualizations, the analysis highlights the impact of inflight entertainment, ease of online booking, and travel type. Linear Discriminant Analysis (LDA) and Quadratic Discriminant Analysis (QDA) were the most accurate models.</p>
-	</a>
-    </div>
-    <div class="project-entry">
-        <a href="https://github.com/Tejaswini283/Zonal-Accident-Prediction-system/blob/main/Zonal_Accident_Risk_Analysis%20(1).ipynb" class="project-entry">
-            <span class="image main"><img src="images/zonal.jpeg" alt="" /></span>
-            <p class="project-title">Zonal Accident Risk Prediction system</p>
-            <p class="project-description">The Zonal Accident Risk Prediction project analyzed road accident data to identify patterns and contributing factors. Using linear regression and random forest models, the project predicted factors like speed limits and fatalities to recommend safety measures. Limitations included missing predictors for road surface and weather conditions.</p>
-	</a>
-    </div>
-    <div class="project-entry">
-        <a href="https://github.com/Tejaswini283/IU-Commuter-pass" class="project-entry">
-            <span class="image main"><img src="images/iu.jpeg" alt="" /></span>
-            <p class="project-title">IU Commuter Pass</p>
-            <p class="project-description">The IUCommuterPass (IUCP) web app connects IUPUI students for carpooling, reducing transportation costs and environmental impact. Features include trip cost calculation, check-in, and messaging. The project promotes affordable transportation, reduces pollution and traffic congestion, and fosters social connections among students.</p>
-	</a>
-    </div>
-    <div class="project-entry">
-        <a href="https://github.com/Tejaswini283/John_snow_visualization_project" class="project-entry">
-            <span class="image main"><img src="images/john.jpeg" alt="" /></span>
-            <p class="project-title">John snows cholera map visualization using D3.js</p>
-            <p>Dr. John Snow's map visualized the 1854 cholera epidemic in London, revealing patterns and mitigating effects. Interactive elements included a timeline chart, map, and pie charts showing death variations by age and gender. Key findings highlighted higher death rates among the elderly and children, with contaminated water pumps as hotspots.</p>
-	</a>
-    </div>
-</section>
-
-</section>		
-    <!-- Content -->
-    <div class="content">
-	    <br>
-		<br>
-<section id="Education">
-	<br>
-		<br>
-    <h2 class="section-title" style="margin-bottom: 60px; text-align: left; font-size: 24px; margin-left: -80px;">Education</h2>
-    <div class="education-entry">
-        <img src="images/iupui.png" alt="College" loading="lazy" class="college-image">
-        <div class="education-details">
-            <h3 style="letter-spacing: 0.9px;">Indiana University Purdue University Indianapolis</h3>
-            <h4>Masters, Applied Data Science </h4>
-            <p style="color: #FF9F55;">GPA 3.8</p>
-            <p><strong style="color: rgba(43, 41, 41, 0.829);">Courses:</strong> Database Management, Programming - Data Science, Cloud computing, Web Database development, Data Analytics with R, Machine Learning, Deep Learning & AI, Statistical Learning and Data visualization.</p>
-        </div>
-    </div> <!-- Close the first education-entry div -->
-    <div class="education-entry">
-        <img src="images/gnits.jpg" alt="College" class="college-image">
-        <div class="education-details">
-            <h3 style="letter-spacing: 0.9px;">Jawaharlal Nehru Technological University</h3>
-            <h4>Bachelors, Electronics Engineering </h4>
-            <p style="color: #FF9F55;">GPA 4.0</p>
-            <p><strong style="color: rgba(43, 41, 41, 0.829);">Courses:</strong> C, Java ,Matlab, Python, Database management,Data processing at scale, Advanced computer networks,Operating systems </p>
-        </div>
-    </div>
-</div>
-</section>
-
-
-<br>
-		<br>
-
-	<section id="Skills" >
-		<br>
-		<br>
-        <h2 class="section-title" style="margin-bottom: 60px; text-align: left; font-size: 24px; margin-left: -80px;" >Skills</h2>
-        <div class="skills-container">
-       
-		<!-- Skills -->
-        <div class="tag-cloud">
-            <ul class="cloud" role="navigation" aria-label="Webdev word cloud">
+        .dark-theme .project-entry {
+            background-color: #2c2c2c;
+            border-color: #444;
+        }
+        .dark-theme header p, .dark-theme header h1, .dark-theme header h2 {
+            color: #fff;
+        }
+        .dark-theme .education-details {
+             background-color: rgba(44, 44, 44, 0.8);
+        }
+        .dark-theme .education-details h3, .dark-theme .education-details h4, .dark-theme .education-details p {
+            color: #fff;
+        }
         
-              <li><a href="https://en.wikipedia.org/wiki/Python" data-weight="8">Python</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/D3.js" data-weight="2">D3.js</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/R_(programming_language)" data-weight="7">R</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Predictive_modelling" data-weight="4">Predictive Modeling</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Amazon_Web_Services" data-weight="6">AWS</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets" data-weight="1">CSS</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Statistics" data-weight="4">Statistics</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/SQL" data-weight="8">SQL</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Tableau_Software" data-weight="5">Tableau</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Power_BI" data-weight="4">Power BI</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Data_science" data-weight="8">Data Science</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Big_data" data-weight="3">Big Data</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/HTML" data-weight="7">HTML</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Data_mining" data-weight="5">Data Mining</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Exploratory_data_analysis" data-weight="3">Exploratory Data Analysis</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Google_Analytics" data-weight="5">Google Analytics</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Natural_language_processing" data-weight="6">Natural Language Processing</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Google_Cloud_Platform" data-weight="8">GCP</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Machine_learning" data-weight="8">Machine Learning</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Machine_learning" data-weight="5">Computer Vision</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Git" data-weight="2">Git</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Apache_Hive" data-weight="4">Hive</a></li>
-              
-              <li><a href="https://en.wikipedia.org/wiki/Adobe_Analytics" data-weight="6">Adobe Analytics</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Databricks" data-weight="3">Databricks</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Datorama" data-weight="5">Datorama</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Apache_Spark" data-weight="8">Spark</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Snowflake_(data_company)" data-weight="7">Snowflake</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Alteryx" data-weight="6">Alteryx</a></li>
-              <li><a href="https://en.wikipedia.org/wiki/Google_BigQuery" data-weight="5">Big Query</a></li>
-              
-             
-              
-              
-            </ul>
-          </div>
-        </div>
-	</section>
+        hr {
+            margin: 1rem 0;
+            border: none;
+            border-top: 1px solid #ccc;
+        }
+        
+        /* Tag Cloud Styles */
+        .tag-cloud {
+            display: flex;
+            justify-content: center;
+        }
+        .cloud {
+            list-style: none;
+            padding-left: 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            line-height: 2.75rem;
+            max-width: 900px;
+        }
+        ul.cloud a {
+            --size: 4;
+            --color: #817c8198;
+            color: var(--color);
+            font-size: calc(var(--size) * 0.2rem + 0.1rem);
+            display: block;
+            padding: 0.105rem 0.105rem;
+            position: relative;
+            text-decoration: none;
+            border-bottom: none;
+        }
+        ul.cloud a[data-weight="1"] { --size: 1; }
+        ul.cloud a[data-weight="2"] { --size: 2; }
+        ul.cloud a[data-weight="3"] { --size: 3; }
+        ul.cloud a[data-weight="4"] { --size: 4; }
+        ul.cloud a[data-weight="5"] { --size: 6; }
+        ul.cloud a[data-weight="6"] { --size: 8; }
+        ul.cloud a[data-weight="7"] { --size: 10; }
+        ul.cloud a[data-weight="8"] { --size: 16; }
+        ul[data-show-value] a::after {
+            content: " (" attr(data-weight) ")";
+            font-size: 1rem;
+        }
+        ul.cloud li:nth-child(2n+1) a { color: #3D5A80; } /* Blue */
+        ul.cloud li:nth-child(3n+1) a { color: #98C1D9; } /* Light Blue */
+        ul.cloud li:nth-child(4n+1) a { color: #008185b0; } /* Cyan */
+        ul.cloud a:focus {
+            outline: 1px dashed;
+        }
+        ul.cloud a::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0%;
+            width: 0;
+            height: 0%;
+            background: var(--color);
+            transform: translate(-50%, 0);
+            opacity: 0.15;
+            transition: width 0.25s;
+        }
+        ul.cloud a:focus::before,
+        ul.cloud a:hover::before {
+            width: 100%;
+        }
 
-    <!-- Footer -->
-    <footer id="Contact" style="padding: 0.1%; width: 176%;">
-        <p>Designed and built by <a href="https://github.com/Tejaswini283/Tejaswini283.github.io/blob/main/index.html" target="_blank">Tejaswini Parlapalli</a>.</p>
-    </footer>
-
-	<div style="position: fixed; bottom: 10px; left: 10px;">
-		<a href="mailto:parlapallitejaswini@gmail.com" target="_blank">
-			<img src="https://img.icons8.com/ios-glyphs/30/000000/gmail.png" alt="Gmail" style="display: block;">
-		</a>
-		<a href="https://github.com/Tejaswini283" target="_blank">
-			<img src="https://img.icons8.com/ios-glyphs/30/000000/github.png" alt="GitHub" style="margin-bottom: 10px; display: block;">
-		</a>
-		<a href="https://www.linkedin.com/in/tejaswini-parlapalli/" target="_blank">
-			<img src="https://img.icons8.com/ios-glyphs/30/000000/linkedin.png" alt="LinkedIn" style="margin-bottom: 10px; display: block;">
-		</a>
-		<a href="https://www.instagram.com/tejaswini_parlapalli/" target="_blank">
-			<img src="https://img.icons8.com/ios-glyphs/30/000000/instagram-new.png" alt="Instagram" style="margin-bottom: 10px; display: block;">
-		</a>
-		<a href="https://x.com/ItsMe_Tejaswini" target="_blank">
-			<img src="https://img.icons8.com/ios-glyphs/30/000000/twitter.png" alt="Twitter" style="margin-bottom: 10px; display: block;">
-		</a>
-		<a href="https://leetcode.com/u/Tejaswini_283/" target="_blank">
-			<img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="Leetcode" style="width: 30px; height: 30px; margin-bottom: 10px; display: block;">
-		</a>
-	</div>
-	
-	
-		<script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- Font Awesome icons -->
-		<script>
-			// Function to toggle light/dark theme
-			function toggleTheme() {
-				document.body.classList.toggle("dark-theme");
-			}
-		</script>
-		
-
-
+        /* --- NEW Experience Timeline Styles --- */
+        /* The main timeline container */
+        .experience-timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto
