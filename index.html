@@ -1,662 +1,80 @@
-<!DOCTYPE ahtml>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tejaswini Parlapalli | Portfolio</title>
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        /* CSS Reset */
-        html, body, div, span, applet, object, iframe,
-        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-        a, abbr, acronym, address, big, cite, code,
-        del, dfn, em, img, ins, kbd, q, s, samp,
-        small, strike, strong, sub, sup, tt, var,
-        b, u, i, center,
-        dl, dt, dd, ol, ul, li,
-        fieldset, form, label, legend,
-        table, caption, tbody, tfoot, thead, tr, th, td,
-        article, aside, canvas, details, embed,
-        figure, figcaption, footer, header, hgroup,
-        menu, nav, output, ruby, section, summary,
-        time, mark, audio, video {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 100%;
-            font: inherit;
-            vertical-align: baseline;
-        }
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tejaswini Parlapalli | Portfolio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-        /* Base Body Styles */
-        body {
-            font-family: 'Arial', sans-serif; /* Professional font */
-            background-color: #f9f9f9;
-            color: #333; /* Dark font color */
-            margin: 0;
-            padding: 0;
-            scroll-behavior: smooth;
-            overflow-x: hidden; 
-            transition: background-color 0.5s, color 0.5s; /* Smooth transition for background and font color change */
-        }
-        
-        /* ------------------------------------------------ */
-        /* ✨ UPDATED: Header/Light Bulb/Nav Styles (Includes light glow) ✨ */
-        /* ------------------------------------------------ */
-        header {
-            background-color: #1a1a1a; /* Dark background for the hero section */
-            color: #fff;
-            text-align: left;
-            padding: 20px;
-            position: relative; /* CRITICAL for light effect positioning */
-            height: 330px; 
-            overflow: hidden; /* Ensures the radial gradient doesn't overflow the box */
-        }
-        
-        /* --- Ambient Light Effect (Glow) --- */
-        header::before {
-            content: '';
-            position: absolute;
-            /* Anchors the light source to the top-left */
-            top: -200px;
-            left: -200px; 
-            
-            /* Large size for a soft, ambient glow */
-            width: 600px; 
-            height: 600px; 
-            
-            /* Radial Gradient: Subtle light blue glow fading to transparent */
-            background: radial-gradient(
-                circle at 10% 10%, 
-                rgba(135, 206, 235, 0.1) 0%, /* Light blue/cyan with low opacity (10%) */
-                transparent 50% /* Fades out completely */
-            );
-            pointer-events: none; /* Allows clicks through the pseudo-element */
-            z-index: 0; /* Keeps the glow behind the content */
-        }
-        
-        header img, header div {
-            position: relative;
-            z-index: 10; /* Ensures content is above the light glow */
-        }
+<style>
+/* ========== BASE STYLES ========== */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
 
-        /* --- Navigation Bar --- */
-        nav {
-            background-color: #1a1a1a;
-            padding: 15px 20px; /* Increased padding */
-            text-align: right;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            display: flex; /* Use flexbox to position elements */
-            justify-content: space-between; /* Space out the left (bulb) and right (links) */
-            align-items: center;
-        }
+/* NAVIGATION */
+nav {
+  background-color: #1a1a1a;
+  padding: 15px 20px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-        /* --- Bulb Icon Position (Now on the Left) --- */
-        .bulb-icon {
-            font-size: 24px;
-            cursor: pointer;
-            color: #fff;
-            margin: 0; /* Remove right margin */
-            order: -1; /* Puts it at the start of the flex container */
-            padding-right: 15px;
-        }
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: 0.3s;
+}
 
-        /* Container for the right-aligned links */
-        .nav-links-container {
-            display: flex;
-            align-items: center;
-        }
+nav a:hover {
+  color: #FF9F55;
+}
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-            padding: 8px 12px; /* Padding for the highlight box */
-            font-size: 16px;
-            transition: all 0.3s;
-            border-radius: 4px;
-        }
-        
-        /* --- Navigation Highlight Effect --- */
-        nav a:hover,
-        nav a.active-link { 
-            color: #fff;
-            background-color: rgba(255, 255, 255, 0.1); /* Subtle dark highlight background */
-            border-bottom: 2px solid #FF9F55; /* Orange bottom border highlight */
-            transform: translateY(-2px); /* Subtle lift effect */
-        }
+/* HEADER */
+header {
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 40px;
+  text-align: left;
+  position: relative;
+}
 
-        .resume-link {
-            /* Keep existing resume link style for a button look if preferred */
-            margin-left: 20px;
-        }
+header img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  float: left;
+  margin-right: 30px;
+}
 
+header h1 {
+  font-size: 36px;
+  margin: 0 0 10px 0;
+}
 
-        /* ------------------------------------------------ */
-        /* --- Remaining Existing Styles (Minified) --- */
-        /* ------------------------------------------------ */
-        
-        /* Project Section Styles */
-        #Projects {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            padding: 20px;
-        }
+header p {
+  font-size: 16px;
+  line-height: 1.6;
+}
 
-        .project-entry {
-            flex: 0 0 calc(25% - 20px); 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 10px; 
-            background-color: #fff; 
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease; 
-            margin-bottom: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-        }
+/* FOOTER */
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
 
-        .project-entry:hover {
-            cursor: pointer;
-            transform: translateY(-10px); 
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); 
-            border-color: transparent; 
-        }
-
-        .project-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .project-description {
-            margin-top: 10px;
-            font-family: sans-serif;
-            font-size: 14px;
-            line-height: 1.6;
-            letter-spacing: 0.5px;
-            text-align: justify;
-        }
-
-        .project-entry .image {
-            height: 100px; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 180px; 
-        }
-
-        .project-entry img {
-            width: 60px; 
-            height: 60px; 
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: center;
-            margin-right: 10px;
-            margin-bottom: 10px;
-            float: left;
-            display: block;
-            margin-bottom: 5px;
-            max-width: 30%;
-            max-height: 100%;
-        }
-
-        .project-entry:hover::before {
-            content: ''; 
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 24px;
-            color: #ffffff;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .project-entry:hover::before {
-            opacity: 10;
-        }
-
-        /* Responsive Project Entries */
-        @media screen and (max-width: 1024px) {
-            .project-entry {
-                flex-basis: calc(50% - 20px); 
-            }
-        }
-
-        @media screen and (max-width: 768px) {
-            .project-entry {
-                flex-basis: calc(100% - 20px); 
-            }
-        }
-
-
-        /* Header Section */
-        
-        header img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: center;
-            margin-right: 20px;
-            float: left;
-        }
-
-        header div {
-            margin-left: 220px; 
-        }
-
-        header h1 {
-            margin: 10px 0;
-            font-size: 36px;
-            font-family: 'Comic Sans MS', cursive;
-            margin-bottom: 10px;
-            text-transform: uppercase; 
-            letter-spacing: 5px;
-        }
-
-        header p {
-            margin: 0;
-            font-size: 18px;
-        }
-
-
-        /* General Content Styles */
-        .entry-details, .project-description {
-            flex-grow: 1;
-        }
-
-        h2, h3, h4 {
-            color: #333; 
-        }
-
-        /* Footer */
-        footer {
-            position: relative;
-            text-align: center;
-            background-color: #333;
-            color: #fff;
-            padding: 30px 20px; 
-            width: 100%; 
-            box-sizing: border-box;
-        }
-        
-        /* New Footer Styles */
-        .contact-header {
-            font-size: 28px;
-            margin-bottom: 20px;
-            font-weight: bold;
-            color: #FF9F55; 
-            letter-spacing: 2px;
-        }
-        
-        /* --- Horizontal Footer Icons --- */
-        .footer-contact-icons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 25px; 
-            margin-top: 20px; 
-        }
-
-        .footer-contact-icons img {
-            width: 30px;
-            height: 30px;
-            filter: invert(1); 
-            transition: transform 0.2s ease-in-out;
-        }
-
-        .footer-contact-icons a:hover img {
-            transform: scale(1.2); 
-        }
-
-        /* Fixed Sidebar Styles */
-        .fixed-contact-sidebar {
-            position: fixed;
-            bottom: 20px; 
-            left: 20px; 
-            z-index: 900; 
-            display: flex;
-            flex-direction: column;
-            gap: 10px; 
-        }
-
-        .fixed-contact-sidebar img {
-            width: 30px;
-            height: 30px;
-            filter: invert(0.8); 
-            transition: transform 0.2s;
-        }
-
-        .dark-theme .fixed-contact-sidebar img {
-            filter: invert(1); 
-        }
-
-        .fixed-contact-sidebar a:hover img {
-            transform: scale(1.15); 
-        }
-
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Dark mode */
-        .dark-theme {
-            background-color: #1a1a1a; 
-            color: #fff; 
-        }
-        .dark-theme h2, .dark-theme h3, .dark-theme h4, .dark-theme h5, .dark-theme p {
-            color: #fff;
-        }
-        .dark-theme .project-entry {
-            background-color: #2c2c2c;
-            border-color: #444;
-        }
-        .dark-theme header p, .dark-theme header h1, .dark-theme header h2 {
-            color: #fff;
-        }
-        .dark-theme .education-details {
-             background-color: rgba(44, 44, 44, 0.8);
-        }
-        .dark-theme .education-details h3, .dark-theme .education-details h4, .dark-theme .education-details p {
-            color: #fff;
-        }
-        
-        hr {
-            margin: 1rem 0;
-            border: none;
-            border-top: 1px solid #ccc;
-        }
-        
-        /* Tag Cloud Styles */
-        .tag-cloud {
-            display: flex;
-            justify-content: center;
-        }
-        .cloud {
-            list-style: none;
-            padding-left: 0;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            line-height: 2.75rem;
-            max-width: 900px;
-        }
-        ul.cloud a {
-            --size: 4;
-            --color: #817c8198;
-            color: var(--color);
-            font-size: calc(var(--size) * 0.2rem + 0.1rem);
-            display: block;
-            padding: 0.105rem 0.105rem;
-            position: relative;
-            text-decoration: none;
-            border-bottom: none;
-        }
-        ul.cloud a[data-weight="1"] { --size: 1; }
-        ul.cloud a[data-weight="2"] { --size: 2; }
-        ul.cloud a[data-weight="3"] { --size: 3; }
-        ul.cloud a[data-weight="4"] { --size: 4; }
-        ul.cloud a[data-weight="5"] { --size: 6; }
-        ul.cloud a[data-weight="6"] { --size: 8; }
-        ul.cloud a[data-weight="7"] { --size: 10; }
-        ul.cloud a[data-weight="8"] { --size: 16; }
-        ul[data-show-value] a::after {
-            content: " (" attr(data-weight) ")";
-            font-size: 1rem;
-        }
-        ul.cloud li:nth-child(2n+1) a { color: #3D5A80; } 
-        ul.cloud li:nth-child(3n+1) a { color: #98C1D9; } 
-        ul.cloud li:nth-child(4n+1) a { color: #008185b0; } 
-        ul.cloud a:focus {
-            outline: 1px dashed;
-        }
-        ul.cloud a::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0%;
-            width: 0;
-            height: 0%;
-            background: var(--color);
-            transform: translate(-50%, 0);
-            opacity: 0.15;
-            transition: width 0.25s;
-        }
-        ul.cloud a:focus::before,
-        ul.cloud a:hover::before {
-            width: 100%;
-        }
-
-        /* --- Experience Timeline Styles --- */
-        .experience-timeline {
-            position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* The vertical "track" line */
-        .experience-timeline::before {
-            content: '';
-            position: absolute;
-            top: 25px;
-            bottom: 210px;
-            width: 6px;
-            background-color: #ddd;
-            left: 230px; 
-            margin-left: -3px; 
-        }
-
-        /* Each item (job) on the timeline */
-        .timeline-item {
-            padding: 10px 0px 50px 280px; 
-            position: relative;
-        }
-
-        /* The circle "station" on the track */
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            left: 230px;
-            margin-left: -19px; 
-            background-color: white;
-            border: 4px solid #FF9F55;
-            top: 25px; 
-            border-radius: 50%;
-            z-index: 1;
-            transform: translateX(-50%); 
-        }
-
-        /* Container for the company logo */
-        .timeline-image-container {
-            position: absolute;
-            left: -20px;
-            top: 10px;
-            width: 230px; 
-            text-align: center;
-        }
-
-        /* The company logo image */
-        .experience-image {
-            width: 210px;
-            height: 210px;
-            border-radius: 15px;
-            border: 3px solid #eee;
-            padding: 5px;
-            object-fit: contain; 
-            background-color: #fff; 
-        }
-
-        /* NEW: Class for the image that spans multiple roles */
-        .experience-image-spanning {
-            height: 200px; 
-            object-position: top; 
-        }
-
-        /* The text content for each job */
-        .timeline-content {
-            position: relative;
-            background-color: #f9f9f9; 
-        }
-        .dark-theme .timeline-content {
-            background-color: #1a1a1a; 
-        }
-
-        /* Styling for the text elements inside the content box */
-        .timeline-content h2,
-        .timeline-content h5,
-        .timeline-content h6,
-        .timeline-content p {
-            margin: 0; 
-            text-align: left;
-        }
-
-        .timeline-content h6 {
-            color: #999;
-            font-size: 0.9em;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-
-        .timeline-content h2 {
-            font-size: 1.5em;
-            margin-bottom: 5px;
-        }
-
-        .timeline-content h5 {
-            color: #555;
-            margin-bottom: 15px;
-            font-style: italic;
-        }
-        .dark-theme .timeline-content h5 {
-            color: #ccc;
-        }
-
-        .timeline-content p {
-            font-family: sans-serif;
-            font-size: 14px;
-            line-height: 1.6;
-            letter-spacing: 0.5px;
-            text-align: justify;
-        }
-
-        /* --- Responsive styles for the new timeline --- */
-        @media screen and (max-width: 768px) {
-            .experience-timeline::before {
-                left: 30px; 
-            }
-
-            .timeline-item {
-                padding-left: 70px; 
-                padding-right: 15px;
-            }
-
-            .timeline-item::before {
-                left: 30px; 
-            }
-
-            .timeline-image-container {
-                display: none;
-            }
-        }
-        
-        /* --- Education Section --- */
-        .education-entry {
-            position: relative; 
-            margin-bottom: 50px;
-            text-align: center;
-        }
-
-        .college-image {
-            position: relative; 
-            width: 580px;
-            height: 350px;
-            left: 20%;
-
-            margin: 0 auto 50px; 
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .education-details {
-            position: absolute; 
-            top: 50%; 
-            left: 37%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(255, 255, 255, 0.7); 
-            padding: 20px;
-            z-index: 1;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 600px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: left;
-            margin-top: -0px;
-        }
-
-        /* RULE to flip the text to the right side */
-        .education-entry.flipped .education-details {
-            left: 65%;
-        }
-        
-        /* CORRECTED RULE to flip the image to the left side */
-        .education-entry.flipped .college-image {
-            left: auto;
-            right: 20%;
-        }
-
-        .project-title,
-        .project-description {
-            color: black;
-        }
-        a.project-entry {
-            text-decoration: none;
-        }
-
-        /* This makes sure the text turns white in dark mode */
-        .dark-theme .project-title,
-        .dark-theme .project-description {
-            color: white;
-        }
-
-        .education-details h3,
-        .education-details h4 {
-            margin: 10px 0;
-            color: #333;
-        }
-        .no-circle::before {
-            display: none;
-        }
-
-        .education-details p {
-            margin: 5px 0;
-            color: #666;
-        }
-
-        /* ------------------------------------------------ */
-        /* --- CHATBOT STYLES (Updated for Black/Grey) ---- */
-        /* ------------------------------------------------ */
-
-    /* ------------------------------------------------ */
-/* --- CHATBOT STYLES (Refined White–Grey–Black) --- */
-/* ------------------------------------------------ */
+/* ========== NEW CHATBOT STYLES ========== */
 
 .chat-widget-container {
   position: fixed;
@@ -714,6 +132,7 @@
   pointer-events: none;
 }
 
+/* Header */
 .chat-header {
   background: #111;
   color: #f9f9f9;
@@ -933,411 +352,167 @@
 .loading-dots.visible {
   display: block;
 }
+</style>
+</head>
 
-    
-    <!-- ------------------------------------------------------------------ -->
-    <!-- CHATBOT IMPLEMENTATION (HTML & JavaScript) -->
-    <!-- ------------------------------------------------------------------ -->
+<body>
 
-    <div class="chat-widget-container">
-        <!-- Chat Icon (The button the user clicks) -->
-        <div class="chat-icon" id="chat-icon-toggle">
-            <i class="fas fa-robot"></i>
-        </div>
-        
-        <!-- Chat Window -->
-        <div class="chat-window hidden" id="chat-window">
-            
-            <!-- Chat Header -->
-            <div class="chat-header">
-                Chat with Tejaswini's AI
-                <button onclick="toggleChatWindow(false)"><i class="fas fa-times"></i></button>
-            </div>
+<nav>
+  <div>💡</div>
+  <div>
+    <a href="#About">About</a>
+    <a href="#Projects">Projects</a>
+    <a href="#Skills">Skills</a>
+    <a href="#Contact">Contact</a>
+  </div>
+</nav>
 
-            <!-- Login Screen -->
-            <div class="chat-login-form" id="chat-login-form">
-                <h3 style="color: #1a1a1a;">Welcome!</h3>
-                <input type="text" id="user-name" placeholder="What's your name?" style="text-align: center;" required>
-                <input type="email" id="user-email" placeholder="you@example.com" style="text-align: center;" required>
-                <button onclick="startChat()">Start Chat</button>
-            </div>
-            
-            <!-- Chat Conversation Area -->
-            <div class="chat-body hidden" id="chat-body">
-                <!-- Messages go here -->
-                <div class="loading-dots" id="loading-dots">
-                    <span>.</span><span>.</span><span>.</span>
-                </div>
-            </div>
+<header>
+  <img src="images/tejaswini.jpeg" alt="Tejaswini Parlapalli">
+  <h1>Tejaswini Parlapalli</h1>
+  <p>
+    Hi, I’m a data enthusiast with 6 years of experience in analytics,
+    focused on building and deploying machine learning models. I love
+    turning complex data into clear insights — welcome to my portfolio!
+  </p>
+</header>
 
-            <!-- Chat Input -->
-            <div class="chat-input-area hidden" id="chat-input-area">
-                <!-- NEW: Prompt Buttons Container -->
-                <div id="chat-prompts">
-                    <!-- Buttons will be dynamically loaded here by the JS -->
-                </div>
+<footer id="Contact">
+  <p>Designed and built by <strong>Tejaswini Parlapalli</strong></p>
+</footer>
 
-                <div class="chat-input-controls">
-                    <input type="text" id="user-input" placeholder="Write your message here" onkeydown="handleInputKey(event)">
-                    <button onclick="sendMessage()"><i class="fas fa-arrow-up"></i></button> <!-- CHANGED ICON TO ARROW-UP -->
-                </div>
-            </div>
-        </div>
+<!-- ================== CHATBOT ================== -->
+<div class="chat-widget-container">
+  <div class="chat-icon" id="chat-icon-toggle">
+    <i class="fas fa-robot"></i>
+  </div>
+
+  <div class="chat-window hidden" id="chat-window">
+    <div class="chat-header">
+      Chat with Tejaswini's AI
+      <button onclick="toggleChatWindow(false)"><i class="fas fa-times"></i></button>
     </div>
 
-    <script>
-        // Store portfolio content globally
-        const portfolioContent = `
-            Hi! I'm Tejaswini Parlapalli, a data enthusiast with 6 years of experience in analytics, focused on building and deploying machine learning models. 
-            
-            Experience:
-            - Apr 2023 - Present: Sr. Data Scientist at Rivian. Key achievements include implementing predictive ML models (Linear Regression, Random Forest, Gradient Boosting) to forecast resource shortages, optimizing demand forecasting (SVM, Bayesian methods), and enhancing inventory allocation using ML classification (XGBoost, LightGBM). I also implemented a Reinforcement Learning (Q-Learning) system.
-            - Aug 2022 - May 2023: Data Scientist at IU Marketing Analytics. Enhanced API connector performance with Alteryx ETL, optimized pipeline development with Hive and Spark, and implemented GA4 processes for improved marketing effectiveness.
-            - Aug 2021 - Apr 2022: Research Assistant at Indiana University. Pioneered ML & DL techniques for age determination from images (78.3% precision) and failure mode prediction using NLP (FastText), enhancing quality metrics by 53%.
-            - Jun 2022 - Aug 2022: Data Scientist at EMC Insurance Group. Achieved 60.1% damage prediction rate using regression models (Random Forest, Gradient Boost, XGBoost) and integrated BERT for 10% improvement in analysis accuracy.
-            - Dec 2019 - Jul 2021: Business Intelligence Analyst at Deloitte. Developed Oracle Cloud RDBMS framework, optimized data processes with MySQL, Python, and Bash, and conducted trend analysis with >85% accuracy.
-            - Dec 2019 - Jul 2019: Data Scientist at Amazon (Role similar to Deloitte, focus on Oracle Cloud RDBMS, MySQL, Python).
+    <!-- Login Form -->
+    <div class="chat-login-form" id="chat-login-form">
+      <h3>Welcome!</h3>
+      <input type="text" id="user-name" placeholder="What's your name?" required>
+      <input type="email" id="user-email" placeholder="you@example.com" required>
+      <button onclick="startChat()">Start Chat</button>
+    </div>
 
-            Skills:
-            - Languages: Python, R, SQL, HTML, CSS
-            - ML/Data Science: Predictive Modeling, Data Science, Data Mining, Exploratory Data Analysis, Natural Language Processing (NLP), Computer Vision, Machine Learning, Deep Learning & AI, Statistics.
-            - Tools/Platforms: AWS, GCP, Tableau, Power BI, Google Analytics, Adobe Analytics, Git, Hive, Databricks, Datorama, Spark, Snowflake, Alteryx, Big Query.
-            
-            Projects:
-            - Age Gender detection system (CNN and RNN deep learning)
-            - Analysis of Airline Passenger satisfaction (R Studio, LDA, QDA)
-            - Zonal Accident Risk Prediction system (linear regression, random forest)
-            - IU Commuter Pass (web app for carpooling)
-            - John snows cholera map visualization (D3.js)
-        `;
+    <!-- Chat Body -->
+    <div class="chat-body hidden" id="chat-body">
+      <div class="loading-dots" id="loading-dots">
+        <span>.</span><span>.</span><span>.</span>
+      </div>
+    </div>
 
-        // NEW: Array of funny/witty fallback responses
-        const funnyFallbacks = [
-            "That's a fascinating question! Unfortunately, I only have Tejaswini's portfolio data. Maybe ask me about her time at Rivian instead?",
-            "Hmm, that's beyond my data matrix. I'm afraid I only specialize in ML models and data analysis. Try something about **Python** or **Spark**!",
-            "Error 404: Fun Fact Not Found! My knowledge is limited to Tejaswini's professional life. Want to hear about her biggest project?",
-            "My processors are drawing a blank on that one. I'm literally a portfolio bot. Can I tell you about her **data science skills**?",
-            "Let's stick to the script! I'm here to talk about *Tejaswini*. What part of her **experience** or **skills** interests you most?"
-        ];
+    <!-- Input -->
+    <div class="chat-input-area hidden" id="chat-input-area">
+      <div id="chat-prompts"></div>
+      <div class="chat-input-controls">
+        <input type="text" id="user-input" placeholder="Write your message here" onkeydown="handleInputKey(event)">
+        <button onclick="sendMessage()"><i class="fas fa-arrow-up"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
 
-        // NEW: Array of compliment responses
-        const complimentResponses = [
-            "Thank you! Tejaswini put a lot of work into the design. What piece of her **experience** can I highlight for you?",
-            "That's kind of you to say! I'm glad you like it. Is there a specific **project** you'd like to dive into?",
-            "I'll be sure to pass that compliment along! What aspect of Tejaswini's background caught your eye the most?",
-            "Much appreciated! My main goal is to make Tejaswini's career details easy to explore. Where should we start?"
-        ];
+<!-- ================== SCRIPT ================== -->
+<script>
+const chatWindow = document.getElementById('chat-window');
+const chatIcon = document.getElementById('chat-icon-toggle');
+const chatBody = document.getElementById('chat-body');
+const chatInputArea = document.getElementById('chat-input-area');
+const chatLoginForm = document.getElementById('chat-login-form');
+const userInput = document.getElementById('user-input');
+const loadingDots = document.getElementById('loading-dots');
+const chatPromptsContainer = document.getElementById('chat-prompts');
 
-        // NEW: Pre-generated prompts for quick questions
-        const quickPrompts = [
-            "Experience",
-            "Skills",
-            "Projects",
-            "About" // Replaced GPA with About
-        ];
-        
-        let chatHistory = [];
-        let userName = '';
-        let userEmail = '';
-        let isChatActive = false;
-        let promptCount = 0; // NEW: Counter for prompts
-        
-        const chatWindow = document.getElementById('chat-window');
-        const chatIcon = document.getElementById('chat-icon-toggle');
-        const chatBody = document.getElementById('chat-body');
-        const chatInputArea = document.getElementById('chat-input-area');
-        const chatLoginForm = document.getElementById('chat-login-form');
-        const userInput = document.getElementById('user-input');
-        const loadingDots = document.getElementById('loading-dots');
-        const chatPromptsContainer = document.getElementById('chat-prompts'); // NEW container reference
-        
-        // --- API Setup ---
-        // REMOVED ALL API RELATED CONSTANTS
-        
-        // --- Utility Functions ---
+let userName = '';
+let userEmail = '';
+let isChatActive = false;
 
-        /** Toggles the chat window open/closed */
-        function toggleChatWindow(show) {
-            if (show !== undefined) {
-                chatWindow.classList.toggle('hidden', !show);
-            } else {
-                chatWindow.classList.toggle('hidden');
-            }
-        }
-        
-        /** Appends a message to the chat body */
-        function appendMessage(text, sender) {
-            const messageElement = document.createElement('div');
-            messageElement.classList.add('message');
-            messageElement.classList.add(sender === 'user' ? 'user-message' : 'ai-message');
-            
-            // Basic markdown-like formatting (bolding)
-            const formattedText = text
-                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                .replace(/\*(.*?)\*/g, '<em>$1</em>');
+const quickPrompts = ["Experience", "Skills", "Projects", "About"];
 
-            messageElement.innerHTML = formattedText;
-            chatBody.appendChild(messageElement);
-            chatBody.scrollTop = chatBody.scrollHeight; // Scroll to bottom
-            
-            // NEW: Push to history
-            chatHistory.push({ sender, text });
-        }
+function toggleChatWindow(show) {
+  if (show !== undefined) {
+    chatWindow.classList.toggle('hidden', !show);
+  } else {
+    chatWindow.classList.toggle('hidden');
+  }
+}
 
-        // NEW: Function to render the quick prompt buttons
-        function renderQuickPrompts() {
-            chatPromptsContainer.innerHTML = ''; // Clear existing buttons
-            quickPrompts.forEach(promptText => {
-                const button = document.createElement('button');
-                button.classList.add('prompt-button');
-                button.textContent = promptText;
-                button.onclick = () => sendPrompt(promptText);
-                chatPromptsContainer.appendChild(button);
-            });
-        }
-        
-        // NEW: Function to handle sending a message when a prompt button is clicked
-        function sendPrompt(promptText) {
-            userInput.value = promptText;
-            sendMessage();
-        }
-        
-        /** NEW: Helper to get the AI's last question for contextual 'yes' answers */
-        function getLastAiQuestion() {
-            for (let i = chatHistory.length - 1; i >= 0; i--) {
-                if (chatHistory[i].sender === 'ai' && chatHistory[i].text.includes('?')) {
-                    // This is a simple logic to extract the core question asked by the bot.
-                    // We only need the text of the last AI message
-                    return chatHistory[i].text.toLowerCase();
-                }
-            }
-            return null;
-        }
+function appendMessage(text, sender) {
+  const messageElement = document.createElement('div');
+  messageElement.classList.add('message', sender === 'user' ? 'user-message' : 'ai-message');
+  messageElement.innerHTML = text;
+  chatBody.appendChild(messageElement);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
 
-        /** Simple pattern matching for static responses */
-        function generateStaticResponse(query) {
-            query = query.toLowerCase();
-            const content = portfolioContent.toLowerCase();
-            
-            let response = "";
-            let lastQuestion = getLastAiQuestion();
+function renderQuickPrompts() {
+  chatPromptsContainer.innerHTML = '';
+  quickPrompts.forEach(promptText => {
+    const button = document.createElement('button');
+    button.classList.add('prompt-button');
+    button.textContent = promptText;
+    button.onclick = () => sendPrompt(promptText);
+    chatPromptsContainer.appendChild(button);
+  });
+}
 
-            // --- 0. Check for greetings, thanks, or compliments ---
-            if (query.match(/^(hello|hi|hey|greetings)$/i)) {
-                return `Hello, ${userName}! I'm Tejaswini's AI assistant, ready to answer questions about Tejaswini. What can I tell you?`;
-            }
-            if (query.includes("thanks") || query.includes("thank you") || query.includes("ok") || query.includes("bye")) {
-                return "You got it! Feel free to reach out via the contact information provided if you have any further questions for Tejaswini. Have a great day!";
-            }
-            if (query.includes("nice portfolio") || query.includes("great job") || query.includes("awesome") || query.includes("cool")) {
-                const randomIndex = Math.floor(Math.random() * complimentResponses.length);
-                return complimentResponses[randomIndex];
-            }
+function sendPrompt(promptText) {
+  userInput.value = promptText;
+  sendMessage();
+}
 
+function sendMessage() {
+  const userMessage = userInput.value.trim();
+  if (!userMessage || !isChatActive) return;
 
-            // --- 1. Check for simple yes/no confirmations ---
-            if (query.match(/^(yes|yep|yeah)$/i)) {
-                if (lastQuestion) {
-                    // Try to answer based on the previous question asked by the bot
-                    if (lastQuestion.includes("ask me about her time at rivian")) {
-                         response = "Absolutely! Tejaswini is currently a **Sr. Data Scientist at Rivian** (Apr 2023 - Present). Her work involves implementing predictive ML models for resource forecasting and enhancing inventory allocation using advanced ML classification models.";
-                    } else if (lastQuestion.includes("her biggest project")) {
-                         response = "Tejaswini's biggest project is likely her Sr. Data Scientist role at **Rivian**, where she implemented a Reinforcement Learning (Q-Learning) system, earning a Leadership Innovation Award.";
-                    } else if (lastQuestion.includes("data science skills")) {
-                         response = "Excellent! Tejaswini's top data science skills include **Predictive Modeling**, **Natural Language Processing (NLP)**, **Computer Vision**, and proficiency in **Python**, **R**, and **SQL**.";
-                    } else {
-                         response = "Great! I'm happy to provide more detail on that topic. What specific aspect should I focus on?";
-                    }
-                } else {
-                    response = "Great! I'm happy to provide more detail on that topic. What specific aspect should I focus on?";
-                }
-            } else if (query.match(/^(no|nope)$/i)) {
-                 response = "Understood. Is there another area of Tejaswini's work—like her **projects** or **skills**—that I can explain instead?";
-            }
+  appendMessage(userMessage, 'user');
+  userInput.value = '';
 
+  loadingDots.classList.add('visible');
+  setTimeout(() => {
+    loadingDots.classList.remove('visible');
+    appendMessage(generateResponse(userMessage), 'ai');
+  }, 700);
+}
 
-            if (response !== "") return response; // If answered in confirmation block, return immediately
-            
-            // --- 2. Check for general Experience and Contact queries ---
-            if (query.includes("contact")) {
-                return "Tejaswini can be reached via her **professional email (parlapallitejaswini283@gmail.com)**, on **LinkedIn**, or through her **GitHub** and **LeetCode** profiles. All links are available in the footer and the fixed sidebar.";
-            }
+function generateResponse(query) {
+  const q = query.toLowerCase();
+  if (q.includes('experience')) return "Tejaswini has 6 years of data science experience — Rivian, Deloitte, and IU projects.";
+  if (q.includes('skills')) return "Her skills include Python, R, SQL, AWS, GCP, and machine learning.";
+  if (q.includes('projects')) return "Check out her projects: Age-Gender Detection, Airline Satisfaction, and more!";
+  if (q.includes('about')) return "Tejaswini is a data enthusiast passionate about analytics and machine learning.";
+  return "I'm here to answer questions about Tejaswini — try 'experience', 'skills', or 'projects'!";
+}
 
-            if (query.includes("experience") || query.includes("work")) {
-                return "Tejaswini has 6 years of experience, holding roles as a **Sr. Data Scientist** at Rivian, a **Data Scientist** at IU Marketing Analytics, and a **Business Intelligence Analyst** at Deloitte. Which company are you most interested in?";
-            }
-            
-            // NEW: About Query
-            if (query.includes("about")) {
-                return "Tejaswini is a highly motivated data enthusiast with **6 years of experience in analytics**, specializing in building and deploying machine learning models. She balances her analytical thinking with a passion for creative pursuits like reading, exploring local food, and singing.";
-            }
+function handleInputKey(event) {
+  if (event.key === 'Enter') sendMessage();
+}
 
+window.startChat = function() {
+  userName = document.getElementById('user-name').value.trim();
+  userEmail = document.getElementById('user-email').value.trim();
+  if (!userName || !userEmail) return alert("Please enter your name and email!");
 
-            // --- 3. Check for specific topic questions (Companies/Education) ---
-            if (query.includes("rivian") || query.includes("deloitte") || query.includes("emc") || query.includes("amazon") || query.includes("iu marketing") || query.includes("indiana university") || query.includes("jawaharlal nehru")) {
-                if (query.includes("rivian")) {
-                    response = "Tejaswini is currently a **Sr. Data Scientist at Rivian** (Apr 2023 - Present). Her role is focused on predictive ML models (forecasting, demand optimization) and enhancing inventory allocation, including implementing a Reinforcement Learning (Q-Learning) system.";
-                } else if (query.includes("deloitte")) {
-                    response = "Tejaswini was a **Business Intelligence Analyst at Deloitte** (Dec 2019 - Jul 2021), where she developed an Oracle Cloud RDBMS framework and optimized data processes using **MySQL**, **Python**, and **Bash** scripts.";
-                } else if (query.includes("emc")) {
-                    response = "Tejaswini worked as a **Data Scientist at EMC Insurance Group** (Jun 2022 - Aug 2022), achieving a **60.1% damage prediction rate** using regression models (Random Forest, XGBoost) and integrating BERT for analysis accuracy.";
-                } else if (query.includes("amazon")) {
-                    response = "Tejaswini had a **Data Scientist role at Amazon** (Dec 2019 - Dec 2019) focused on RDBMS migration and data process optimization using **Python** and **MySQL**.";
-                } else if (query.includes("indiana university") || query.includes("iupui")) {
-                    response = "Tejaswini earned her Masters in **Applied Data Science** from **Indiana University Purdue University Indianapolis (IUPUI)** with a GPA of 3.8. Her coursework included Machine Learning, Deep Learning, and Cloud computing.";
-                } else if (query.includes("jawaharlal nehru") || query.includes("gnits")) {
-                    response = "Tejaswini holds a Bachelors in **Electronics Engineering** from **Jawaharlal Nehru Technological University (JNTU)** with a 4.0 GPA, covering courses like **C**, **Java**, **Matlab**, and Database management.";
-                } else {
-                    response = "Tejaswini has held roles at Rivian, Deloitte, EMC, and Amazon, and earned degrees from Indiana University and JNTU. Which organization can I provide details on?";
-                }
-            // --- 4. Check for specific topic questions (Skills/Projects) ---
-            } else if (query.includes("skill") || query.includes("tech") || query.includes("tools") || query.includes("coding") || query.includes("python") || query.includes("sql") || query.includes("r") || query.includes("aws") || query.includes("gcp") || query.includes("gpa") || query.includes("about")) {
-                 if (query.includes("python")) {
-                     response = "Tejaswini is highly proficient in **Python**, utilizing it for predictive ML models, scripting data processes (at Deloitte), and various data science tasks.";
-                 } else if (query.includes("sql")) {
-                     response = "Tejaswini has extensive experience with **SQL** (and RDBMS frameworks like Oracle Cloud/MySQL), crucial for data management and migration roles.";
-                 } else if (query.includes("r")) {
-                     response = "Tejaswini uses **R** for statistical learning and data visualization, particularly highlighted in her Data Analytics coursework.";
-                 } else if (query.includes("aws") || query.includes("gcp") || query.includes("cloud")) {
-                     response = "Tejaswini is experienced with **AWS** (Redshift, Snowflake) and **GCP** (Big Query), using them for cloud data platforms and optimizing hyperparameters for ML models.";
-                 } else if (query.includes("gpa")) {
-                    response = "Tejaswini achieved a **3.8 GPA** for her Masters degree and a **4.0 GPA** for her Bachelors degree.";
-                } else if (query.includes("about")) { // New explicit handler for the 'About' button
-                    return "Tejaswini is a data enthusiast with **6 years of experience in analytics**, specializing in building and deploying machine learning models. She also enjoys reading, exploring local food, and singing.";
-                } else if (query.includes("skills")) {
-                     response = "Tejaswini's skills span **ML/Data Science**, **Cloud Platforms (AWS, GCP)**, and **Programming Languages (Python, SQL, R)**. What specific area are you interested in?";
-                 } else {
-                    response = "Tejaswini's skills span **ML/Data Science**, **Cloud Platforms (AWS, GCP)**, and **Programming Languages (Python, SQL, R)**. What specific area are you interested in?";
-                }
-            } else if (query.includes("project") || query.includes("built")) {
-                response = "Tejaswini's projects include an **Age Gender Detection System** (using CNN/RNN), **Analysis of Airline Passenger satisfaction**, a **Zonal Accident Risk Prediction system**, and a **John Snow Cholera Map visualization** (using D3.js).";
-            } else if (query.includes("who are you") || query.includes("tejaswini")) {
-                response = `I am the AI assistant for Tejaswini Parlapalli's portfolio. I have access to all her **experience**, **skills**, and **projects**. Ask me anything about her background!`;
-            } 
-            
-            // --- 5. Final Fallback ---
-            if (response === "") {
-                const randomIndex = Math.floor(Math.random() * funnyFallbacks.length);
-                response = funnyFallbacks[randomIndex];
-            }
+  chatLoginForm.style.display = 'none';
+  chatBody.classList.remove('hidden');
+  chatInputArea.classList.remove('hidden');
+  isChatActive = true;
 
-            return response;
-        }
+  renderQuickPrompts();
+  appendMessage(`Hey ${userName}! I'm Tejaswini's AI assistant. Ask me anything.`, 'ai');
+};
 
-        /** Handles sending user message and generating a static, local response */
-        async function sendMessage() {
-            const userMessage = userInput.value.trim();
-            if (!userMessage || !isChatActive) return;
-
-            // 1. Display user message
-            appendMessage(userMessage, 'user');
-            userInput.value = '';
-            
-            // 2. Increment prompt count (only count user messages)
-            promptCount++;
-
-            // 3. Show loading dots for simulation
-            loadingDots.classList.add('visible');
-            chatBody.scrollTop = chatBody.scrollHeight;
-            
-            // 4. Simulate network latency
-            await new Promise(resolve => setTimeout(resolve, 800)); 
-
-            // 5. Generate local response
-            const responseText = generateStaticResponse(userMessage);
-
-            // 6. Hide loading dots
-            loadingDots.classList.remove('visible');
-
-            // 7. Display AI message
-            appendMessage(responseText, 'ai');
-            
-            // 8. NEW: Check if it's time for the final prompt (after 3 meaningful prompts)
-            if (promptCount >= 5) {
-                 await new Promise(resolve => setTimeout(resolve, 1000)); 
-                 const finalMessage = `I hope I've been able to answer your questions! If you need more detailed information or wish to discuss a role, please feel free to **get in touch with Tejaswini directly** via her contact methods listed in the footer and sidebar. Thank you!`;
-                 appendMessage(finalMessage, 'ai');
-                 // Resetting promptCount for continuous chat, if desired, but making the final message conclusive.
-                 promptCount = 0; 
-            }
-        }
-        
-        /** Handles the Enter key press in the input field */
-        function handleInputKey(event) {
-            if (event.key === 'Enter') {
-                sendMessage();
-            }
-        }
-
-        // --- Event Listeners ---
-        
-        // Show/hide chat window when icon is clicked
-        chatIcon.addEventListener('click', () => {
-            toggleChatWindow();
-            if (chatWindow.classList.contains('hidden')) {
-                // If closing, clear the chat history optionally
-                // chatHistory = [];
-            } else {
-                // If opening, render prompts if the chat is active
-                if (isChatActive) {
-                    renderQuickPrompts();
-                }
-            }
-        });
-
-        // Use custom message instead of alert
-        function alert(message) {
-            const chatHeader = document.querySelector('.chat-header');
-            const alertBox = document.createElement('div');
-            alertBox.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; padding: 10px; background-color: #FFFFFF; color: black; text-align: center; border-radius: 12px 12px 0 0; z-index: 10; font-size: 14px;';
-            alertBox.textContent = message;
-            chatWindow.prepend(alertBox);
-            setTimeout(() => {
-                alertBox.remove();
-            }, 3000);
-        }
-        
-        /** Handles starting the chat after name/email input */
-        window.startChat = function() {
-            // Get values and immediately trim whitespace
-            userName = document.getElementById('user-name').value.trim();
-            userEmail = document.getElementById('user-email').value.trim();
-
-            // Check if both fields are non-empty after trimming
-            if (userName.length === 0 || userEmail.length === 0) {
-                alert('Please enter your name and email to start the chat.');
-                return;
-            }
-            
-            // NEW: Email validation for common email extensions
-            const validEmailRegex = /@.*\.\w{2,4}$/i;
-            if (!validEmailRegex.test(userEmail)) {
-                alert('Please use a valid email address (e.g., user@domain.com) to start the chat.');
-                return;
-            }
-            
-            // FIX: Hide login form explicitly
-            chatLoginForm.style.display = 'none'; 
-            
-            // Show chat interface
-            chatBody.classList.remove('hidden');
-            chatInputArea.classList.remove('hidden');
-            isChatActive = true;
-            promptCount = 0; // Reset counter on chat start
-            
-            // Render the prompt buttons right after chat starts
-            renderQuickPrompts();
-            
-            // Initial greeting from the bot (simulating 3rd image)
-            const initialBotMessage = `Hey ${userName}! I'm  Tejaswini's AI assistant, here to help you — ask me anything!`;
-            
-            appendMessage(initialBotMessage, 'ai');
-        };
-        
-        // Initial call to set up the prompts (they will be hidden until chat starts)
-        renderQuickPrompts();
-        
-    </script>
+chatIcon.addEventListener('click', () => {
+  toggleChatWindow();
+  if (!chatWindow.classList.contains('hidden') && isChatActive) renderQuickPrompts();
+});
+</script>
 </body>
 </html>
-
