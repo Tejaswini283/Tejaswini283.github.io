@@ -651,7 +651,7 @@
         }
 
         /* ------------------------------------------------ */
-        /* --- CHATBOT STYLES (New) ----------------------- */
+        /* --- CHATBOT STYLES (Updated for Black/Grey) ---- */
         /* ------------------------------------------------ */
 
         .chat-widget-container {
@@ -666,7 +666,7 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background-color: #FF9F55;
+            background-color: #1a1a1a; /* Black background for icon */
             color: white;
             display: flex;
             align-items: center;
@@ -713,7 +713,7 @@
 
         /* Header */
         .chat-header {
-            background-color: #1a1a1a;
+            background-color: #1a1a1a; /* Black Header */
             color: #fff;
             padding: 15px;
             font-size: 16px;
@@ -744,7 +744,7 @@
             flex-grow: 1;
             padding: 15px;
             overflow-y: auto;
-            background-color: #f0f0f0;
+            background-color: #f5f5f5; /* Light grey background for conversation */
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -767,15 +767,15 @@
         }
 
         .ai-message {
-            background-color: #e0f7fa; /* Light cyan/blue */
-            color: #000;
+            background-color: #e0e0e0; /* Light grey for bot messages */
+            color: #1a1a1a; /* Black text */
             align-self: flex-start;
             border-bottom-left-radius: 5px;
         }
 
         .user-message {
-            background-color: #FF9F55; /* Orange accent */
-            color: #fff;
+            background-color: #424242; /* Dark grey for user messages */
+            color: #fff; /* White text */
             align-self: flex-end;
             border-bottom-right-radius: 5px;
         }
@@ -783,8 +783,14 @@
         /* Input Area */
         .chat-input-area {
             display: flex;
+            flex-direction: column; /* Changed to column to stack prompts and input */
             padding: 10px;
             border-top: 1px solid #ddd;
+        }
+
+        .chat-input-controls {
+            display: flex;
+            width: 100%;
         }
 
         .chat-input-area input {
@@ -796,11 +802,12 @@
             outline: none;
         }
 
+        /* *** Send Button Styling (Arrow icon and color) *** */
         .chat-input-area button {
-            background-color: #FF9F55;
+            background-color: #1a1a1a; /* Black send button */
             color: white;
             border: none;
-            border-radius: 20px;
+            border-radius: 50%; /* Changed to circle */
             width: 40px;
             height: 40px;
             cursor: pointer;
@@ -808,10 +815,54 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 18px; /* Larger icon */
         }
 
         .chat-input-area button:hover {
-            background-color: #e68a44;
+            background-color: #424242; /* Dark grey hover */
+        }
+
+        /* --- New Prompt Styling (RECTANGLES, CUTE & IN-LINE) --- */
+        #chat-prompts {
+            display: flex;
+            flex-wrap: nowrap; /* Forces items onto one line */
+            gap: 8px; /* Reduced gap for sleeker look */
+            padding-bottom: 10px;
+            overflow-x: scroll; /* Enables horizontal scrolling */
+            -webkit-overflow-scrolling: touch; 
+            scrollbar-width: none;
+            margin-bottom: 8px;
+            /* Removed shadow to allow the element to blend cleanly */
+            box-shadow: none; 
+        }
+
+        #chat-prompts::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for Chrome/Safari */
+        }
+
+        .prompt-button {
+            /* Sleek, cute rectangular styling */
+            flex-shrink: 0; /* Prevents shrinking */
+            min-width: 80px; /* Minimum width to make sure content fits */
+            padding: 8px 12px; 
+            height: auto; 
+            
+            background-color: #3a3a3a; /* Darker grey background */
+            color: #fff; /* White text */
+            border: 1px solid #555; 
+            border-radius: 20px; /* Rounded pill shape for 'cute' rectangles */
+            
+            font-size: 13px;
+            line-height: 1.2;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .prompt-button:hover {
+            background-color: #555555; /* Slightly lighter dark grey on hover */
+            transform: scale(1.02);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
 
         /* --- Login/Pre-Chat Form Styles (Matching Image) --- */
@@ -847,7 +898,7 @@
         .chat-login-form button {
             width: 100%;
             padding: 12px;
-            background-color: #1e88e5; /* A strong blue for the button */
+            background-color: #1a1a1a; /* Black login button */
             color: white;
             border: none;
             border-radius: 8px;
@@ -857,7 +908,7 @@
         }
 
         .chat-login-form button:hover {
-            background-color: #1565c0;
+            background-color: #424242; /* Dark grey hover */
         }
 
         /* Loading Indicator */
@@ -865,7 +916,7 @@
             align-self: flex-start;
             display: none;
             padding: 10px 15px;
-            background-color: #e0f7fa; 
+            background-color: #e0e0e0; /* Light grey for loading dots */
             border-radius: 15px;
             border-bottom-left-radius: 5px;
             font-size: 14px;
@@ -1119,7 +1170,7 @@
                         <li><a href="https://en.wikipedia.org/wiki/Databricks" data-weight="3">Databricks</a></li>
                         <li><a href="https://en.wikipedia.org/wiki/Datorama" data-weight="5">Datorama</a></li>
                         <li><a href="https://en.wikipedia.org/wiki/Apache_Spark" data-weight="8">Spark</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Snowflake_(data_company)" data-weight="7">Snowflake</a></li>
+                        <li><a href="https://enwikipedia.org/wiki/Snowflake_(data_company)" data-weight="7">Snowflake</a></li>
                         <li><a href="https://en.wikipedia.org/wiki/Alteryx" data-weight="6">Alteryx</a></li>
                         <li><a href="https://en.wikipedia.org/wiki/Google_BigQuery" data-weight="5">Big Query</a></li>
                         
@@ -1136,7 +1187,7 @@
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=parlapallitejaswini283@gmail.com" target="_blank">
                     <img src="https://img.icons8.com/ios-glyphs/30/000000/gmail.png" alt="Gmail">
                 </a>
-                <a href="https://github.com/Tejaswini283" target="_blank">
+                <a href="https://github.com="Tejaswini283" target="_blank">
                     <img src="https://img.icons8.com/ios-glyphs/30/000000/github.png" alt="GitHub">
                 </a>
                 <a href="https://www.linkedin.com/in/tejaswini-parlapalli/" target="_blank">
@@ -1157,7 +1208,7 @@
             <a href="https://mail.google.com/mail/?view=cm&fs=1&to=parlapallitejaswini283@gmail.com" target="_blank">
                 <img src="https://img.icons8.com/ios-glyphs/30/000000/gmail.png" alt="Gmail">
             </a>
-            <a href="https://github.com/Tejaswini283" target="_blank">
+            <a href="https://github.com="Tejaswini283" target="_blank">
                 <img src="https://img.icons8.com/ios-glyphs/30/000000/github.png" alt="GitHub">
             </a>
             <a href="https://www.linkedin.com/in/tejaswini-parlapalli/" target="_blank">
@@ -1191,7 +1242,7 @@
             
             <!-- Chat Header -->
             <div class="chat-header">
-                Conversation with Portfolio Bot
+                Chat with Tejaswini's AI
                 <button onclick="toggleChatWindow(false)"><i class="fas fa-times"></i></button>
             </div>
 
@@ -1213,8 +1264,15 @@
 
             <!-- Chat Input -->
             <div class="chat-input-area hidden" id="chat-input-area">
-                <input type="text" id="user-input" placeholder="Write your message here" onkeydown="handleInputKey(event)">
-                <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+                <!-- NEW: Prompt Buttons Container -->
+                <div id="chat-prompts">
+                    <!-- Buttons will be dynamically loaded here by the JS -->
+                </div>
+
+                <div class="chat-input-controls">
+                    <input type="text" id="user-input" placeholder="Write your message here" onkeydown="handleInputKey(event)">
+                    <button onclick="sendMessage()"><i class="fas fa-arrow-up"></i></button> <!-- CHANGED ICON TO ARROW-UP -->
+                </div>
             </div>
         </div>
     </div>
@@ -1230,7 +1288,7 @@
             - Aug 2021 - Apr 2022: Research Assistant at Indiana University. Pioneered ML & DL techniques for age determination from images (78.3% precision) and failure mode prediction using NLP (FastText), enhancing quality metrics by 53%.
             - Jun 2022 - Aug 2022: Data Scientist at EMC Insurance Group. Achieved 60.1% damage prediction rate using regression models (Random Forest, Gradient Boost, XGBoost) and integrated BERT for 10% improvement in analysis accuracy.
             - Dec 2019 - Jul 2021: Business Intelligence Analyst at Deloitte. Developed Oracle Cloud RDBMS framework, optimized data processes with MySQL, Python, and Bash, and conducted trend analysis with >85% accuracy.
-            - Dec 2019 - Dec 2019: Data Scientist at Amazon (Role similar to Deloitte, focus on Oracle Cloud RDBMS, MySQL, Python).
+            - Dec 2019 - Jul 2019: Data Scientist at Amazon (Role similar to Deloitte, focus on Oracle Cloud RDBMS, MySQL, Python).
 
             Skills:
             - Languages: Python, R, SQL, HTML, CSS
@@ -1244,11 +1302,37 @@
             - IU Commuter Pass (web app for carpooling)
             - John snows cholera map visualization (D3.js)
         `;
+
+        // NEW: Array of funny/witty fallback responses
+        const funnyFallbacks = [
+            "That's a fascinating question! Unfortunately, I only have Tejaswini's portfolio data. Maybe ask me about her time at Rivian instead?",
+            "Hmm, that's beyond my data matrix. I'm afraid I only specialize in ML models and data analysis. Try something about **Python** or **Spark**!",
+            "Error 404: Fun Fact Not Found! My knowledge is limited to Tejaswini's professional life. Want to hear about her biggest project?",
+            "My processors are drawing a blank on that one. I'm literally a portfolio bot. Can I tell you about her **data science skills**?",
+            "Let's stick to the script! I'm here to talk about *Tejaswini*. What part of her **experience** or **skills** interests you most?"
+        ];
+
+        // NEW: Array of compliment responses
+        const complimentResponses = [
+            "Thank you! Tejaswini put a lot of work into the design. What piece of her **experience** can I highlight for you?",
+            "That's kind of you to say! I'm glad you like it. Is there a specific **project** you'd like to dive into?",
+            "I'll be sure to pass that compliment along! What aspect of Tejaswini's background caught your eye the most?",
+            "Much appreciated! My main goal is to make Tejaswini's career details easy to explore. Where should we start?"
+        ];
+
+        // NEW: Pre-generated prompts for quick questions
+        const quickPrompts = [
+            "Experience",
+            "Skills",
+            "Projects",
+            "About" // Replaced GPA with About
+        ];
         
         let chatHistory = [];
         let userName = '';
         let userEmail = '';
         let isChatActive = false;
+        let promptCount = 0; // NEW: Counter for prompts
         
         const chatWindow = document.getElementById('chat-window');
         const chatIcon = document.getElementById('chat-icon-toggle');
@@ -1257,13 +1341,11 @@
         const chatLoginForm = document.getElementById('chat-login-form');
         const userInput = document.getElementById('user-input');
         const loadingDots = document.getElementById('loading-dots');
+        const chatPromptsContainer = document.getElementById('chat-prompts'); // NEW container reference
         
         // --- API Setup ---
-        // CRITICAL FIX: Changed the API call structure to bypass key/auth issues in the iframe.
-        const MODEL_NAME = "gemini-2.5-flash-preview-05-20";
-        // NOTE: Using the Google Generative Language URL directly without the model name in the path
-        const API_BASE_URL = `https://generativelanguage.googleapis.com/v1beta/models/`;
-
+        // REMOVED ALL API RELATED CONSTANTS
+        
         // --- Utility Functions ---
 
         /** Toggles the chat window open/closed */
@@ -1289,47 +1371,152 @@
             messageElement.innerHTML = formattedText;
             chatBody.appendChild(messageElement);
             chatBody.scrollTop = chatBody.scrollHeight; // Scroll to bottom
+            
+            // NEW: Push to history
+            chatHistory.push({ sender, text });
         }
 
-        /** Handles starting the chat after name/email input */
-        function startChat() {
-            userName = document.getElementById('user-name').value.trim();
-            userEmail = document.getElementById('user-email').value.trim();
-
-            if (!userName || !userEmail) {
-                // Use custom method instead of alert
-                alert('Please enter your name and email to start the chat.');
-                return;
-            }
-            
-            // FIX: Hide login form explicitly
-            chatLoginForm.style.display = 'none'; 
-            
-            // Show chat interface
-            chatBody.classList.remove('hidden');
-            chatInputArea.classList.remove('hidden');
-            isChatActive = true;
-            
-            // Initial greeting from the bot (simulating 3rd image)
-            const initialBotMessage = `Hey ${userName}! Thanks for sharing your email — ${userEmail}.
-I'm Botfolio, here to help with Tejaswini Parlapalli's portfolio — ask me anything!`;
-            
-            appendMessage(initialBotMessage, 'ai');
-            
-            // Initialize chat history with system instructions
-            const systemInstruction = `You are a helpful and engaging AI assistant named Botfolio, dedicated to answering questions about Tejaswini Parlapalli's portfolio and professional background.
-Your name is Botfolio. You must answer questions based ONLY on the following context about Tejaswini: 
-
-${portfolioContent}
-
-Maintain a friendly, professional, and knowledgeable tone. If you are asked something outside the context, politely state that your knowledge is limited to Tejaswini's portfolio.`;
-            
-            // Add initial exchange to history
-            chatHistory.push({ role: "user", parts: [{ text: "Hello! Please summarize your role and knowledge base." }] });
-            chatHistory.push({ role: "model", parts: [{ text: initialBotMessage }] });
+        // NEW: Function to render the quick prompt buttons
+        function renderQuickPrompts() {
+            chatPromptsContainer.innerHTML = ''; // Clear existing buttons
+            quickPrompts.forEach(promptText => {
+                const button = document.createElement('button');
+                button.classList.add('prompt-button');
+                button.textContent = promptText;
+                button.onclick = () => sendPrompt(promptText);
+                chatPromptsContainer.appendChild(button);
+            });
         }
         
-        /** Handles sending user message and fetching AI response */
+        // NEW: Function to handle sending a message when a prompt button is clicked
+        function sendPrompt(promptText) {
+            userInput.value = promptText;
+            sendMessage();
+        }
+        
+        /** NEW: Helper to get the AI's last question for contextual 'yes' answers */
+        function getLastAiQuestion() {
+            for (let i = chatHistory.length - 1; i >= 0; i--) {
+                if (chatHistory[i].sender === 'ai' && chatHistory[i].text.includes('?')) {
+                    // This is a simple logic to extract the core question asked by the bot.
+                    // We only need the text of the last AI message
+                    return chatHistory[i].text.toLowerCase();
+                }
+            }
+            return null;
+        }
+
+        /** Simple pattern matching for static responses */
+        function generateStaticResponse(query) {
+            query = query.toLowerCase();
+            const content = portfolioContent.toLowerCase();
+            
+            let response = "";
+            let lastQuestion = getLastAiQuestion();
+
+            // --- 0. Check for greetings, thanks, or compliments ---
+            if (query.match(/^(hello|hi|hey|greetings)$/i)) {
+                return `Hello, ${userName}! I'm Tejaswini's AI assistant, ready to answer questions about Tejaswini. What can I tell you?`;
+            }
+            if (query.includes("thanks") || query.includes("thank you") || query.includes("ok") || query.includes("bye")) {
+                return "You got it! Feel free to reach out via the contact information provided if you have any further questions for Tejaswini. Have a great day!";
+            }
+            if (query.includes("nice portfolio") || query.includes("great job") || query.includes("awesome") || query.includes("cool")) {
+                const randomIndex = Math.floor(Math.random() * complimentResponses.length);
+                return complimentResponses[randomIndex];
+            }
+
+
+            // --- 1. Check for simple yes/no confirmations ---
+            if (query.match(/^(yes|yep|yeah)$/i)) {
+                if (lastQuestion) {
+                    // Try to answer based on the previous question asked by the bot
+                    if (lastQuestion.includes("ask me about her time at rivian")) {
+                         response = "Absolutely! Tejaswini is currently a **Sr. Data Scientist at Rivian** (Apr 2023 - Present). Her work involves implementing predictive ML models for resource forecasting and enhancing inventory allocation using advanced ML classification models.";
+                    } else if (lastQuestion.includes("her biggest project")) {
+                         response = "Tejaswini's biggest project is likely her Sr. Data Scientist role at **Rivian**, where she implemented a Reinforcement Learning (Q-Learning) system, earning a Leadership Innovation Award.";
+                    } else if (lastQuestion.includes("data science skills")) {
+                         response = "Excellent! Tejaswini's top data science skills include **Predictive Modeling**, **Natural Language Processing (NLP)**, **Computer Vision**, and proficiency in **Python**, **R**, and **SQL**.";
+                    } else {
+                         response = "Great! I'm happy to provide more detail on that topic. What specific aspect should I focus on?";
+                    }
+                } else {
+                    response = "Great! I'm happy to provide more detail on that topic. What specific aspect should I focus on?";
+                }
+            } else if (query.match(/^(no|nope)$/i)) {
+                 response = "Understood. Is there another area of Tejaswini's work—like her **projects** or **skills**—that I can explain instead?";
+            }
+
+
+            if (response !== "") return response; // If answered in confirmation block, return immediately
+            
+            // --- 2. Check for general Experience and Contact queries ---
+            if (query.includes("contact")) {
+                return "Tejaswini can be reached via her **professional email (parlapallitejaswini283@gmail.com)**, on **LinkedIn**, or through her **GitHub** and **LeetCode** profiles. All links are available in the footer and the fixed sidebar.";
+            }
+
+            if (query.includes("experience") || query.includes("work")) {
+                return "Tejaswini has 6 years of experience, holding roles as a **Sr. Data Scientist** at Rivian, a **Data Scientist** at IU Marketing Analytics, and a **Business Intelligence Analyst** at Deloitte. Which company are you most interested in?";
+            }
+            
+            // NEW: About Query
+            if (query.includes("about")) {
+                return "Tejaswini is a highly motivated data enthusiast with **6 years of experience in analytics**, specializing in building and deploying machine learning models. She balances her analytical thinking with a passion for creative pursuits like reading, exploring local food, and singing.";
+            }
+
+
+            // --- 3. Check for specific topic questions (Companies/Education) ---
+            if (query.includes("rivian") || query.includes("deloitte") || query.includes("emc") || query.includes("amazon") || query.includes("iu marketing") || query.includes("indiana university") || query.includes("jawaharlal nehru")) {
+                if (query.includes("rivian")) {
+                    response = "Tejaswini is currently a **Sr. Data Scientist at Rivian** (Apr 2023 - Present). Her role is focused on predictive ML models (forecasting, demand optimization) and enhancing inventory allocation, including implementing a Reinforcement Learning (Q-Learning) system.";
+                } else if (query.includes("deloitte")) {
+                    response = "Tejaswini was a **Business Intelligence Analyst at Deloitte** (Dec 2019 - Jul 2021), where she developed an Oracle Cloud RDBMS framework and optimized data processes using **MySQL**, **Python**, and **Bash** scripts.";
+                } else if (query.includes("emc")) {
+                    response = "Tejaswini worked as a **Data Scientist at EMC Insurance Group** (Jun 2022 - Aug 2022), achieving a **60.1% damage prediction rate** using regression models (Random Forest, XGBoost) and integrating BERT for analysis accuracy.";
+                } else if (query.includes("amazon")) {
+                    response = "Tejaswini had a **Data Scientist role at Amazon** (Dec 2019 - Dec 2019) focused on RDBMS migration and data process optimization using **Python** and **MySQL**.";
+                } else if (query.includes("indiana university") || query.includes("iupui")) {
+                    response = "Tejaswini earned her Masters in **Applied Data Science** from **Indiana University Purdue University Indianapolis (IUPUI)** with a GPA of 3.8. Her coursework included Machine Learning, Deep Learning, and Cloud computing.";
+                } else if (query.includes("jawaharlal nehru") || query.includes("gnits")) {
+                    response = "Tejaswini holds a Bachelors in **Electronics Engineering** from **Jawaharlal Nehru Technological University (JNTU)** with a 4.0 GPA, covering courses like **C**, **Java**, **Matlab**, and Database management.";
+                } else {
+                    response = "Tejaswini has held roles at Rivian, Deloitte, EMC, and Amazon, and earned degrees from Indiana University and JNTU. Which organization can I provide details on?";
+                }
+            // --- 4. Check for specific topic questions (Skills/Projects) ---
+            } else if (query.includes("skill") || query.includes("tech") || query.includes("tools") || query.includes("coding") || query.includes("python") || query.includes("sql") || query.includes("r") || query.includes("aws") || query.includes("gcp") || query.includes("gpa") || query.includes("about")) {
+                 if (query.includes("python")) {
+                     response = "Tejaswini is highly proficient in **Python**, utilizing it for predictive ML models, scripting data processes (at Deloitte), and various data science tasks.";
+                 } else if (query.includes("sql")) {
+                     response = "Tejaswini has extensive experience with **SQL** (and RDBMS frameworks like Oracle Cloud/MySQL), crucial for data management and migration roles.";
+                 } else if (query.includes("r")) {
+                     response = "Tejaswini uses **R** for statistical learning and data visualization, particularly highlighted in her Data Analytics coursework.";
+                 } else if (query.includes("aws") || query.includes("gcp") || query.includes("cloud")) {
+                     response = "Tejaswini is experienced with **AWS** (Redshift, Snowflake) and **GCP** (Big Query), using them for cloud data platforms and optimizing hyperparameters for ML models.";
+                 } else if (query.includes("gpa")) {
+                    response = "Tejaswini achieved a **3.8 GPA** for her Masters degree and a **4.0 GPA** for her Bachelors degree.";
+                } else if (query.includes("about")) { // New explicit handler for the 'About' button
+                    return "Tejaswini is a data enthusiast with **6 years of experience in analytics**, specializing in building and deploying machine learning models. She also enjoys reading, exploring local food, and singing.";
+                } else if (query.includes("skills")) {
+                     response = "Tejaswini's skills span **ML/Data Science**, **Cloud Platforms (AWS, GCP)**, and **Programming Languages (Python, SQL, R)**. What specific area are you interested in?";
+                 } else {
+                    response = "Tejaswini's skills span **ML/Data Science**, **Cloud Platforms (AWS, GCP)**, and **Programming Languages (Python, SQL, R)**. What specific area are you interested in?";
+                }
+            } else if (query.includes("project") || query.includes("built")) {
+                response = "Tejaswini's projects include an **Age Gender Detection System** (using CNN/RNN), **Analysis of Airline Passenger satisfaction**, a **Zonal Accident Risk Prediction system**, and a **John Snow Cholera Map visualization** (using D3.js).";
+            } else if (query.includes("who are you") || query.includes("tejaswini")) {
+                response = `I am the AI assistant for Tejaswini Parlapalli's portfolio. I have access to all her **experience**, **skills**, and **projects**. Ask me anything about her background!`;
+            } 
+            
+            // --- 5. Final Fallback ---
+            if (response === "") {
+                const randomIndex = Math.floor(Math.random() * funnyFallbacks.length);
+                response = funnyFallbacks[randomIndex];
+            }
+
+            return response;
+        }
+
+        /** Handles sending user message and generating a static, local response */
         async function sendMessage() {
             const userMessage = userInput.value.trim();
             if (!userMessage || !isChatActive) return;
@@ -1337,76 +1524,33 @@ Maintain a friendly, professional, and knowledgeable tone. If you are asked some
             // 1. Display user message
             appendMessage(userMessage, 'user');
             userInput.value = '';
+            
+            // 2. Increment prompt count (only count user messages)
+            promptCount++;
 
-            // 2. Show loading dots
+            // 3. Show loading dots for simulation
             loadingDots.classList.add('visible');
             chatBody.scrollTop = chatBody.scrollHeight;
+            
+            // 4. Simulate network latency
+            await new Promise(resolve => setTimeout(resolve, 800)); 
 
-            // 3. Add user message to history
-            chatHistory.push({ role: "user", parts: [{ text: userMessage }] });
+            // 5. Generate local response
+            const responseText = generateStaticResponse(userMessage);
 
-            // 4. API Call Logic (with retry)
-            const maxRetries = 3;
-            let responseText = "Sorry, I'm having trouble connecting right now. Please try again in a moment.";
-
-            // New API URL structure for better Canvas compatibility
-            const finalApiUrl = `${API_BASE_URL}${MODEL_NAME}:generateContent`;
-
-            for (let i = 0; i < maxRetries; i++) {
-                try {
-                    const payload = {
-                        contents: chatHistory,
-                        systemInstruction: {
-                            parts: [{ text: `You are a friendly, professional AI assistant named Botfolio for Tejaswini Parlapalli's portfolio. Answer questions ONLY using the following context: ${portfolioContent}` }]
-                        },
-                    };
-                    
-                    const response = await fetch(finalApiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (!response.ok) {
-                        // Check for detailed error if available
-                        const errorDetails = await response.text();
-                        console.error(`API Error Response (Attempt ${i + 1}):`, response.status, errorDetails);
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    
-                    const result = await response.json();
-                    const candidate = result.candidates?.[0];
-
-                    if (candidate && candidate.content?.parts?.[0]?.text) {
-                        responseText = candidate.content.parts[0].text;
-                        break; // Success, break out of loop
-                    } else {
-                         // Check for blocked content (safety filter)
-                        if (result.promptFeedback && result.promptFeedback.blockReason) {
-                            responseText = "I apologize, but I cannot respond to that query due to safety filtering policy.";
-                            console.warn("API Call Blocked:", result.promptFeedback.blockReason);
-                            break;
-                        }
-                        throw new Error("Invalid response structure from API or content missing.");
-                    }
-
-                } catch (error) {
-                    console.error(`Attempt ${i + 1} failed, retrying...`, error);
-                    if (i < maxRetries - 1) {
-                        await new Promise(resolve => setTimeout(resolve, Math.pow(2, i) * 1000)); // Exponential backoff
-                    }
-                }
-            }
-
-            // 5. Hide loading dots
+            // 6. Hide loading dots
             loadingDots.classList.remove('visible');
 
-            // 6. Display AI message and update history
+            // 7. Display AI message
             appendMessage(responseText, 'ai');
             
-            // Only push successful AI response to history to maintain context integrity
-            if (responseText !== "Sorry, I'm having trouble connecting right now. Please try again in a moment.") {
-                 chatHistory.push({ role: "model", parts: [{ text: responseText }] });
+            // 8. NEW: Check if it's time for the final prompt (after 3 meaningful prompts)
+            if (promptCount >= 5) {
+                 await new Promise(resolve => setTimeout(resolve, 1000)); 
+                 const finalMessage = `I hope I've been able to answer your questions! If you need more detailed information or wish to discuss a role, please feel free to **get in touch with Tejaswini directly** via her contact methods listed in the footer and sidebar. Thank you!`;
+                 appendMessage(finalMessage, 'ai');
+                 // Resetting promptCount for continuous chat, if desired, but making the final message conclusive.
+                 promptCount = 0; 
             }
         }
         
@@ -1422,19 +1566,68 @@ Maintain a friendly, professional, and knowledgeable tone. If you are asked some
         // Show/hide chat window when icon is clicked
         chatIcon.addEventListener('click', () => {
             toggleChatWindow();
+            if (chatWindow.classList.contains('hidden')) {
+                // If closing, clear the chat history optionally
+                // chatHistory = [];
+            } else {
+                // If opening, render prompts if the chat is active
+                if (isChatActive) {
+                    renderQuickPrompts();
+                }
+            }
         });
 
         // Use custom message instead of alert
         function alert(message) {
             const chatHeader = document.querySelector('.chat-header');
             const alertBox = document.createElement('div');
-            alertBox.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; padding: 10px; background-color: #f44336; color: white; text-align: center; border-radius: 12px 12px 0 0; z-index: 10; font-size: 14px;';
+            alertBox.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; padding: 10px; background-color: #FFFFFF; color: black; text-align: center; border-radius: 12px 12px 0 0; z-index: 10; font-size: 14px;';
             alertBox.textContent = message;
             chatWindow.prepend(alertBox);
             setTimeout(() => {
                 alertBox.remove();
             }, 3000);
         }
+        
+        /** Handles starting the chat after name/email input */
+        window.startChat = function() {
+            // Get values and immediately trim whitespace
+            userName = document.getElementById('user-name').value.trim();
+            userEmail = document.getElementById('user-email').value.trim();
+
+            // Check if both fields are non-empty after trimming
+            if (userName.length === 0 || userEmail.length === 0) {
+                alert('Please enter your name and email to start the chat.');
+                return;
+            }
+            
+            // NEW: Email validation for common email extensions
+            const validEmailRegex = /@.*\.\w{2,4}$/i;
+            if (!validEmailRegex.test(userEmail)) {
+                alert('Please use a valid email address (e.g., user@domain.com) to start the chat.');
+                return;
+            }
+            
+            // FIX: Hide login form explicitly
+            chatLoginForm.style.display = 'none'; 
+            
+            // Show chat interface
+            chatBody.classList.remove('hidden');
+            chatInputArea.classList.remove('hidden');
+            isChatActive = true;
+            promptCount = 0; // Reset counter on chat start
+            
+            // Render the prompt buttons right after chat starts
+            renderQuickPrompts();
+            
+            // Initial greeting from the bot (simulating 3rd image)
+            const initialBotMessage = `Hey ${userName}! I'm  Tejaswini's AI assistant, here to help you — ask me anything!`;
+            
+            appendMessage(initialBotMessage, 'ai');
+        };
+        
+        // Initial call to set up the prompts (they will be hidden until chat starts)
+        renderQuickPrompts();
         
     </script>
 </body>
