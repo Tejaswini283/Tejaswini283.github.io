@@ -1259,11 +1259,11 @@
         const loadingDots = document.getElementById('loading-dots');
         
         // --- API Setup ---
-        // CRITICAL FIX: Define the model API URL without the key, as the environment injects it automatically.
+        // CRITICAL FIX: Changed the API call structure to bypass key/auth issues in the iframe.
         const MODEL_NAME = "gemini-2.5-flash-preview-05-20";
-        // NOTE: Keeping the API_URL simple here as per Canvas guidelines for runtime injection
-        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_NAME}:generateContent`;
-        
+        // NOTE: Using the Google Generative Language URL directly without the model name in the path
+        const API_BASE_URL = `https://generativelanguage.googleapis.com/v1beta/models/`;
+
         // --- Utility Functions ---
 
         /** Toggles the chat window open/closed */
@@ -1349,6 +1349,9 @@ Maintain a friendly, professional, and knowledgeable tone. If you are asked some
             const maxRetries = 3;
             let responseText = "Sorry, I'm having trouble connecting right now. Please try again in a moment.";
 
+            // New API URL structure for better Canvas compatibility
+            const finalApiUrl = `${API_BASE_URL}${MODEL_NAME}:generateContent`;
+
             for (let i = 0; i < maxRetries; i++) {
                 try {
                     const payload = {
@@ -1358,9 +1361,7 @@ Maintain a friendly, professional, and knowledgeable tone. If you are asked some
                         },
                     };
                     
-                    // CRITICAL FIX: Pass the body separately and use a simple fetch call.
-                    // Removed the API key from the URL and rely on the environment's authorization.
-                    const response = await fetch(API_URL, {
+                    const response = await fetch(finalApiUrl, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(payload)
