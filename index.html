@@ -654,578 +654,286 @@
         /* --- CHATBOT STYLES (Updated for Black/Grey) ---- */
         /* ------------------------------------------------ */
 
-        .chat-widget-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 2000;
-            user-select: none;
-        }
+    /* ------------------------------------------------ */
+/* --- CHATBOT STYLES (Refined White–Grey–Black) --- */
+/* ------------------------------------------------ */
 
-        .chat-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background-color: #1a1a1a; /* Black background for icon */
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+.chat-widget-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 2000;
+  user-select: none;
+  font-family: "Inter", "Arial", sans-serif;
+}
 
-        .chat-icon:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-        }
+/* Floating Chat Icon */
+.chat-icon {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #1c1c1c, #2a2a2a);
+  color: #f9f9f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-        .chat-icon i {
-            font-size: 28px;
-        }
-        
-        /* Chat Window Styles */
-        .chat-window {
-            width: 350px;
-            height: 450px;
-            border-radius: 12px;
-            background: #fff;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            position: absolute;
-            bottom: 70px; /* Position above the icon */
-            right: 0;
-            transition: all 0.3s ease-in-out;
-            transform-origin: bottom right;
-        }
+.chat-icon:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
 
-        .chat-window.hidden {
-            transform: scale(0);
-            opacity: 0;
-        }
+.chat-icon i {
+  font-size: 28px;
+}
 
-        .chat-window * {
-            font-family: 'Arial', sans-serif;
-        }
+/* Chat Window */
+.chat-window {
+  width: 380px;
+  height: 520px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: absolute;
+  bottom: 75px;
+  right: 0;
+  transition: all 0.3s ease-in-out;
+  transform-origin: bottom right;
+}
 
-        /* Header */
-        .chat-header {
-            background-color: #1a1a1a; /* Black Header */
-            color: #fff;
-            padding: 15px;
-            font-size: 16px;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
-        }
-        
-        .chat-header button {
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 18px;
-            cursor: pointer;
-            opacity: 0.8;
-            transition: opacity 0.2s;
-        }
+.chat-window.hidden {
+  transform: scale(0.9);
+  opacity: 0;
+  pointer-events: none;
+}
 
-        .chat-header button:hover {
-            opacity: 1;
-        }
-        
-        /* Body and messages */
-        .chat-body {
-            flex-grow: 1;
-            padding: 15px;
-            overflow-y: auto;
-            background-color: #f5f5f5; /* Light grey background for conversation */
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        /* Hide the body and input area initially using CSS `display: none;` */
-        .chat-body.hidden, 
-        .chat-input-area.hidden { 
-            display: none; 
-        }
+.chat-header {
+  background: #111;
+  color: #f9f9f9;
+  padding: 16px 18px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
 
+.chat-header button {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
 
-        .message {
-            max-width: 85%;
-            padding: 10px 15px;
-            border-radius: 15px;
-            line-height: 1.4;
-            font-size: 14px;
-            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-        }
+.chat-header button:hover {
+  color: #fff;
+}
 
-        .ai-message {
-            background-color: #e0e0e0; /* Light grey for bot messages */
-            color: #1a1a1a; /* Black text */
-            align-self: flex-start;
-            border-bottom-left-radius: 5px;
-        }
+/* Chat Body */
+.chat-body {
+  flex-grow: 1;
+  padding: 18px;
+  overflow-y: auto;
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  scroll-behavior: smooth;
+}
 
-        .user-message {
-            background-color: #424242; /* Dark grey for user messages */
-            color: #fff; /* White text */
-            align-self: flex-end;
-            border-bottom-right-radius: 5px;
-        }
-        
-        /* Input Area */
-        .chat-input-area {
-            display: flex;
-            flex-direction: column; /* Changed to column to stack prompts and input */
-            padding: 10px;
-            border-top: 1px solid #ddd;
-        }
+.message {
+  max-width: 80%;
+  padding: 12px 16px;
+  border-radius: 14px;
+  line-height: 1.5;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  word-break: break-word;
+}
 
-        .chat-input-controls {
-            display: flex;
-            width: 100%;
-        }
+.ai-message {
+  background: #e9e9e9;
+  color: #111;
+  align-self: flex-start;
+  border-bottom-left-radius: 5px;
+}
 
-        .chat-input-area input {
-            flex-grow: 1;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 20px;
-            margin-right: 10px;
-            outline: none;
-        }
+.user-message {
+  background: #1a1a1a;
+  color: #fff;
+  align-self: flex-end;
+  border-bottom-right-radius: 5px;
+}
 
-        /* *** Send Button Styling (Arrow icon and color) *** */
-        .chat-input-area button {
-            background-color: #1a1a1a; /* Black send button */
-            color: white;
-            border: none;
-            border-radius: 50%; /* Changed to circle */
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px; /* Larger icon */
-        }
+/* Input Area */
+.chat-input-area {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 14px;
+  border-top: 1px solid #ddd;
+  background: #fafafa;
+}
 
-        .chat-input-area button:hover {
-            background-color: #424242; /* Dark grey hover */
-        }
+.chat-input-controls {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
 
-        /* --- New Prompt Styling (RECTANGLES, CUTE & IN-LINE) --- */
-        #chat-prompts {
-            display: flex;
-            flex-wrap: nowrap; /* Forces items onto one line */
-            gap: 8px; /* Reduced gap for sleeker look */
-            padding-bottom: 10px;
-            overflow-x: scroll; /* Enables horizontal scrolling */
-            -webkit-overflow-scrolling: touch; 
-            scrollbar-width: none;
-            margin-bottom: 8px;
-            /* Removed shadow to allow the element to blend cleanly */
-            box-shadow: none; 
-        }
+.chat-input-area input {
+  flex-grow: 1;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
 
-        #chat-prompts::-webkit-scrollbar {
-            display: none; /* Hide scrollbar for Chrome/Safari */
-        }
+.chat-input-area input:focus {
+  border-color: #111;
+}
 
-        .prompt-button {
-            /* Sleek, cute rectangular styling */
-            flex-shrink: 0; /* Prevents shrinking */
-            min-width: 80px; /* Minimum width to make sure content fits */
-            padding: 8px 12px; 
-            height: auto; 
-            
-            background-color: #3a3a3a; /* Darker grey background */
-            color: #fff; /* White text */
-            border: 1px solid #555; 
-            border-radius: 20px; /* Rounded pill shape for 'cute' rectangles */
-            
-            font-size: 13px;
-            line-height: 1.2;
-            cursor: pointer;
-            transition: background-color 0.2s, transform 0.2s;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-        }
+.chat-input-area button {
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-left: 8px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
 
-        .prompt-button:hover {
-            background-color: #555555; /* Slightly lighter dark grey on hover */
-            transform: scale(1.02);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        }
+.chat-input-area button:hover {
+  background: #333;
+  transform: scale(1.05);
+}
 
-        /* --- Login/Pre-Chat Form Styles (Matching Image) --- */
-        .chat-login-form {
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            flex-grow: 1;
-        }
-        
-        .chat-login-form h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: #333;
-        }
-        
-        /* Hide the login form when chat is active */
-        .chat-login-form.hidden {
-            display: none;
-        }
+/* Prompt Buttons */
+#chat-prompts {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  padding-bottom: 10px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  margin-bottom: 8px;
+}
 
-        .chat-login-form input {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
-        }
+#chat-prompts::-webkit-scrollbar {
+  display: none;
+}
 
-        .chat-login-form button {
-            width: 100%;
-            padding: 12px;
-            background-color: #1a1a1a; /* Black login button */
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
+.prompt-button {
+  flex-shrink: 0;
+  background: #2e2e2e;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 18px;
+  font-size: 13px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
 
-        .chat-login-form button:hover {
-            background-color: #424242; /* Dark grey hover */
-        }
+.prompt-button:hover {
+  background: #444;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+}
 
-        /* Loading Indicator */
-        .loading-dots {
-            align-self: flex-start;
-            display: none;
-            padding: 10px 15px;
-            background-color: #e0e0e0; /* Light grey for loading dots */
-            border-radius: 15px;
-            border-bottom-left-radius: 5px;
-            font-size: 14px;
-            color: #333;
-        }
-        .loading-dots span {
-            animation: blink 1.4s infinite;
-        }
-        .loading-dots span:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-        .loading-dots span:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-        @keyframes blink {
-            0%, 80%, 100% { opacity: 0; }
-            40% { opacity: 1; }
-        }
-        .loading-dots.visible {
-            display: block;
-        }
-    </style>
-</head>
-<body>
-    <nav>
-        <i class="far fa-lightbulb bulb-icon" onclick="toggleTheme()"></i> 
-        <div class="nav-links-container">
-            <a href="#About">About</a>
-            <a href="#Projects">Projects</a>
-            <a href="#Skills">Skills</a>
-            <a href="#Contact">Contact</a>
-            <a href="Tejaswini.Parlapalli.Resume.pdf" class="resume-link" download><i class="fas fa-file-download"></i> Resume</a>
-        </div>
-    </nav>
+/* Login Form */
+.chat-login-form {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  background: #fafafa;
+}
 
-    <header>
-        <img src="images/tejaswini.jpeg" alt="Tejaswini Parlapalli" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; object-position: center; margin-right: 20px; float: left;">
-        <div style="margin-left: 220px;">
-            <h1 style="font-family: 'Comic Sans MS', cursive; margin-bottom: 10px;">Tejaswini Parlapalli</h1>
-            <h2 class="section-title" style="margin-bottom: 20px;">Welcome</h2>
-            <p>Hello,<br> <br> </p>
-            <p>I'm a data enthusiast with 6 years of experience in analytics, focused on building and deploying machine learning models. Feel free to explore my <a href="#Projects" style="color: inherit; font-size: inherit;">Projects</a> which showcase my data science and analysis work. I enjoy applying both analytical and creative thinking to transform complex data into clear, actionable insights and when I step away from the keyboard, you can usually find me with a good book, exploring the local food or singing. <br>Thanks for dropping by!</p>
+.chat-login-form h3 {
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+  color: #111;
+}
 
-            <a href="Tejaswini.Parlapalli.Resume.pdf" class="resume-link" download style="font-size: 14px; color: #fff; text-decoration: none; background-color: #494d49; padding: 12px 24px; border-radius: 25px; display: inline-block; margin-top: 20px; box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); transition: background-color 0.3s, transform 0.3s;">
-                Download Resume
-            </a>
-        </div>
-    </header>
-    <div class="content">
-        <section id="About">
-            <h2 class="section-title" style="margin-bottom: 50px; text-align: left; font-size: 24px;">Experiences</h2>
-        
-            <div class="experience-timeline">
-                
-                <div class="timeline-item" style="padding-bottom: 0px; margin-bottom: 5px;">
-                    <div class="timeline-image-container">
-                        <img src="images/riv2.png" alt="Rivian Logo" class="experience-image experience-image-spanning">
-                    </div>
-                    <div class="timeline-content">
-                        <h6>Apr 2023 - Present</h6>
-                        <h2>Rivian</h2>
-                        <h5>Sr. Data Scientist</h5>
-                        <p>Implemented predictive machine learning models (Linear Regression, Random Forest, Gradient Boosting) to forecast resource shortages, reducing operational downtime by 5% and improving overall process efficiency by 12%. Optimized demand forecasting with predictive analytics (SVM, Bayesian methods, Linear Regression), achieving a 15% reduction in excess inventory. Developed Alteryx workflows delivering key KPIs to stakeholders, reducing production delays, bottlenecks and enabling faster, data-driven decisions.</p>
-                    </div>
-                </div>
+.chat-login-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
 
-                <div class="timeline-item no-circle">
-                    <div class="timeline-content">
-                    
-                        <h5>Data Scientist</h5>
-                        <p>Enhanced allocation of shared line-side inventory using advanced ML classification models (XGBoost, LightGBM), boosting utilization by 20% and ensuring stock distribution matching to teams’ requirements. Implemented a Reinforcement Learning (Q-Learning) system to autonomously optimize inventory and production planning – a project recognized with a Leadership Innovation Award. Streamlined data from multiple systems (SAP & MES) into cloud platforms (AWS Redshift, Snowflake, Databricks) and created executive-level Tableau dashboards, improving visibility and decision-making.</p>
-                    </div>
-                </div>
+.chat-login-form button {
+  width: 100%;
+  padding: 12px;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
 
-                <div class="timeline-item">
-                    <div class="timeline-image-container">
-                        <img src="images/Iu.png" alt="IU Marketing Analytics Logo" class="experience-image">
-                    </div>
-                    <div class="timeline-content">
-                        <h6>Aug 2022 - May 2023</h6>
-                        <h2>IU Marketing Analytics</h2>
-                        <h5>Data Scientist</h5>
-                        <p>Implemented advanced Alteryx ETL model automations to enhance API connector performance, reducing data processing time and enabling seamless integration into Big Query. This initiative saved 10 man-hours per week and streamlined workflow efficiency. Additionally, optimized pipeline development strategies within marketing funnels by leveraging Big Data tools like Hive and Spark, leading to a significant 15% reduction in data maintenance costs. Furthermore, implemented GA4 processes to track user behavior and improve marketing effectiveness. By translating these insights into Looker Studio visuals, decision-making was facilitated, resulting in a notable 2% increase in website conversions.</p>
-                    </div>
-                </div>
+.chat-login-form button:hover {
+  background: #333;
+}
 
-                <div class="timeline-item">
-                    <div class="timeline-image-container">
-                        <img src="images/iu2.png" alt="Indiana University Logo" class="experience-image">
-                    </div>
-                    <div class="timeline-content">
-                        <h6>Aug 2021 - Apr 2022</h6>
-                        <h2>Indiana University</h2>
-                        <h5>Research Assistant</h5>
-                        <p>Pioneering a data-driven approach, spearheaded the integration of state-of-the-art Ml & DL techniques into our research framework. This involved the development and deployment of ML and DL classification models, alongside neural network architectures, to accurately determine the age of real-world images with an precision rate of 78.3%. Additionally, leveraging NLP algorithms such as FastText, developed a failure mode prediction systems, resulting in a substantial 53% enhancement in quality metrics. Moreover, by employing NLP techniques for feature engineering, extracted valuable insights from textual data linked to images.This modified our models with crucial features, significantly improving their predictive capabilities.</p>
-                    </div>
-                </div>
+/* Loading Dots */
+.loading-dots {
+  align-self: flex-start;
+  display: none;
+  padding: 10px 16px;
+  background: #e9e9e9;
+  border-radius: 14px;
+  color: #333;
+  font-size: 14px;
+}
 
-                <div class="timeline-item">
-                    <div class="timeline-image-container">
-                        <img src="images/emc2.png" alt="EMC Insurance Logo" class="experience-image">
-                    </div>
-                    <div class="timeline-content">
-                        <h6>Jun 2022 - Aug 2022</h6>
-                        <h2>EMC Insurance Group</h2>
-                        <h5>Data Scientist</h5>
-                        <p>By implementing regression models such as Random Forest, Gradient Boost, and XGBoost, alongside meticulous feature engineering and optimization of hyperparameters on AWS and Snowflake data, I achieved an impressive 60.1% damage prediction rate. Delving into extensive research and deep analysis of large datasets, I identified crucial trends and integrated BERT, leading to a notable 10% improvement in the accuracy of insurance analysis. Moreover, through the development of interactive dashboards and visualizations using Power BI, stakeholders gained enhanced insights, aiding in the identification and rectification of faulty investments totaling $260k.</p>
-                    </div>
-                </div>
+.loading-dots span {
+  animation: blink 1.4s infinite;
+}
 
-                <div class="timeline-item">
-                    <div class="timeline-image-container">
-                        <img src="images/deloitte.png" alt="Deloitte Logo" class="experience-image">
-                    </div>
-                    <div class="timeline-content">
-                        <h6>Dec 2019 - Jul 2021</h6>
-                        <h2>Deloitte</h2>
-                        <h5>Business Intelligence Analyst</h5>
-                        <p>Played a pivotal role in developing an Oracle Cloud RDBMS framework and implementing data analysis procedures, resulting in a seamless migration .Also by leveraging MySQL, Python, and Bash scripts, optimized data processes, ultimately reducing migration time by 3%.Utilizing statistical methods conducted data trend analysis with an impressive accuracy rate of over 85%, providing valuable insights for strategic decision-making.</p>
-                    </div>
-                </div>
+.loading-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
 
-                <div class="timeline-item">
-                    <div class="timeline-image-container">
-                        <img src="images/amazon2.jpeg" alt="Amazon Logo" class="experience-image">
-                    </div>
-                    <div class="timeline-content">
-                        <h6>Dec 2019 - Dec 2019</h6>
-                        <h2>Amazon</h2>
-                        <h5>Data Scientist</h5>
-                        <p>Played a pivotal role in developing an Oracle Cloud RDBMS framework and implementing data analysis procedures, resulting in a seamless migration .Also by leveraging MySQL, Python, and Bash scripts, optimized data processes, ultimately reducing migration time by 3%.Utilizing statistical methods conducted data trend analysis with an impressive accuracy rate of over 85%, providing valuable insights for strategic decision-making.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+.loading-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
 
+@keyframes blink {
+  0%, 80%, 100% { opacity: 0; }
+  40% { opacity: 1; }
+}
 
-        <br>
-        <br>
+.loading-dots.visible {
+  display: block;
+}
 
-        <section id="Projects">
-            <h2 class="section-title" style="margin-bottom: 10px; text-align: left; font-size: 24px; letter-spacing: 3px; width:100%;">Things I've Built</h2>
-            <div class="project-entry">
-                <a href="https://github.com/Tejaswini283/Age-Gender-Detection-system/blob/main/Deep_learning_project.ipynb" class="project-entry">
-                    <span class="image main"><img src="images/age.jpeg" alt="" /></span>
-                    <p class="project-title">Age Gender detection system using CNN and RNN deep learning techniques</p>
-                    <p class="project-description">The Age, Gender, and Ethnicity Detection System is a deep learning framework designed to classify age, gender, and ethnicity from facial images. Utilizing CNN and RNN models, this system aims to provide accurate and reliable results for applications in airports, police stations, and personalized recommendation systems.</p>
-                </a>
-            </div>
-            <div class="project-entry">
-                <a href="https://github.com/Tejaswini283/Airport-Satisfaction-analysis-project/tree/main" class="project-entry">
-                    <span class="image main"><img src="images/air.jpeg" alt="" /></span>
-                    <p class="project-title">Analysis of Airline Passenger satisfaction</p>
-                    <p class="project-description">The goal is to identify key factors contributing to passenger satisfaction. Using R Studio, machine learning algorithms, and data visualizations, the analysis highlights the impact of inflight entertainment, ease of online booking, and travel type. Linear Discriminant Analysis (LDA) and Quadratic Discriminant Analysis (QDA) were the most accurate models.</p>
-                </a>
-            </div>
-            <div class="project-entry">
-                <a href="https://github.com/Tejaswini283/Zonal-Accident-Prediction-system/blob/main/Zonal_Accident_Risk_Analysis%20(1).ipynb" class="project-entry">
-                    <span class="image main"><img src="images/zonal.jpeg" alt="" /></span>
-                    <p class="project-title">Zonal Accident Risk Prediction system</p>
-                    <p class="project-description">The Zonal Accident Risk Prediction project analyzed road accident data to identify patterns and contributing factors. Using linear regression and random forest models, the project predicted factors like speed limits and fatalities to recommend safety measures. Limitations included missing predictors for road surface and weather conditions.</p>
-                </a>
-            </div>
-            <div class="project-entry">
-                <a href="https://github.com/Tejaswini283/IU-Commuter-pass" class="project-entry">
-                    <span class="image main"><img src="images/iu.jpeg" alt="" /></span>
-                    <p class="project-title">IU Commuter Pass</p>
-                    <p class="project-description">The IUCommuterPass (IUCP) web app connects IUPUI students for carpooling, reducing transportation costs and environmental impact. Features include trip cost calculation, check-in, and messaging. The project promotes affordable transportation, reduces pollution and traffic congestion, and fosters social connections among students.</p>
-                </a>
-            </div>
-            <div class="project-entry">
-                <a href="https://github.com/Tejaswini283/John_snow_visualization_project" class="project-entry">
-                    <span class="image main"><img src="images/john.jpeg" alt="" /></span>
-                    <p class="project-title">John snows cholera map visualization using D3.js</p>
-                    <p class="project-description">Dr. John Snow's map visualized the 1854 cholera epidemic in London, revealing patterns and mitigating effects. Interactive elements included a timeline chart, map, and pie charts showing death variations by age and gender. Key findings highlighted higher death rates among the elderly and children, with contaminated water pumps as hotspots.</p>
-                </a>
-            </div>
-            <div class="project-entry">
-                <a href="https://github.com/Tejaswini283/John_snow_visualization_project" class="project-entry">
-                    <span class="image main"><img src="images/john.jpeg" alt="" /></span>
-                    <p class="project-title">ML Project</p>
-                    <p class="project-description">Dr. John Snow's map visualized the 1854 cholera epidemic in London, revealing patterns and mitigating effects. Interactive elements included a timeline chart, map, and pie charts showing death variations by age and gender. Key findings highlighted higher death rates among the elderly and children, with contaminated water pumps as hotspots.</p>
-                </a>
-            </div>
-            <div class="project-entry">
-                <a href="https://github.com/Tejaswini283/John_snow_visualization_project" class="project-entry">
-                    <span class="image main"><img src="images/john.jpeg" alt="" /></span>
-                    <p class="project-title">DS Project</p>
-                    <p class="project-description">Dr. John Snow's map visualized the 1854 cholera epidemic in London, revealing patterns and mitigating effects. Interactive elements included a timeline chart, map, and pie charts showing death variations by age and gender. Key findings highlighted higher death rates among the elderly and children, with contaminated water pumps as hotspots.</p>
-                </a>
-            </div>
-        </section>
-
-        <br>
-        <br>
-        
-        <section id="Education">
-            <h2 class="section-title" style="margin-bottom: 10px; text-align: left; font-size: 24px;">Education</h2>
-            <div class="education-entry">
-                <img src="images/iupui.png" alt="College" loading="lazy" class="college-image">
-                <div class="education-details">
-                    <h3 style="letter-spacing: 0.9px;">Indiana University Purdue University Indianapolis</h3>
-                    <h4>Masters, Applied Data Science </h4>
-                    <p style="color: #FF9F55;">GPA 3.8</p>
-                    <p><strong style="color: rgba(43, 41, 41, 0.829);">Courses:</strong> Database Management, Programming - Data Science, Cloud computing, Web Database development, Data Analytics with R, Machine Learning, Deep Learning & AI, Statistical Learning and Data visualization.</p>
-                </div>
-            </div>
-            <div class="education-entry flipped">
-                <img src="images/gnits.jpg" alt="College" class="college-image">
-                <div class="education-details">
-                    <h3 style="letter-spacing: 0.9px;">Jawaharlal Nehru Technological University</h3>
-                    <h4>Bachelors, Electronics Engineering </h4>
-                    <p style="color: #FF9F55;">GPA 4.0</p>
-                    <p><strong style="color: rgba(43, 41, 41, 0.829);">Courses:</strong> C, Java ,Matlab, Python, Database management,Data processing at scale, Advanced computer networks,Operating systems </p>
-                </div>
-            </div>
-        </section>
-
-
-        <section id="Skills" >
-            <h2 class="section-title" style="margin-bottom: 60px; text-align: left; font-size: 24px;">Skills</h2>
-            <div class="skills-container">
-            
-                <div class="tag-cloud">
-                    <ul class="cloud" role="navigation" aria-label="Webdev word cloud">
-            
-                        <li><a href="https://en.wikipedia.org/wiki/Python" data-weight="8">Python</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/D3.js" data-weight="2">D3.js</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/R_(programming_language)" data-weight="7">R</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Predictive_modelling" data-weight="4">Predictive Modeling</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Amazon_Web_Services" data-weight="6">AWS</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets" data-weight="1">CSS</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Statistics" data-weight="4">Statistics</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/SQL" data-weight="8">SQL</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Tableau_Software" data-weight="5">Tableau</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Power_BI" data-weight="4">Power BI</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Data_science" data-weight="8">Data Science</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Big_data" data-weight="3">Big Data</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/HTML" data-weight="7">HTML</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Data_mining" data-weight="5">Data Mining</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Exploratory_data_analysis" data-weight="3">Exploratory Data Analysis</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Google_Analytics" data-weight="5">Google Analytics</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Natural_language_processing" data-weight="6">Natural Language Processing</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Google_Cloud_Platform" data-weight="8">GCP</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Machine_learning" data-weight="8">Machine Learning</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Machine_learning" data-weight="5">Computer Vision</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Git" data-weight="2">Git</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Apache_Hive" data-weight="4">Hive</a></li>
-                        
-                        <li><a href="https://en.wikipedia.org/wiki/Adobe_Analytics" data-weight="6">Adobe Analytics</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Databricks" data-weight="3">Databricks</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Datorama" data-weight="5">Datorama</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Apache_Spark" data-weight="8">Spark</a></li>
-                        <li><a href="https://enwikipedia.org/wiki/Snowflake_(data_company)" data-weight="7">Snowflake</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Alteryx" data-weight="6">Alteryx</a></li>
-                        <li><a href="https://en.wikipedia.org/wiki/Google_BigQuery" data-weight="5">Big Query</a></li>
-                        
-                    </ul>
-                </div>
-            </div>
-        </section>
-<br>
-<br>
-        <footer id="Contact">
-            <h2 class="contact-header">Get In Touch</h2>
-            
-            <div class="footer-contact-icons">
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=parlapallitejaswini283@gmail.com" target="_blank">
-                    <img src="https://img.icons8.com/ios-glyphs/30/000000/gmail.png" alt="Gmail">
-                </a>
-                <a href="https://github.com="Tejaswini283" target="_blank">
-                    <img src="https://img.icons8.com/ios-glyphs/30/000000/github.png" alt="GitHub">
-                </a>
-                <a href="https://www.linkedin.com/in/tejaswini-parlapalli/" target="_blank">
-                    <img src="https://img.icons8.com/ios-glyphs/30/000000/linkedin.png" alt="LinkedIn">
-                </a>
-                <a href="https://leetcode.com/u/Tejaswini_283/" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="Leetcode">
-                </a>
-            </div>
-            <hr style="border-top: 1px solid rgba(255, 255, 255, 0.2); width: 20%; margin: 20px auto;">
-
-            <p style="font-size: 0.9rem;">
-                Designed and built by <a href="https://github.com/Tejaswini283/Tejaswini283.github.io/blob/main/index.html" target="_blank" style="color: #FF9F55; text-decoration: none;">Tejaswini Parlapalli</a>.
-            </p>
-        </footer>
-
-        <div class="fixed-contact-sidebar">
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=parlapallitejaswini283@gmail.com" target="_blank">
-                <img src="https://img.icons8.com/ios-glyphs/30/000000/gmail.png" alt="Gmail">
-            </a>
-            <a href="https://github.com="Tejaswini283" target="_blank">
-                <img src="https://img.icons8.com/ios-glyphs/30/000000/github.png" alt="GitHub">
-            </a>
-            <a href="https://www.linkedin.com/in/tejaswini-parlapalli/" target="_blank">
-                <img src="https://img.icons8.com/ios-glyphs/30/000000/linkedin.png" alt="LinkedIn">
-            </a>
-            <a href="https://leetcode.com/u/Tejaswini_283/" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="Leetcode" style="width: 30px; height: 30px;">
-            </a>
-        </div>
-        
-        <script src="https://kit.fontawesome.com/a076d05399.js"></script> <script>
-            // Function to toggle light/dark theme
-            function toggleTheme() {
-                document.body.classList.toggle("dark-theme");
-            }
-        </script>
-    </div>
     
     <!-- ------------------------------------------------------------------ -->
     <!-- CHATBOT IMPLEMENTATION (HTML & JavaScript) -->
@@ -1632,3 +1340,4 @@
     </script>
 </body>
 </html>
+
