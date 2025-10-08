@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE ahtml>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -45,7 +45,105 @@
             overflow-x: hidden; 
             transition: background-color 0.5s, color 0.5s; /* Smooth transition for background and font color change */
         }
+        
+        /* ------------------------------------------------ */
+        /* ✨ UPDATED: Header/Light Bulb/Nav Styles (Includes light glow) ✨ */
+        /* ------------------------------------------------ */
+        header {
+            background-color: #1a1a1a; /* Dark background for the hero section */
+            color: #fff;
+            text-align: left;
+            padding: 20px;
+            position: relative; /* CRITICAL for light effect positioning */
+            height: 330px; 
+            overflow: hidden; /* Ensures the radial gradient doesn't overflow the box */
+        }
+        
+        /* --- Ambient Light Effect (Glow) --- */
+        header::before {
+            content: '';
+            position: absolute;
+            /* Anchors the light source to the top-left */
+            top: -200px;
+            left: -200px; 
+            
+            /* Large size for a soft, ambient glow */
+            width: 600px; 
+            height: 600px; 
+            
+            /* Radial Gradient: Subtle light blue glow fading to transparent */
+            background: radial-gradient(
+                circle at 10% 10%, 
+                rgba(135, 206, 235, 0.1) 0%, /* Light blue/cyan with low opacity (10%) */
+                transparent 50% /* Fades out completely */
+            );
+            pointer-events: none; /* Allows clicks through the pseudo-element */
+            z-index: 0; /* Keeps the glow behind the content */
+        }
+        
+        header img, header div {
+            position: relative;
+            z-index: 10; /* Ensures content is above the light glow */
+        }
 
+        /* --- Navigation Bar --- */
+        nav {
+            background-color: #1a1a1a;
+            padding: 15px 20px; /* Increased padding */
+            text-align: right;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex; /* Use flexbox to position elements */
+            justify-content: space-between; /* Space out the left (bulb) and right (links) */
+            align-items: center;
+        }
+
+        /* --- Bulb Icon Position (Now on the Left) --- */
+        .bulb-icon {
+            font-size: 24px;
+            cursor: pointer;
+            color: #fff;
+            margin: 0; /* Remove right margin */
+            order: -1; /* Puts it at the start of the flex container */
+            padding-right: 15px;
+        }
+
+        /* Container for the right-aligned links */
+        .nav-links-container {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 8px 12px; /* Padding for the highlight box */
+            font-size: 16px;
+            transition: all 0.3s;
+            border-radius: 4px;
+        }
+        
+        /* --- Navigation Highlight Effect --- */
+        nav a:hover,
+        nav a.active-link { 
+            color: #fff;
+            background-color: rgba(255, 255, 255, 0.1); /* Subtle dark highlight background */
+            border-bottom: 2px solid #FF9F55; /* Orange bottom border highlight */
+            transform: translateY(-2px); /* Subtle lift effect */
+        }
+
+        .resume-link {
+            /* Keep existing resume link style for a button look if preferred */
+            margin-left: 20px;
+        }
+
+
+        /* ------------------------------------------------ */
+        /* --- Remaining Existing Styles (Minified) --- */
+        /* ------------------------------------------------ */
+        
         /* Project Section Styles */
         #Projects {
             display: flex;
@@ -56,25 +154,25 @@
         }
 
         .project-entry {
-            flex: 0 0 calc(25% - 20px); /* Adjust width for smaller projects per row */
+            flex: 0 0 calc(25% - 20px); 
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 10px; /* Reduced padding */
-            background-color: #fff; /* White background for the boxes */
+            padding: 10px; 
+            background-color: #fff; 
             border: 1px solid #ccc;
             border-radius: 4px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for transform and box-shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
             margin-bottom: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Initial subtle shadow */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
         }
 
         .project-entry:hover {
             cursor: pointer;
-            transform: translateY(-10px); /* Lift the box up on hover */
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
-            border-color: transparent; /* Set the border color to transparent on hover */
+            transform: translateY(-10px); 
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); 
+            border-color: transparent; 
         }
 
         .project-title {
@@ -84,25 +182,25 @@
         }
 
         .project-description {
-    margin-top: 10px;
-    font-family: sans-serif;
-    font-size: 14px;
-    line-height: 1.6;
-    letter-spacing: 0.5px;
-    text-align: justify;
-}
+            margin-top: 10px;
+            font-family: sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            letter-spacing: 0.5px;
+            text-align: justify;
+        }
 
         .project-entry .image {
-            height: 100px; /* Adjust height */
+            height: 100px; 
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 180px; /* Set the desired height for the images */
+            height: 180px; 
         }
 
         .project-entry img {
-            width: 60px; /* Reduced image size */
-            height: 60px; /* Reduced image size */
+            width: 60px; 
+            height: 60px; 
             border-radius: 50%;
             object-fit: cover;
             object-position: center;
@@ -115,9 +213,8 @@
             max-height: 100%;
         }
 
-        /* Project Entry Hover Link Effect */
         .project-entry:hover::before {
-            content: ''; /* Unicode character for the link symbol */
+            content: ''; 
             position: absolute;
             top: 50%;
             left: 50%;
@@ -134,27 +231,19 @@
         /* Responsive Project Entries */
         @media screen and (max-width: 1024px) {
             .project-entry {
-                flex-basis: calc(50% - 20px); /* Adjust width for two projects per row on medium screens */
+                flex-basis: calc(50% - 20px); 
             }
         }
 
         @media screen and (max-width: 768px) {
             .project-entry {
-                flex-basis: calc(100% - 20px); /* Adjust width for one project per row on small screens */
+                flex-basis: calc(100% - 20px); 
             }
         }
 
 
         /* Header Section */
-        header {
-            background-color: #333;
-            color: #fff;
-            text-align: left;
-            padding: 20px;
-            position: relative;
-            height: 330px; /* Increase the height as needed */
-        }
-
+        
         header img {
             width: 180px;
             height: 180px;
@@ -165,10 +254,8 @@
             float: left;
         }
 
-        
-
         header div {
-            margin-left: 220px; /* Adjusted to match image width */
+            margin-left: 220px; 
         }
 
         header h1 {
@@ -176,8 +263,8 @@
             font-size: 36px;
             font-family: 'Comic Sans MS', cursive;
             margin-bottom: 10px;
-            text-transform: uppercase; /* This makes the text all caps */
-    letter-spacing: 5px;
+            text-transform: uppercase; 
+            letter-spacing: 5px;
         }
 
         header p {
@@ -185,49 +272,6 @@
             font-size: 18px;
         }
 
-        /* Navigation */
-        nav {
-            background-color: #1a1a1a;
-            padding: 15px 0;
-            text-align: right; /* Align menu to the right */
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #ccc; /* Lighter font color on hover */
-        }
-
-        .resume-link {
-            color: #fff;
-            text-decoration: none;
-            margin-right: 15px;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-
-        .resume-link:hover {
-            color: #ccc; /* Lighter font color on hover */
-        }
-
-        .bulb-icon {
-            font-size: 24px;
-            margin-right: 15px;
-            cursor: pointer;
-            color: #fff;
-        }
-        .pdf-container {
-            text-align: right;
-        }
 
         /* General Content Styles */
         .entry-details, .project-description {
@@ -235,7 +279,7 @@
         }
 
         h2, h3, h4 {
-            color: #333; /* Dark font color */
+            color: #333; 
         }
 
         /* Footer */
@@ -244,8 +288,8 @@
             text-align: center;
             background-color: #333;
             color: #fff;
-            padding: 30px 20px; /* Updated padding */
-            width: 100%; /* Ensure full width */
+            padding: 30px 20px; 
+            width: 100%; 
             box-sizing: border-box;
         }
         
@@ -254,30 +298,29 @@
             font-size: 28px;
             margin-bottom: 20px;
             font-weight: bold;
-            color: #FF9F55; /* Accent color */
+            color: #FF9F55; 
             letter-spacing: 2px;
         }
         
-        /* --- ✨ NEW ✨ --- Horizontal Footer Icons */
+        /* --- Horizontal Footer Icons --- */
         .footer-contact-icons {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 25px; /* Adds space between icons */
-            margin-top: 20px; /* Space below "Get In Touch" */
+            gap: 25px; 
+            margin-top: 20px; 
         }
 
         .footer-contact-icons img {
             width: 30px;
             height: 30px;
-            filter: invert(1); /* Make icons white for the dark footer */
+            filter: invert(1); 
             transition: transform 0.2s ease-in-out;
         }
 
         .footer-contact-icons a:hover img {
-            transform: scale(1.2); /* Grow effect on hover */
+            transform: scale(1.2); 
         }
-        /* --- ✨ END NEW ✨ --- */
 
         /* Fixed Sidebar Styles */
         .fixed-contact-sidebar {
@@ -293,16 +336,16 @@
         .fixed-contact-sidebar img {
             width: 30px;
             height: 30px;
-            filter: invert(0.8); /* Make icons look better on light background */
+            filter: invert(0.8); 
             transition: transform 0.2s;
         }
 
         .dark-theme .fixed-contact-sidebar img {
-            filter: invert(1); /* Ensure icons are white in dark mode */
+            filter: invert(1); 
         }
 
         .fixed-contact-sidebar a:hover img {
-            transform: scale(1.15); /* Subtle hover effect */
+            transform: scale(1.15); 
         }
 
 
@@ -312,8 +355,8 @@
 
         /* Dark mode */
         .dark-theme {
-            background-color: #1a1a1a; /* Dark background color */
-            color: #fff; /* Light font color */
+            background-color: #1a1a1a; 
+            color: #fff; 
         }
         .dark-theme h2, .dark-theme h3, .dark-theme h4, .dark-theme h5, .dark-theme p {
             color: #fff;
@@ -376,9 +419,9 @@
             content: " (" attr(data-weight) ")";
             font-size: 1rem;
         }
-        ul.cloud li:nth-child(2n+1) a { color: #3D5A80; } /* Blue */
-        ul.cloud li:nth-child(3n+1) a { color: #98C1D9; } /* Light Blue */
-        ul.cloud li:nth-child(4n+1) a { color: #008185b0; } /* Cyan */
+        ul.cloud li:nth-child(2n+1) a { color: #3D5A80; } 
+        ul.cloud li:nth-child(3n+1) a { color: #98C1D9; } 
+        ul.cloud li:nth-child(4n+1) a { color: #008185b0; } 
         ul.cloud a:focus {
             outline: 1px dashed;
         }
@@ -399,8 +442,7 @@
             width: 100%;
         }
 
-        /* --- NEW Experience Timeline Styles --- */
-        /* The main timeline container */
+        /* --- Experience Timeline Styles --- */
         .experience-timeline {
             position: relative;
             max-width: 1200px;
@@ -416,13 +458,13 @@
             bottom: 210px;
             width: 6px;
             background-color: #ddd;
-            left: 230px; /* Position of the track */
-            margin-left: -3px; /* Center the line */
+            left: 230px; 
+            margin-left: -3px; 
         }
 
         /* Each item (job) on the timeline */
         .timeline-item {
-            padding: 10px 0px 50px 280px; /* Left padding creates space for image + track */
+            padding: 10px 0px 50px 280px; 
             position: relative;
         }
 
@@ -433,13 +475,13 @@
             width: 25px;
             height: 25px;
             left: 230px;
-            margin-left: -19px; /* Must match the track's position */
+            margin-left: -19px; 
             background-color: white;
             border: 4px solid #FF9F55;
-            top: 25px; /* Adjust vertical position of the circle */
+            top: 25px; 
             border-radius: 50%;
             z-index: 1;
-            transform: translateX(-50%); /* Center the circle on the line */
+            transform: translateX(-50%); 
         }
 
         /* Container for the company logo */
@@ -447,7 +489,7 @@
             position: absolute;
             left: -20px;
             top: 10px;
-            width: 230px; /* Fixed width for alignment */
+            width: 230px; 
             text-align: center;
         }
 
@@ -458,23 +500,23 @@
             border-radius: 15px;
             border: 3px solid #eee;
             padding: 5px;
-            object-fit: contain; /* Use contain to prevent logos from being cut off */
-            background-color: #fff; /* Add a white background for logos with transparency */
+            object-fit: contain; 
+            background-color: #fff; 
         }
 
         /* NEW: Class for the image that spans multiple roles */
         .experience-image-spanning {
-            height: 200px; /* Taller height to cover both entries */
-            object-position: top; /* Aligns the logo to the top of the container */
+            height: 200px; 
+            object-position: top; 
         }
 
         /* The text content for each job */
         .timeline-content {
             position: relative;
-            background-color: #f9f9f9; /* Match body background */
+            background-color: #f9f9f9; 
         }
         .dark-theme .timeline-content {
-            background-color: #1a1a1a; /* Match dark theme background */
+            background-color: #1a1a1a; 
         }
 
         /* Styling for the text elements inside the content box */
@@ -482,7 +524,7 @@
         .timeline-content h5,
         .timeline-content h6,
         .timeline-content p {
-            margin: 0; /* Remove default margins */
+            margin: 0; 
             text-align: left;
         }
 
@@ -518,48 +560,47 @@
         /* --- Responsive styles for the new timeline --- */
         @media screen and (max-width: 768px) {
             .experience-timeline::before {
-                left: 30px; /* Move track to the far left */
+                left: 30px; 
             }
 
             .timeline-item {
-                padding-left: 70px; /* Adjust padding for content */
+                padding-left: 70px; 
                 padding-right: 15px;
             }
 
             .timeline-item::before {
-                left: 30px; /* Move circle to the far left */
+                left: 30px; 
             }
 
             .timeline-image-container {
-                /* Hide the large images on small screens to save space */
                 display: none;
             }
         }
         
         /* --- Education Section --- */
         .education-entry {
-            position: relative; /* Add relative positioning */
+            position: relative; 
             margin-bottom: 50px;
             text-align: center;
         }
 
         .college-image {
-            position: relative; /* Change to relative positioning */
+            position: relative; 
             width: 580px;
             height: 350px;
             left: 20%;
 
-            margin: 0 auto 50px; /* Center the image horizontally and add margin-bottom */
+            margin: 0 auto 50px; 
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .education-details {
-            position: absolute; /* Add absolute positioning */
-            top: 50%; /* Position it in the middle of the image */
+            position: absolute; 
+            top: 50%; 
             left: 37%;
             transform: translate(-50%, -50%);
-            background-color: rgba(255, 255, 255, 0.7); /* Adjust the background color and opacity */
+            background-color: rgba(255, 255, 255, 0.7); 
             padding: 20px;
             z-index: 1;
             border-radius: 10px;
@@ -570,30 +611,30 @@
             margin-top: -0px;
         }
 
-        /* ✨ RULE to flip the text to the right side ✨ */
+        /* RULE to flip the text to the right side */
         .education-entry.flipped .education-details {
             left: 65%;
         }
         
-        /* ✨ CORRECTED RULE to flip the image to the left side ✨ */
+        /* CORRECTED RULE to flip the image to the left side */
         .education-entry.flipped .college-image {
             left: auto;
             right: 20%;
         }
 
         .project-title,
-.project-description {
-    color: black;
-}
-a.project-entry {
-    text-decoration: none;
-}
+        .project-description {
+            color: black;
+        }
+        a.project-entry {
+            text-decoration: none;
+        }
 
-/* This makes sure the text turns white in dark mode */
-.dark-theme .project-title,
-.dark-theme .project-description {
-    color: white;
-}
+        /* This makes sure the text turns white in dark mode */
+        .dark-theme .project-title,
+        .dark-theme .project-description {
+            color: white;
+        }
 
         .education-details h3,
         .education-details h4 {
@@ -601,25 +642,266 @@ a.project-entry {
             color: #333;
         }
         .no-circle::before {
-    display: none;
-}
+            display: none;
+        }
 
         .education-details p {
             margin: 5px 0;
             color: #666;
         }
+
+        /* ------------------------------------------------ */
+        /* --- CHATBOT STYLES (New) ----------------------- */
+        /* ------------------------------------------------ */
+
+        .chat-widget-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 2000;
+            user-select: none;
+        }
+
+        .chat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #FF9F55;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .chat-icon:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .chat-icon i {
+            font-size: 28px;
+        }
+        
+        /* Chat Window Styles */
+        .chat-window {
+            width: 350px;
+            height: 450px;
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: absolute;
+            bottom: 70px; /* Position above the icon */
+            right: 0;
+            transition: all 0.3s ease-in-out;
+            transform-origin: bottom right;
+        }
+
+        .chat-window.hidden {
+            transform: scale(0);
+            opacity: 0;
+        }
+
+        .chat-window * {
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Header */
+        .chat-header {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+        
+        .chat-header button {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .chat-header button:hover {
+            opacity: 1;
+        }
+        
+        /* Body and messages */
+        .chat-body {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        /* Hide the body and input area initially using CSS `display: none;` */
+        .chat-body.hidden, 
+        .chat-input-area.hidden { 
+            display: none; 
+        }
+
+
+        .message {
+            max-width: 85%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            line-height: 1.4;
+            font-size: 14px;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+        }
+
+        .ai-message {
+            background-color: #e0f7fa; /* Light cyan/blue */
+            color: #000;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+        .user-message {
+            background-color: #FF9F55; /* Orange accent */
+            color: #fff;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+        
+        /* Input Area */
+        .chat-input-area {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .chat-input-area input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            margin-right: 10px;
+            outline: none;
+        }
+
+        .chat-input-area button {
+            background-color: #FF9F55;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-input-area button:hover {
+            background-color: #e68a44;
+        }
+
+        /* --- Login/Pre-Chat Form Styles (Matching Image) --- */
+        .chat-login-form {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+        }
+        
+        .chat-login-form h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        /* Hide the login form when chat is active */
+        .chat-login-form.hidden {
+            display: none;
+        }
+
+        .chat-login-form input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .chat-login-form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #1e88e5; /* A strong blue for the button */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .chat-login-form button:hover {
+            background-color: #1565c0;
+        }
+
+        /* Loading Indicator */
+        .loading-dots {
+            align-self: flex-start;
+            display: none;
+            padding: 10px 15px;
+            background-color: #e0f7fa; 
+            border-radius: 15px;
+            border-bottom-left-radius: 5px;
+            font-size: 14px;
+            color: #333;
+        }
+        .loading-dots span {
+            animation: blink 1.4s infinite;
+        }
+        .loading-dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        .loading-dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        @keyframes blink {
+            0%, 80%, 100% { opacity: 0; }
+            40% { opacity: 1; }
+        }
+        .loading-dots.visible {
+            display: block;
+        }
     </style>
 </head>
 <body>
     <nav>
-        <a href="#About">About</a>
-        <a href="#Projects">Projects</a>
-        <a href="#Skills">Skills</a>
-        <a href="#Contact">Contact</a>
-        <a href="Tejaswini.Parlapalli.Resume.pdf" class="resume-link" download><i class="fas fa-file-download"></i> Resume</a>
-        <i class="far fa-lightbulb bulb-icon" onclick="toggleTheme()"></i> </nav>
+        <i class="far fa-lightbulb bulb-icon" onclick="toggleTheme()"></i> 
+        <div class="nav-links-container">
+            <a href="#About">About</a>
+            <a href="#Projects">Projects</a>
+            <a href="#Skills">Skills</a>
+            <a href="#Contact">Contact</a>
+            <a href="Tejaswini.Parlapalli.Resume.pdf" class="resume-link" download><i class="fas fa-file-download"></i> Resume</a>
+        </div>
+    </nav>
 
-    <header style="position: relative;">
+    <header>
         <img src="images/tejaswini.jpeg" alt="Tejaswini Parlapalli" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; object-position: center; margin-right: 20px; float: left;">
         <div style="margin-left: 220px;">
             <h1 style="font-family: 'Comic Sans MS', cursive; margin-bottom: 10px;">Tejaswini Parlapalli</h1>
@@ -860,12 +1142,6 @@ a.project-entry {
                 <a href="https://www.linkedin.com/in/tejaswini-parlapalli/" target="_blank">
                     <img src="https://img.icons8.com/ios-glyphs/30/000000/linkedin.png" alt="LinkedIn">
                 </a>
-                <a href="https://www.instagram.com/tejaswini_parlapalli/" target="_blank">
-                    <img src="https://img.icons8.com/ios-glyphs/30/000000/instagram-new.png" alt="Instagram">
-                </a>
-                <a href="https://x.com/ItsMe_Tejaswini" target="_blank">
-                    <img src="https://img.icons8.com/ios-glyphs/30/000000/twitter.png" alt="Twitter">
-                </a>
                 <a href="https://leetcode.com/u/Tejaswini_283/" target="_blank">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="Leetcode">
                 </a>
@@ -887,12 +1163,6 @@ a.project-entry {
             <a href="https://www.linkedin.com/in/tejaswini-parlapalli/" target="_blank">
                 <img src="https://img.icons8.com/ios-glyphs/30/000000/linkedin.png" alt="LinkedIn">
             </a>
-            <a href="https://www.instagram.com/tejaswini_parlapalli/" target="_blank">
-                <img src="https://img.icons8.com/ios-glyphs/30/000000/instagram-new.png" alt="Instagram">
-            </a>
-            <a href="https://x.com/ItsMe_Tejaswini" target="_blank">
-                <img src="https://img.icons8.com/ios-glyphs/30/000000/twitter.png" alt="Twitter">
-            </a>
             <a href="https://leetcode.com/u/Tejaswini_283/" target="_blank">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="Leetcode" style="width: 30px; height: 30px;">
             </a>
@@ -905,5 +1175,266 @@ a.project-entry {
             }
         </script>
     </div>
+    
+    <!-- ------------------------------------------------------------------ -->
+    <!-- CHATBOT IMPLEMENTATION (HTML & JavaScript) -->
+    <!-- ------------------------------------------------------------------ -->
+
+    <div class="chat-widget-container">
+        <!-- Chat Icon (The button the user clicks) -->
+        <div class="chat-icon" id="chat-icon-toggle">
+            <i class="fas fa-robot"></i>
+        </div>
+        
+        <!-- Chat Window -->
+        <div class="chat-window hidden" id="chat-window">
+            
+            <!-- Chat Header -->
+            <div class="chat-header">
+                Conversation with Portfolio Bot
+                <button onclick="toggleChatWindow(false)"><i class="fas fa-times"></i></button>
+            </div>
+
+            <!-- Login Screen -->
+            <div class="chat-login-form" id="chat-login-form">
+                <h3 style="color: #1a1a1a;">Welcome!</h3>
+                <input type="text" id="user-name" placeholder="What's your name?" style="text-align: center;" required>
+                <input type="email" id="user-email" placeholder="you@example.com" style="text-align: center;" required>
+                <button onclick="startChat()">Start Chat</button>
+            </div>
+            
+            <!-- Chat Conversation Area -->
+            <div class="chat-body hidden" id="chat-body">
+                <!-- Messages go here -->
+                <div class="loading-dots" id="loading-dots">
+                    <span>.</span><span>.</span><span>.</span>
+                </div>
+            </div>
+
+            <!-- Chat Input -->
+            <div class="chat-input-area hidden" id="chat-input-area">
+                <input type="text" id="user-input" placeholder="Write your message here" onkeydown="handleInputKey(event)">
+                <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Store portfolio content globally
+        const portfolioContent = `
+            Hi! I'm Tejaswini Parlapalli, a data enthusiast with 6 years of experience in analytics, focused on building and deploying machine learning models. 
+            
+            Experience:
+            - Apr 2023 - Present: Sr. Data Scientist at Rivian. Key achievements include implementing predictive ML models (Linear Regression, Random Forest, Gradient Boosting) to forecast resource shortages, optimizing demand forecasting (SVM, Bayesian methods), and enhancing inventory allocation using ML classification (XGBoost, LightGBM). I also implemented a Reinforcement Learning (Q-Learning) system.
+            - Aug 2022 - May 2023: Data Scientist at IU Marketing Analytics. Enhanced API connector performance with Alteryx ETL, optimized pipeline development with Hive and Spark, and implemented GA4 processes for improved marketing effectiveness.
+            - Aug 2021 - Apr 2022: Research Assistant at Indiana University. Pioneered ML & DL techniques for age determination from images (78.3% precision) and failure mode prediction using NLP (FastText), enhancing quality metrics by 53%.
+            - Jun 2022 - Aug 2022: Data Scientist at EMC Insurance Group. Achieved 60.1% damage prediction rate using regression models (Random Forest, Gradient Boost, XGBoost) and integrated BERT for 10% improvement in analysis accuracy.
+            - Dec 2019 - Jul 2021: Business Intelligence Analyst at Deloitte. Developed Oracle Cloud RDBMS framework, optimized data processes with MySQL, Python, and Bash, and conducted trend analysis with >85% accuracy.
+            - Dec 2019 - Dec 2019: Data Scientist at Amazon (Role similar to Deloitte, focus on Oracle Cloud RDBMS, MySQL, Python).
+
+            Skills:
+            - Languages: Python, R, SQL, HTML, CSS
+            - ML/Data Science: Predictive Modeling, Data Science, Data Mining, Exploratory Data Analysis, Natural Language Processing (NLP), Computer Vision, Machine Learning, Deep Learning & AI, Statistics.
+            - Tools/Platforms: AWS, GCP, Tableau, Power BI, Google Analytics, Adobe Analytics, Git, Hive, Databricks, Datorama, Spark, Snowflake, Alteryx, Big Query.
+            
+            Projects:
+            - Age Gender detection system (CNN and RNN deep learning)
+            - Analysis of Airline Passenger satisfaction (R Studio, LDA, QDA)
+            - Zonal Accident Risk Prediction system (linear regression, random forest)
+            - IU Commuter Pass (web app for carpooling)
+            - John snows cholera map visualization (D3.js)
+        `;
+        
+        let chatHistory = [];
+        let userName = '';
+        let userEmail = '';
+        let isChatActive = false;
+        
+        const chatWindow = document.getElementById('chat-window');
+        const chatIcon = document.getElementById('chat-icon-toggle');
+        const chatBody = document.getElementById('chat-body');
+        const chatInputArea = document.getElementById('chat-input-area');
+        const chatLoginForm = document.getElementById('chat-login-form');
+        const userInput = document.getElementById('user-input');
+        const loadingDots = document.getElementById('loading-dots');
+        
+        // --- API Setup ---
+        // CRITICAL FIX: Define the model API URL without the key, as the environment injects it automatically.
+        const MODEL_NAME = "gemini-2.5-flash-preview-05-20";
+        // NOTE: Keeping the API_URL simple here as per Canvas guidelines for runtime injection
+        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_NAME}:generateContent`;
+        
+        // --- Utility Functions ---
+
+        /** Toggles the chat window open/closed */
+        function toggleChatWindow(show) {
+            if (show !== undefined) {
+                chatWindow.classList.toggle('hidden', !show);
+            } else {
+                chatWindow.classList.toggle('hidden');
+            }
+        }
+        
+        /** Appends a message to the chat body */
+        function appendMessage(text, sender) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message');
+            messageElement.classList.add(sender === 'user' ? 'user-message' : 'ai-message');
+            
+            // Basic markdown-like formatting (bolding)
+            const formattedText = text
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+            messageElement.innerHTML = formattedText;
+            chatBody.appendChild(messageElement);
+            chatBody.scrollTop = chatBody.scrollHeight; // Scroll to bottom
+        }
+
+        /** Handles starting the chat after name/email input */
+        function startChat() {
+            userName = document.getElementById('user-name').value.trim();
+            userEmail = document.getElementById('user-email').value.trim();
+
+            if (!userName || !userEmail) {
+                // Use custom method instead of alert
+                alert('Please enter your name and email to start the chat.');
+                return;
+            }
+            
+            // FIX: Hide login form explicitly
+            chatLoginForm.style.display = 'none'; 
+            
+            // Show chat interface
+            chatBody.classList.remove('hidden');
+            chatInputArea.classList.remove('hidden');
+            isChatActive = true;
+            
+            // Initial greeting from the bot (simulating 3rd image)
+            const initialBotMessage = `Hey ${userName}! Thanks for sharing your email — ${userEmail}.
+I'm Botfolio, here to help with Tejaswini Parlapalli's portfolio — ask me anything!`;
+            
+            appendMessage(initialBotMessage, 'ai');
+            
+            // Initialize chat history with system instructions
+            const systemInstruction = `You are a helpful and engaging AI assistant named Botfolio, dedicated to answering questions about Tejaswini Parlapalli's portfolio and professional background.
+Your name is Botfolio. You must answer questions based ONLY on the following context about Tejaswini: 
+
+${portfolioContent}
+
+Maintain a friendly, professional, and knowledgeable tone. If you are asked something outside the context, politely state that your knowledge is limited to Tejaswini's portfolio.`;
+            
+            // Add initial exchange to history
+            chatHistory.push({ role: "user", parts: [{ text: "Hello! Please summarize your role and knowledge base." }] });
+            chatHistory.push({ role: "model", parts: [{ text: initialBotMessage }] });
+        }
+        
+        /** Handles sending user message and fetching AI response */
+        async function sendMessage() {
+            const userMessage = userInput.value.trim();
+            if (!userMessage || !isChatActive) return;
+
+            // 1. Display user message
+            appendMessage(userMessage, 'user');
+            userInput.value = '';
+
+            // 2. Show loading dots
+            loadingDots.classList.add('visible');
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            // 3. Add user message to history
+            chatHistory.push({ role: "user", parts: [{ text: userMessage }] });
+
+            // 4. API Call Logic (with retry)
+            const maxRetries = 3;
+            let responseText = "Sorry, I'm having trouble connecting right now. Please try again in a moment.";
+
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const payload = {
+                        contents: chatHistory,
+                        systemInstruction: {
+                            parts: [{ text: `You are a friendly, professional AI assistant named Botfolio for Tejaswini Parlapalli's portfolio. Answer questions ONLY using the following context: ${portfolioContent}` }]
+                        },
+                    };
+                    
+                    // CRITICAL FIX: Pass the body separately and use a simple fetch call.
+                    // Removed the API key from the URL and rely on the environment's authorization.
+                    const response = await fetch(API_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        // Check for detailed error if available
+                        const errorDetails = await response.text();
+                        console.error(`API Error Response (Attempt ${i + 1}):`, response.status, errorDetails);
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    
+                    const result = await response.json();
+                    const candidate = result.candidates?.[0];
+
+                    if (candidate && candidate.content?.parts?.[0]?.text) {
+                        responseText = candidate.content.parts[0].text;
+                        break; // Success, break out of loop
+                    } else {
+                         // Check for blocked content (safety filter)
+                        if (result.promptFeedback && result.promptFeedback.blockReason) {
+                            responseText = "I apologize, but I cannot respond to that query due to safety filtering policy.";
+                            console.warn("API Call Blocked:", result.promptFeedback.blockReason);
+                            break;
+                        }
+                        throw new Error("Invalid response structure from API or content missing.");
+                    }
+
+                } catch (error) {
+                    console.error(`Attempt ${i + 1} failed, retrying...`, error);
+                    if (i < maxRetries - 1) {
+                        await new Promise(resolve => setTimeout(resolve, Math.pow(2, i) * 1000)); // Exponential backoff
+                    }
+                }
+            }
+
+            // 5. Hide loading dots
+            loadingDots.classList.remove('visible');
+
+            // 6. Display AI message and update history
+            appendMessage(responseText, 'ai');
+            
+            // Only push successful AI response to history to maintain context integrity
+            if (responseText !== "Sorry, I'm having trouble connecting right now. Please try again in a moment.") {
+                 chatHistory.push({ role: "model", parts: [{ text: responseText }] });
+            }
+        }
+        
+        /** Handles the Enter key press in the input field */
+        function handleInputKey(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        // --- Event Listeners ---
+        
+        // Show/hide chat window when icon is clicked
+        chatIcon.addEventListener('click', () => {
+            toggleChatWindow();
+        });
+
+        // Use custom message instead of alert
+        function alert(message) {
+            const chatHeader = document.querySelector('.chat-header');
+            const alertBox = document.createElement('div');
+            alertBox.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; padding: 10px; background-color: #f44336; color: white; text-align: center; border-radius: 12px 12px 0 0; z-index: 10; font-size: 14px;';
+            alertBox.textContent = message;
+            chatWindow.prepend(alertBox);
+            setTimeout(() => {
+                alertBox.remove();
+            }, 3000);
+        }
+        
+    </script>
 </body>
 </html>
