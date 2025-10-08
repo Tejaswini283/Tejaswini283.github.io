@@ -405,3 +405,510 @@
             position: relative;
             max-width: 1200px;
             margin: 0 auto
+            /* The vertical "track" line */
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            bottom: 210px;
+            width: 6px;
+            background-color: #ddd;
+            left: 230px; /* Position of the track */
+            margin-left: -3px; /* Center the line */
+        }
+
+        /* Each item (job) on the timeline */
+        .timeline-item {
+            padding: 10px 0px 50px 280px; /* Left padding creates space for image + track */
+            position: relative;
+        }
+
+        /* The circle "station" on the track */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            left: 230px;
+            margin-left: -19px; /* Must match the track's position */
+            background-color: white;
+            border: 4px solid #FF9F55;
+            top: 25px; /* Adjust vertical position of the circle */
+            border-radius: 50%;
+            z-index: 1;
+            transform: translateX(-50%); /* Center the circle on the line */
+        }
+
+        /* Container for the company logo */
+        .timeline-image-container {
+            position: absolute;
+            left: -20px;
+            top: 10px;
+            width: 230px; /* Fixed width for alignment */
+            text-align: center;
+        }
+
+        /* The company logo image */
+        .experience-image {
+            width: 210px;
+            height: 210px;
+            border-radius: 15px;
+            border: 3px solid #eee;
+            padding: 5px;
+            object-fit: contain; /* Use contain to prevent logos from being cut off */
+            background-color: #fff; /* Add a white background for logos with transparency */
+        }
+
+        /* NEW: Class for the image that spans multiple roles */
+        .experience-image-spanning {
+            height: 200px; /* Taller height to cover both entries */
+            object-position: top; /* Aligns the logo to the top of the container */
+        }
+
+        /* The text content for each job */
+        .timeline-content {
+            position: relative;
+            background-color: #f9f9f9; /* Match body background */
+        }
+        .dark-theme .timeline-content {
+            background-color: #1a1a1a; /* Match dark theme background */
+        }
+
+        /* Styling for the text elements inside the content box */
+        .timeline-content h2,
+        .timeline-content h5,
+        .timeline-content h6,
+        .timeline-content p {
+            margin: 0; /* Remove default margins */
+            text-align: left;
+        }
+
+        .timeline-content h6 {
+            color: #999;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .timeline-content h2 {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+
+        .timeline-content h5 {
+            color: #555;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        .dark-theme .timeline-content h5 {
+            color: #ccc;
+        }
+
+        .timeline-content p {
+            font-family: sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            letter-spacing: 0.5px;
+            text-align: justify;
+        }
+
+        /* --- Responsive styles for the new timeline --- */
+        @media screen and (max-width: 768px) {
+            .experience-timeline::before {
+                left: 30px; /* Move track to the far left */
+            }
+
+            .timeline-item {
+                padding-left: 70px; /* Adjust padding for content */
+                padding-right: 15px;
+            }
+
+            .timeline-item::before {
+                left: 30px; /* Move circle to the far left */
+            }
+
+            .timeline-image-container {
+                /* Hide the large images on small screens to save space */
+                display: none;
+            }
+        }
+        
+        /* --- Education Section --- */
+        .education-entry {
+            position: relative; /* Add relative positioning */
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .college-image {
+            position: relative; /* Change to relative positioning */
+            width: 580px;
+            height: 350px;
+            left: 20%;
+
+            margin: 0 auto 50px; /* Center the image horizontally and add margin-bottom */
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .education-details {
+            position: absolute; /* Add absolute positioning */
+            top: 50%; /* Position it in the middle of the image */
+            left: 37%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.7); /* Adjust the background color and opacity */
+            padding: 20px;
+            z-index: 1;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            margin-top: -0px;
+        }
+
+        /* ✨ RULE to flip the text to the right side ✨ */
+        .education-entry.flipped .education-details {
+            left: 65%;
+        }
+        
+        /* ✨ CORRECTED RULE to flip the image to the left side ✨ */
+        .education-entry.flipped .college-image {
+            left: auto;
+            right: 20%;
+        }
+
+        .project-title,
+.project-description {
+    color: black;
+}
+a.project-entry {
+    text-decoration: none;
+}
+
+/* This makes sure the text turns white in dark mode */
+.dark-theme .project-title,
+.dark-theme .project-description {
+    color: white;
+}
+
+        .education-details h3,
+        .education-details h4 {
+            margin: 10px 0;
+            color: #333;
+        }
+        .no-circle::before {
+    display: none;
+}
+
+        .education-details p {
+            margin: 5px 0;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#About">About</a>
+        <a href="#Projects">Projects</a>
+        <a href="#Skills">Skills</a>
+        <a href="#Contact">Contact</a>
+        <a href="Tejaswini.Parlapalli.Resume.pdf" class="resume-link" download><i class="fas fa-file-download"></i> Resume</a>
+        <i class="far fa-lightbulb bulb-icon" onclick="toggleTheme()"></i> </nav>
+
+    <header style="position: relative;">
+        <img src="images/tejaswini.jpeg" alt="Tejaswini Parlapalli" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; object-position: center; margin-right: 20px; float: left;">
+        <div style="margin-left: 220px;">
+            <h1 style="font-family: 'Comic Sans MS', cursive; margin-bottom: 10px;">Tejaswini Parlapalli</h1>
+            <h2 class="section-title" style="margin-bottom: 20px;">Welcome</h2>
+            <p>Hello,<br> <br> </p>
+            <p>I'm a data enthusiast with 6 years of experience in analytics, focused on building and deploying machine learning models. Feel free to explore my <a href="#Projects" style="color: inherit; font-size: inherit;">Projects</a> which showcase my data science and analysis work. I enjoy applying both analytical and creative thinking to transform complex data into clear, actionable insights and when I step away from the keyboard, you can usually find me with a good book, exploring the local food or singing. <br>Thanks for dropping by!</p>
+
+            <a href="Tejaswini.Parlapalli.Resume.pdf" class="resume-link" download style="font-size: 14px; color: #fff; text-decoration: none; background-color: #494d49; padding: 12px 24px; border-radius: 25px; display: inline-block; margin-top: 20px; box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); transition: background-color 0.3s, transform 0.3s;">
+                Download Resume
+            </a>
+        </div>
+    </header>
+    <div class="content">
+        <section id="About">
+            <h2 class="section-title" style="margin-bottom: 50px; text-align: left; font-size: 24px;">Experiences</h2>
+        
+            <div class="experience-timeline">
+                
+                <div class="timeline-item" style="padding-bottom: 0px; margin-bottom: 5px;">
+                    <div class="timeline-image-container">
+                        <img src="images/riv2.png" alt="Rivian Logo" class="experience-image experience-image-spanning">
+                    </div>
+                    <div class="timeline-content">
+                        <h6>Apr 2023 - Present</h6>
+                        <h2>Rivian</h2>
+                        <h5>Sr. Data Scientist</h5>
+                        <p>Implemented predictive machine learning models (Linear Regression, Random Forest, Gradient Boosting) to forecast resource shortages, reducing operational downtime by 5% and improving overall process efficiency by 12%. Optimized demand forecasting with predictive analytics (SVM, Bayesian methods, Linear Regression), achieving a 15% reduction in excess inventory. Developed Alteryx workflows delivering key KPIs to stakeholders, reducing production delays, bottlenecks and enabling faster, data-driven decisions.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item no-circle">
+                    <div class="timeline-content">
+                    
+                        <h5>Data Scientist</h5>
+                        <p>Enhanced allocation of shared line-side inventory using advanced ML classification models (XGBoost, LightGBM), boosting utilization by 20% and ensuring stock distribution matching to teams’ requirements. Implemented a Reinforcement Learning (Q-Learning) system to autonomously optimize inventory and production planning – a project recognized with a Leadership Innovation Award. Streamlined data from multiple systems (SAP & MES) into cloud platforms (AWS Redshift, Snowflake, Databricks) and created executive-level Tableau dashboards, improving visibility and decision-making.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-image-container">
+                        <img src="images/Iu.png" alt="IU Marketing Analytics Logo" class="experience-image">
+                    </div>
+                    <div class="timeline-content">
+                        <h6>Aug 2022 - May 2023</h6>
+                        <h2>IU Marketing Analytics</h2>
+                        <h5>Data Scientist</h5>
+                        <p>Implemented advanced Alteryx ETL model automations to enhance API connector performance, reducing data processing time and enabling seamless integration into Big Query. This initiative saved 10 man-hours per week and streamlined workflow efficiency. Additionally, optimized pipeline development strategies within marketing funnels by leveraging Big Data tools like Hive and Spark, leading to a significant 15% reduction in data maintenance costs. Furthermore, implemented GA4 processes to track user behavior and improve marketing effectiveness. By translating these insights into Looker Studio visuals, decision-making was facilitated, resulting in a notable 2% increase in website conversions.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-image-container">
+                        <img src="images/iu2.png" alt="Indiana University Logo" class="experience-image">
+                    </div>
+                    <div class="timeline-content">
+                        <h6>Aug 2021 - Apr 2022</h6>
+                        <h2>Indiana University</h2>
+                        <h5>Research Assistant</h5>
+                        <p>Pioneering a data-driven approach, spearheaded the integration of state-of-the-art Ml & DL techniques into our research framework. This involved the development and deployment of ML and DL classification models, alongside neural network architectures, to accurately determine the age of real-world images with an precision rate of 78.3%. Additionally, leveraging NLP algorithms such as FastText, developed a failure mode prediction systems, resulting in a substantial 53% enhancement in quality metrics. Moreover, by employing NLP techniques for feature engineering, extracted valuable insights from textual data linked to images.This modified our models with crucial features, significantly improving their predictive capabilities.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-image-container">
+                        <img src="images/emc2.png" alt="EMC Insurance Logo" class="experience-image">
+                    </div>
+                    <div class="timeline-content">
+                        <h6>Jun 2022 - Aug 2022</h6>
+                        <h2>EMC Insurance Group</h2>
+                        <h5>Data Scientist</h5>
+                        <p>By implementing regression models such as Random Forest, Gradient Boost, and XGBoost, alongside meticulous feature engineering and optimization of hyperparameters on AWS and Snowflake data, I achieved an impressive 60.1% damage prediction rate. Delving into extensive research and deep analysis of large datasets, I identified crucial trends and integrated BERT, leading to a notable 10% improvement in the accuracy of insurance analysis. Moreover, through the development of interactive dashboards and visualizations using Power BI, stakeholders gained enhanced insights, aiding in the identification and rectification of faulty investments totaling $260k.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-image-container">
+                        <img src="images/deloitte.png" alt="Deloitte Logo" class="experience-image">
+                    </div>
+                    <div class="timeline-content">
+                        <h6>Dec 2019 - Jul 2021</h6>
+                        <h2>Deloitte</h2>
+                        <h5>Business Intelligence Analyst</h5>
+                        <p>Played a pivotal role in developing an Oracle Cloud RDBMS framework and implementing data analysis procedures, resulting in a seamless migration .Also by leveraging MySQL, Python, and Bash scripts, optimized data processes, ultimately reducing migration time by 3%.Utilizing statistical methods conducted data trend analysis with an impressive accuracy rate of over 85%, providing valuable insights for strategic decision-making.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-image-container">
+                        <img src="images/amazon2.jpeg" alt="Amazon Logo" class="experience-image">
+                    </div>
+                    <div class="timeline-content">
+                        <h6>Dec 2019 - Dec 2019</h6>
+                        <h2>Amazon</h2>
+                        <h5>Data Scientist</h5>
+                        <p>Played a pivotal role in developing an Oracle Cloud RDBMS framework and implementing data analysis procedures, resulting in a seamless migration .Also by leveraging MySQL, Python, and Bash scripts, optimized data processes, ultimately reducing migration time by 3%.Utilizing statistical methods conducted data trend analysis with an impressive accuracy rate of over 85%, providing valuable insights for strategic decision-making.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <br>
+        <br>
+
+        <section id="Projects">
+            <h2 class="section-title" style="margin-bottom: 10px; text-align: left; font-size: 24px; letter-spacing: 3px; width:100%;">Things I've Built</h2>
+            <div class="project-entry">
+                <a href="https://github.com/Tejaswini283/Age-Gender-Detection-system/blob/main/Deep_learning_project.ipynb" class="project-entry">
+                    <span class="image main"><img src="images/age.jpeg" alt="" /></span>
+                    <p class="project-title">Age Gender detection system using CNN and RNN deep learning techniques</p>
+                    <p class="project-description">The Age, Gender, and Ethnicity Detection System is a deep learning framework designed to classify age, gender, and ethnicity from facial images. Utilizing CNN and RNN models, this system aims to provide accurate and reliable results for applications in airports, police stations, and personalized recommendation systems.</p>
+                </a>
+            </div>
+            <div class="project-entry">
+                <a href="https://github.com/Tejaswini283/Airport-Satisfaction-analysis-project/tree/main" class="project-entry">
+                    <span class="image main"><img src="images/air.jpeg" alt="" /></span>
+                    <p class="project-title">Analysis of Airline Passenger satisfaction</p>
+                    <p class="project-description">The goal is to identify key factors contributing to passenger satisfaction. Using R Studio, machine learning algorithms, and data visualizations, the analysis highlights the impact of inflight entertainment, ease of online booking, and travel type. Linear Discriminant Analysis (LDA) and Quadratic Discriminant Analysis (QDA) were the most accurate models.</p>
+                </a>
+            </div>
+            <div class="project-entry">
+                <a href="https://github.com/Tejaswini283/Zonal-Accident-Prediction-system/blob/main/Zonal_Accident_Risk_Analysis%20(1).ipynb" class="project-entry">
+                    <span class="image main"><img src="images/zonal.jpeg" alt="" /></span>
+                    <p class="project-title">Zonal Accident Risk Prediction system</p>
+                    <p class="project-description">The Zonal Accident Risk Prediction project analyzed road accident data to identify patterns and contributing factors. Using linear regression and random forest models, the project predicted factors like speed limits and fatalities to recommend safety measures. Limitations included missing predictors for road surface and weather conditions.</p>
+                </a>
+            </div>
+            <div class="project-entry">
+                <a href="https://github.com/Tejaswini283/IU-Commuter-pass" class="project-entry">
+                    <span class="image main"><img src="images/iu.jpeg" alt="" /></span>
+                    <p class="project-title">IU Commuter Pass</p>
+                    <p class="project-description">The IUCommuterPass (IUCP) web app connects IUPUI students for carpooling, reducing transportation costs and environmental impact. Features include trip cost calculation, check-in, and messaging. The project promotes affordable transportation, reduces pollution and traffic congestion, and fosters social connections among students.</p>
+                </a>
+            </div>
+            <div class="project-entry">
+                <a href="https://github.com/Tejaswini283/John_snow_visualization_project" class="project-entry">
+                    <span class="image main"><img src="images/john.jpeg" alt="" /></span>
+                    <p class="project-title">John snows cholera map visualization using D3.js</p>
+                    <p class="project-description">Dr. John Snow's map visualized the 1854 cholera epidemic in London, revealing patterns and mitigating effects. Interactive elements included a timeline chart, map, and pie charts showing death variations by age and gender. Key findings highlighted higher death rates among the elderly and children, with contaminated water pumps as hotspots.</p>
+                </a>
+            </div>
+            <div class="project-entry">
+                <a href="https://github.com/Tejaswini283/John_snow_visualization_project" class="project-entry">
+                    <span class="image main"><img src="images/john.jpeg" alt="" /></span>
+                    <p class="project-title">ML Project</p>
+                    <p class="project-description">Dr. John Snow's map visualized the 1854 cholera epidemic in London, revealing patterns and mitigating effects. Interactive elements included a timeline chart, map, and pie charts showing death variations by age and gender. Key findings highlighted higher death rates among the elderly and children, with contaminated water pumps as hotspots.</p>
+                </a>
+            </div>
+            <div class="project-entry">
+                <a href="https://github.com/Tejaswini283/John_snow_visualization_project" class="project-entry">
+                    <span class="image main"><img src="images/john.jpeg" 
+                                                 <p class="project-title">ML Project</p>
+                    <p class="project-description">Dr. John Snow's map visualized the 1854 cholera epidemic in London, revealing patterns and mitigating effects. Interactive elements included a timeline chart, map, and pie charts showing death variations by age and gender. Key findings highlighted higher death rates among the elderly and children, with contaminated water pumps as hotspots.</p>
+                </a>
+            </div>
+            <div class="project-entry">
+                <a href="https://github.com/Tejaswini283/John_snow_visualization_project" class="project-entry">
+                    <span class="image main"><img src="images/john.jpeg" alt="" /></span>
+                    <p class="project-title">DS Project</p>
+                    <p class="project-description">Dr. John Snow's map visualized the 1854 cholera epidemic in London, revealing patterns and mitigating effects. Interactive elements included a timeline chart, map, and pie charts showing death variations by age and gender. Key findings highlighted higher death rates among the elderly and children, with contaminated water pumps as hotspots.</p>
+                </a>
+            </div>
+        </section>
+
+        <br>
+        <br>
+        
+        <section id="Education">
+            <h2 class="section-title" style="margin-bottom: 10px; text-align: left; font-size: 24px;">Education</h2>
+            <div class="education-entry">
+                <img src="images/iupui.png" alt="College" loading="lazy" class="college-image">
+                <div class="education-details">
+                    <h3 style="letter-spacing: 0.9px;">Indiana University Purdue University Indianapolis</h3>
+                    <h4>Masters, Applied Data Science </h4>
+                    <p style="color: #FF9F55;">GPA 3.8</p>
+                    <p><strong style="color: rgba(43, 41, 41, 0.829);">Courses:</strong> Database Management, Programming - Data Science, Cloud computing, Web Database development, Data Analytics with R, Machine Learning, Deep Learning & AI, Statistical Learning and Data visualization.</p>
+                </div>
+            </div>
+            <div class="education-entry flipped">
+                <img src="images/gnits.jpg" alt="College" class="college-image">
+                <div class="education-details">
+                    <h3 style="letter-spacing: 0.9px;">Jawaharlal Nehru Technological University</h3>
+                    <h4>Bachelors, Electronics Engineering </h4>
+                    <p style="color: #FF9F55;">GPA 4.0</p>
+                    <p><strong style="color: rgba(43, 41, 41, 0.829);">Courses:</strong> C, Java ,Matlab, Python, Database management,Data processing at scale, Advanced computer networks,Operating systems </p>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="Skills" >
+            <h2 class="section-title" style="margin-bottom: 60px; text-align: left; font-size: 24px;">Skills</h2>
+            <div class="skills-container">
+            
+                <div class="tag-cloud">
+                    <ul class="cloud" role="navigation" aria-label="Webdev word cloud">
+            
+                        <li><a href="https://en.wikipedia.org/wiki/Python" data-weight="8">Python</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/D3.js" data-weight="2">D3.js</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/R_(programming_language)" data-weight="7">R</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Predictive_modelling" data-weight="4">Predictive Modeling</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Amazon_Web_Services" data-weight="6">AWS</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets" data-weight="1">CSS</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Statistics" data-weight="4">Statistics</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/SQL" data-weight="8">SQL</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Tableau_Software" data-weight="5">Tableau</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Power_BI" data-weight="4">Power BI</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Data_science" data-weight="8">Data Science</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Big_data" data-weight="3">Big Data</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/HTML" data-weight="7">HTML</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Data_mining" data-weight="5">Data Mining</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Exploratory_data_analysis" data-weight="3">Exploratory Data Analysis</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Google_Analytics" data-weight="5">Google Analytics</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Natural_language_processing" data-weight="6">Natural Language Processing</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Google_Cloud_Platform" data-weight="8">GCP</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Machine_learning" data-weight="8">Machine Learning</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Machine_learning" data-weight="5">Computer Vision</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Git" data-weight="2">Git</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Apache_Hive" data-weight="4">Hive</a></li>
+                        
+                        <li><a href="https://en.wikipedia.org/wiki/Adobe_Analytics" data-weight="6">Adobe Analytics</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Databricks" data-weight="3">Databricks</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Datorama" data-weight="5">Datorama</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Apache_Spark" data-weight="8">Spark</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Snowflake_(data_company)" data-weight="7">Snowflake</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Alteryx" data-weight="6">Alteryx</a></li>
+                        <li><a href="https://en.wikipedia.org/wiki/Google_BigQuery" data-weight="5">Big Query</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </section>
+<br>
+<br>
+        <footer id="Contact">
+            <h2 class="contact-header">Get In Touch</h2>
+            
+            <div class="footer-contact-icons">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=parlapallitejaswini283@gmail.com" target="_blank">
+                    <img src="https://img.icons8.com/ios-glyphs/30/000000/gmail.png" alt="Gmail">
+                </a>
+                <a href="https://github.com/Tejaswini283" target="_blank">
+                    <img src="https://img.icons8.com/ios-glyphs/30/000000/github.png" alt="GitHub">
+                </a>
+                <a href="https://www.linkedin.com/in/tejaswini-parlapalli/" target="_blank">
+                    <img src="https://img.icons8.com/ios-glyphs/30/000000/linkedin.png" alt="LinkedIn">
+                </a>
+                <a href="https://www.instagram.com/tejaswini_parlapalli/" target="_blank">
+                    <img src="https://img.icons8.com/ios-glyphs/30/000000/instagram-new.png" alt="Instagram">
+                </a>
+                <a href="https://x.com/ItsMe_Tejaswini" target="_blank">
+                    <img src="https://img.icons8.com/ios-glyphs/30/000000/twitter.png" alt="Twitter">
+                </a>
+                <a href="https://leetcode.com/u/Tejaswini_283/" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="Leetcode">
+                </a>
+            </div>
+            <hr style="border-top: 1px solid rgba(255, 255, 255, 0.2); width: 20%; margin: 20px auto;">
+
+            <p style="font-size: 0.9rem;">
+                Designed and built by <a href="https://github.com/Tejaswini283/Tejaswini283.github.io/blob/main/index.html" target="_blank" style="color: #FF9F55; text-decoration: none;">Tejaswini Parlapalli</a>.
+            </p>
+        </footer>
+
+        <div class="fixed-contact-sidebar">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=parlapallitejaswini283@gmail.com" target="_blank">
+                <img src="https://img.icons8.com/ios-glyphs/30/000000/gmail.png" alt="Gmail">
+            </a>
+            <a href="https://github.com/Tejaswini283" target="_blank">
+                <img src="https://img.icons8.com/ios-glyphs/30/000000/github.png" alt="GitHub">
+            </a>
+            <a href="https://www.linkedin.com/in/tejaswini-parlapalli/" target="_blank">
+                <img src="https://img.icons8.com/ios-glyphs/30/000000/linkedin.png" alt="LinkedIn">
+            </a>
+            <a href="https://www.instagram.com/tejaswini_parlapalli/" target="_blank">
+                <img src="https://img.icons8.com/ios-glyphs/30/000000/instagram-new.png" alt="Instagram">
+            </a>
+            <a href="https://x.com/ItsMe_Tejaswini" target="_blank">
+                <img src="https://img.icons8.com/ios-glyphs/30/000000/twitter.png" alt="Twitter">
+            </a>
+            <a href="https://leetcode.com/u/Tejaswini_283/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="Leetcode" style="width: 30px; height: 30px;">
+            </a>
+        </div>
+        
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script> <script>
+            // Function to toggle light/dark theme
+            function toggleTheme() {
+                document.body.classList.toggle("dark-theme");
+            }
+        </script>
+    </div>
+</body>
+</html>
+
