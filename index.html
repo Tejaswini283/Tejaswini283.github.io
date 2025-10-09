@@ -32,7 +32,18 @@
         *::after {
             box-sizing: border-box;
         }
+/* --- ✨ New Animation Styles ✨ --- */
+.timeline-item {
+    /* ... keep all existing styles for .timeline-item ... */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
 
+.timeline-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
         /* Base Body Styles */
         body {
             font-family: 'Arial', sans-serif; /* Professional font */
@@ -1657,5 +1668,23 @@
         renderQuickPrompts();
         
     </script>
+    <script>
+    // ✨ New Animation-on-Scroll Logic ✨
+    const animatedItems = document.querySelectorAll('.timeline-item');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, {
+        threshold: 0.1 // Triggers when 10% of the item is visible
+    });
+
+    animatedItems.forEach(item => {
+        observer.observe(item);
+    });
+</script>
 </body>
 </html>
