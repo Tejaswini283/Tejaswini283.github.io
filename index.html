@@ -1,4 +1,4 @@
-<!DOCTYPE ahtml>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -705,6 +705,7 @@
         .chat-window.hidden {
             transform: scale(0);
             opacity: 0;
+            pointer-events: none; /* Disable interactions when hidden */
         }
 
         .chat-window * {
@@ -787,6 +788,17 @@
             padding: 10px;
             border-top: 1px solid #ddd;
         }
+.send-icon {
+    width: 16px;
+    height: 16px;
+    fill: white;
+    transform: rotate(90deg); /* Add this line */
+}
+
+.close-icon {
+    width: 18px;
+    height: 18px;
+}
 
         .chat-input-controls {
             display: flex;
@@ -822,47 +834,53 @@
             background-color: #424242; /* Dark grey hover */
         }
 
-        /* --- New Prompt Styling (RECTANGLES, CUTE & IN-LINE) --- */
+        /* --- ✅ NEW PROMPT STYLES - MATCHING THE IMAGE ✅ --- */
         #chat-prompts {
             display: flex;
-            flex-wrap: nowrap; /* Forces items onto one line */
-            gap: 8px; /* Reduced gap for sleeker look */
-            padding-bottom: 10px;
-            overflow-x: scroll; /* Enables horizontal scrolling */
-            -webkit-overflow-scrolling: touch; 
-            scrollbar-width: none;
-            margin-bottom: 8px;
-            /* Removed shadow to allow the element to blend cleanly */
-            box-shadow: none; 
+            flex-wrap: wrap; /* Allows buttons to wrap to the next line on small screens */
+            gap: 8px; /* Space between buttons */
+            padding-bottom: 12px; /* Space above the text input */
+            justify-content: center; /* Center the buttons horizontally */
         }
+.prompt-button {
+    /* Shape and Sizing */
+    height: auto !important;
+    width: auto !important;
+    padding: 8px 14px !important;
+    border-radius: 8px !important;      /* This creates the rectangle shape */
 
-        #chat-prompts::-webkit-scrollbar {
-            display: none; /* Hide scrollbar for Chrome/Safari */
-        }
+    /* Text & Background */
+    background-color: #f0f0f0 !important; /* Light grey background */
+    color: #333 !important;           /* Dark text */
+    font-size: 13px !important;       /* Smaller font size */
+    
+    /* Other styles for consistency */
+    border: 1px solid #ccc !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    margin: 4px !important;
+    flex-shrink: 0 !important;
+}
 
-        .prompt-button {
-            /* Sleek, cute rectangular styling */
-            flex-shrink: 0; /* Prevents shrinking */
-            min-width: 80px; /* Minimum width to make sure content fits */
-            padding: 8px 12px; 
-            height: auto; 
-            
-            background-color: #3a3a3a; /* Darker grey background */
-            color: #fff; /* White text */
-            border: 1px solid #555; 
-            border-radius: 20px; /* Rounded pill shape for 'cute' rectangles */
-            
-            font-size: 13px;
-            line-height: 1.2;
-            cursor: pointer;
-            transition: background-color 0.2s, transform 0.2s;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-        }
+.prompt-button:hover {
+    background-color: #e0e0e0 !important;
+    border-color: #bbb !important;
+}
+
+.prompt-button:hover {
+    background-color: #d0d0d0; /* Slightly darker grey on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+    transform: translateY(-2px); /* Subtle lift effect */
+}
 
         .prompt-button:hover {
-            background-color: #555555; /* Slightly lighter dark grey on hover */
-            transform: scale(1.02);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            background-color: #f8f9fa; /* Slightly off-white on hover */
+            border-color: #dadce0; /* Slightly darker border on hover */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Add a subtle shadow on hover */
+            transform: translateY(-1px); /* A little lift effect */
         }
 
         /* --- Login/Pre-Chat Form Styles (Matching Image) --- */
@@ -1083,7 +1101,6 @@
             <div class="project-entry">
                 <a href="https://github.com/Tejaswini283/IU-Commuter-pass" class="project-entry">
                     <span class="image main"><img src="images/iu.jpeg" alt="" /></span>
-                    <p class="project-title">IU Commuter Pass</p>
                     <p class="project-description">The IUCommuterPass (IUCP) web app connects IUPUI students for carpooling, reducing transportation costs and environmental impact. Features include trip cost calculation, check-in, and messaging. The project promotes affordable transportation, reduces pollution and traffic congestion, and fosters social connections among students.</p>
                 </a>
             </div>
@@ -1187,7 +1204,7 @@
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=parlapallitejaswini283@gmail.com" target="_blank">
                     <img src="https://img.icons8.com/ios-glyphs/30/000000/gmail.png" alt="Gmail">
                 </a>
-                <a href="https://github.com="Tejaswini283" target="_blank">
+                <a href="https://github.com/Tejaswini283" target="_blank">
                     <img src="https://img.icons8.com/ios-glyphs/30/000000/github.png" alt="GitHub">
                 </a>
                 <a href="https://www.linkedin.com/in/tejaswini-parlapalli/" target="_blank">
@@ -1208,7 +1225,7 @@
             <a href="https://mail.google.com/mail/?view=cm&fs=1&to=parlapallitejaswini283@gmail.com" target="_blank">
                 <img src="https://img.icons8.com/ios-glyphs/30/000000/gmail.png" alt="Gmail">
             </a>
-            <a href="https://github.com="Tejaswini283" target="_blank">
+            <a href="https://github.com/Tejaswini283" target="_blank">
                 <img src="https://img.icons8.com/ios-glyphs/30/000000/github.png" alt="GitHub">
             </a>
             <a href="https://www.linkedin.com/in/tejaswini-parlapalli/" target="_blank">
@@ -1227,26 +1244,22 @@
         </script>
     </div>
     
-    <!-- ------------------------------------------------------------------ -->
-    <!-- CHATBOT IMPLEMENTATION (HTML & JavaScript) -->
-    <!-- ------------------------------------------------------------------ -->
-
     <div class="chat-widget-container">
-        <!-- Chat Icon (The button the user clicks) -->
         <div class="chat-icon" id="chat-icon-toggle">
             <i class="fas fa-robot"></i>
         </div>
         
-        <!-- Chat Window -->
         <div class="chat-window hidden" id="chat-window">
             
-            <!-- Chat Header -->
             <div class="chat-header">
-                Chat with Tejaswini's AI
-                <button onclick="toggleChatWindow(false)"><i class="fas fa-times"></i></button>
-            </div>
+    Chat with Tejaswini's AI
+    <button onclick="toggleChatWindow(false)">
+        <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+    </button>
+</div>
 
-            <!-- Login Screen -->
             <div class="chat-login-form" id="chat-login-form">
                 <h3 style="color: #1a1a1a;">Welcome!</h3>
                 <input type="text" id="user-name" placeholder="What's your name?" style="text-align: center;" required>
@@ -1254,25 +1267,23 @@
                 <button onclick="startChat()">Start Chat</button>
             </div>
             
-            <!-- Chat Conversation Area -->
             <div class="chat-body hidden" id="chat-body">
-                <!-- Messages go here -->
                 <div class="loading-dots" id="loading-dots">
                     <span>.</span><span>.</span><span>.</span>
                 </div>
             </div>
 
-            <!-- Chat Input -->
             <div class="chat-input-area hidden" id="chat-input-area">
-                <!-- NEW: Prompt Buttons Container -->
                 <div id="chat-prompts">
-                    <!-- Buttons will be dynamically loaded here by the JS -->
-                </div>
+                    </div>
 
                 <div class="chat-input-controls">
                     <input type="text" id="user-input" placeholder="Write your message here" onkeydown="handleInputKey(event)">
-                    <button onclick="sendMessage()"><i class="fas fa-arrow-up"></i></button> <!-- CHANGED ICON TO ARROW-UP -->
-                </div>
+                   <button onclick="sendMessage()">
+    <svg class="send-icon" viewBox="0 0 100 85">
+        <polygon points="50,0 100,85 0,85"/>
+    </svg>
+</button>
             </div>
         </div>
     </div>
@@ -1320,12 +1331,11 @@
             "Much appreciated! My main goal is to make Tejaswini's career details easy to explore. Where should we start?"
         ];
 
-        // NEW: Pre-generated prompts for quick questions
+        // ✅ NEW: Pre-generated prompts for quick questions (matching image) ✅
         const quickPrompts = [
-            "Experience",
-            "Skills",
-            "Projects",
-            "About" // Replaced GPA with About
+            "Favorite Project",
+            "Fun Fact",
+            "Tell a joke"
         ];
         
         let chatHistory = [];
@@ -1354,6 +1364,22 @@
                 chatWindow.classList.toggle('hidden', !show);
             } else {
                 chatWindow.classList.toggle('hidden');
+            }
+
+            // If the chat window is being shown (not hidden)
+            if (!chatWindow.classList.contains('hidden')) {
+                // If chat is active, show the chat body and input area, and render prompts
+                if (isChatActive) {
+                    chatLoginForm.classList.add('hidden'); // Ensure login form is hidden if chat is active
+                    chatBody.classList.remove('hidden');
+                    chatInputArea.classList.remove('hidden');
+                    renderQuickPrompts();
+                } else {
+                    // If chat is not active, show the login form
+                    chatLoginForm.classList.remove('hidden');
+                    chatBody.classList.add('hidden');
+                    chatInputArea.classList.add('hidden');
+                }
             }
         }
         
@@ -1414,6 +1440,17 @@
             let response = "";
             let lastQuestion = getLastAiQuestion();
 
+            // ✅ NEW: Logic to handle new prompts from the image ✅
+            if (query.includes("favorite project")) {
+                return "That's a great question! One of Tejaswini's most impactful projects was at Rivian, where she implemented a **Reinforcement Learning (Q-Learning) system** to optimize inventory. This project was even recognized with a Leadership Innovation Award.";
+            }
+            if (query.includes("fact")) {
+                return "Here's something interesting: Besides her deep expertise in data, Tejaswini is also a **singer**! She enjoys applying both analytical and creative thinking to solve problems.";
+            }
+            if (query.includes("joke")) {
+                return "Why did the data scientist break up with the statistician? Because they had too many arguments about their relationship models! 😄";
+            }
+
             // --- 0. Check for greetings, thanks, or compliments ---
             if (query.match(/^(hello|hi|hey|greetings)$/i)) {
                 return `Hello, ${userName}! I'm Tejaswini's AI assistant, ready to answer questions about Tejaswini. What can I tell you?`;
@@ -1432,19 +1469,19 @@
                 if (lastQuestion) {
                     // Try to answer based on the previous question asked by the bot
                     if (lastQuestion.includes("ask me about her time at rivian")) {
-                         response = "Absolutely! Tejaswini is currently a **Sr. Data Scientist at Rivian** (Apr 2023 - Present). Her work involves implementing predictive ML models for resource forecasting and enhancing inventory allocation using advanced ML classification models.";
+                        response = "Absolutely! Tejaswini is currently a **Sr. Data Scientist at Rivian** (Apr 2023 - Present). Her work involves implementing predictive ML models for resource forecasting and enhancing inventory allocation using advanced ML classification models.";
                     } else if (lastQuestion.includes("her biggest project")) {
-                         response = "Tejaswini's biggest project is likely her Sr. Data Scientist role at **Rivian**, where she implemented a Reinforcement Learning (Q-Learning) system, earning a Leadership Innovation Award.";
+                        response = "Tejaswini's biggest project is likely her Sr. Data Scientist role at **Rivian**, where she implemented a Reinforcement Learning (Q-Learning) system, earning a Leadership Innovation Award.";
                     } else if (lastQuestion.includes("data science skills")) {
-                         response = "Excellent! Tejaswini's top data science skills include **Predictive Modeling**, **Natural Language Processing (NLP)**, **Computer Vision**, and proficiency in **Python**, **R**, and **SQL**.";
+                        response = "Excellent! Tejaswini's top data science skills include **Predictive Modeling**, **Natural Language Processing (NLP)**, **Computer Vision**, and proficiency in **Python**, **R**, and **SQL**.";
                     } else {
-                         response = "Great! I'm happy to provide more detail on that topic. What specific aspect should I focus on?";
+                        response = "Great! I'm happy to provide more detail on that topic. What specific aspect should I focus on?";
                     }
                 } else {
                     response = "Great! I'm happy to provide more detail on that topic. What specific aspect should I focus on?";
                 }
             } else if (query.match(/^(no|nope)$/i)) {
-                 response = "Understood. Is there another area of Tejaswini's work—like her **projects** or **skills**—that I can explain instead?";
+                response = "Understood. Is there another area of Tejaswini's work—like her **projects** or **skills**—that I can explain instead?";
             }
 
 
@@ -1484,21 +1521,21 @@
                 }
             // --- 4. Check for specific topic questions (Skills/Projects) ---
             } else if (query.includes("skill") || query.includes("tech") || query.includes("tools") || query.includes("coding") || query.includes("python") || query.includes("sql") || query.includes("r") || query.includes("aws") || query.includes("gcp") || query.includes("gpa") || query.includes("about")) {
-                 if (query.includes("python")) {
-                     response = "Tejaswini is highly proficient in **Python**, utilizing it for predictive ML models, scripting data processes (at Deloitte), and various data science tasks.";
-                 } else if (query.includes("sql")) {
-                     response = "Tejaswini has extensive experience with **SQL** (and RDBMS frameworks like Oracle Cloud/MySQL), crucial for data management and migration roles.";
-                 } else if (query.includes("r")) {
-                     response = "Tejaswini uses **R** for statistical learning and data visualization, particularly highlighted in her Data Analytics coursework.";
-                 } else if (query.includes("aws") || query.includes("gcp") || query.includes("cloud")) {
-                     response = "Tejaswini is experienced with **AWS** (Redshift, Snowflake) and **GCP** (Big Query), using them for cloud data platforms and optimizing hyperparameters for ML models.";
-                 } else if (query.includes("gpa")) {
+                if (query.includes("python")) {
+                    response = "Tejaswini is highly proficient in **Python**, utilizing it for predictive ML models, scripting data processes (at Deloitte), and various data science tasks.";
+                } else if (query.includes("sql")) {
+                    response = "Tejaswini has extensive experience with **SQL** (and RDBMS frameworks like Oracle Cloud/MySQL), crucial for data management and migration roles.";
+                } else if (query.includes("r")) {
+                    response = "Tejaswini uses **R** for statistical learning and data visualization, particularly highlighted in her Data Analytics coursework.";
+                } else if (query.includes("aws") || query.includes("gcp") || query.includes("cloud")) {
+                    response = "Tejaswini is experienced with **AWS** (Redshift, Snowflake) and **GCP** (Big Query), using them for cloud data platforms and optimizing hyperparameters for ML models.";
+                } else if (query.includes("gpa")) {
                     response = "Tejaswini achieved a **3.8 GPA** for her Masters degree and a **4.0 GPA** for her Bachelors degree.";
                 } else if (query.includes("about")) { // New explicit handler for the 'About' button
                     return "Tejaswini is a data enthusiast with **6 years of experience in analytics**, specializing in building and deploying machine learning models. She also enjoys reading, exploring local food, and singing.";
                 } else if (query.includes("skills")) {
-                     response = "Tejaswini's skills span **ML/Data Science**, **Cloud Platforms (AWS, GCP)**, and **Programming Languages (Python, SQL, R)**. What specific area are you interested in?";
-                 } else {
+                    response = "Tejaswini's skills span **ML/Data Science**, **Cloud Platforms (AWS, GCP)**, and **Programming Languages (Python, SQL, R)**. What specific area are you interested in?";
+                } else {
                     response = "Tejaswini's skills span **ML/Data Science**, **Cloud Platforms (AWS, GCP)**, and **Programming Languages (Python, SQL, R)**. What specific area are you interested in?";
                 }
             } else if (query.includes("project") || query.includes("built")) {
@@ -1544,13 +1581,13 @@
             // 7. Display AI message
             appendMessage(responseText, 'ai');
             
-            // 8. NEW: Check if it's time for the final prompt (after 3 meaningful prompts)
-            if (promptCount >= 5) {
-                 await new Promise(resolve => setTimeout(resolve, 1000)); 
-                 const finalMessage = `I hope I've been able to answer your questions! If you need more detailed information or wish to discuss a role, please feel free to **get in touch with Tejaswini directly** via her contact methods listed in the footer and sidebar. Thank you!`;
-                 appendMessage(finalMessage, 'ai');
-                 // Resetting promptCount for continuous chat, if desired, but making the final message conclusive.
-                 promptCount = 0; 
+            // 8. NEW: Check if it's time for the final prompt (after 5 meaningful prompts)
+            if (promptCount >= 5) { // Changed to 5 for a slightly longer interaction
+                await new Promise(resolve => setTimeout(resolve, 1000)); 
+                const finalMessage = `I hope I've been able to answer your questions! If you need more detailed information or wish to discuss a role, please feel free to **get in touch with Tejaswini directly** via her contact methods listed in the footer and sidebar. Thank you!`;
+                appendMessage(finalMessage, 'ai');
+                // Resetting promptCount for continuous chat, if desired, but making the final message conclusive.
+                promptCount = 0; 
             }
         }
         
@@ -1566,22 +1603,13 @@
         // Show/hide chat window when icon is clicked
         chatIcon.addEventListener('click', () => {
             toggleChatWindow();
-            if (chatWindow.classList.contains('hidden')) {
-                // If closing, clear the chat history optionally
-                // chatHistory = [];
-            } else {
-                // If opening, render prompts if the chat is active
-                if (isChatActive) {
-                    renderQuickPrompts();
-                }
-            }
         });
 
         // Use custom message instead of alert
         function alert(message) {
             const chatHeader = document.querySelector('.chat-header');
             const alertBox = document.createElement('div');
-            alertBox.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; padding: 10px; background-color: #FFFFFF; color: black; text-align: center; border-radius: 12px 12px 0 0; z-index: 10; font-size: 14px;';
+            alertBox.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; padding: 10px; background-color: #ffe0b2; color: #333; text-align: center; border-radius: 12px 12px 0 0; z-index: 10; font-size: 14px;';
             alertBox.textContent = message;
             chatWindow.prepend(alertBox);
             setTimeout(() => {
@@ -1602,14 +1630,14 @@
             }
             
             // NEW: Email validation for common email extensions
-            const validEmailRegex = /@.*\.\w{2,4}$/i;
+            const validEmailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // More robust general email regex
             if (!validEmailRegex.test(userEmail)) {
                 alert('Please use a valid email address (e.g., user@domain.com) to start the chat.');
                 return;
             }
             
-            // FIX: Hide login form explicitly
-            chatLoginForm.style.display = 'none'; 
+            // Hide login form explicitly
+            chatLoginForm.classList.add('hidden'); 
             
             // Show chat interface
             chatBody.classList.remove('hidden');
@@ -1621,12 +1649,12 @@
             renderQuickPrompts();
             
             // Initial greeting from the bot (simulating 3rd image)
-            const initialBotMessage = `Hey ${userName}! I'm  Tejaswini's AI assistant, here to help you — ask me anything!`;
+            const initialBotMessage = `Hey ${userName}! I'm Tejaswini's AI assistant, here to help you — ask me anything!`;
             
             appendMessage(initialBotMessage, 'ai');
         };
         
-        // Initial call to set up the prompts (they will be hidden until chat starts)
+        // Initial call to render the prompts (they will be hidden initially as part of chat-input-area.hidden)
         renderQuickPrompts();
         
     </script>
