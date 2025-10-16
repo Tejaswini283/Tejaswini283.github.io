@@ -208,20 +208,19 @@
             height: 180px; 
         }
 
-        .project-entry img {
-            width: 60px; 
-            height: 60px; 
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: center;
-            margin-right: 10px;
-            margin-bottom: 10px;
-            float: left;
-            display: block;
-            margin-bottom: 5px;
-            max-width: 30%;
-            max-height: 100%;
-        }
+       .project-entry img {
+    /* Make the image a responsive rectangle */
+    width: 100%;         /* Fill the width of its container */
+    height: 180px;        /* Give it a fixed height */
+    object-fit: cover;    /* Scale image to cover the area, cropping if needed */
+    border-radius: 4px;   /* Give it slightly rounded corners */
+
+    /* Remove positioning styles that are causing issues */
+    margin: 0 0 15px 0; /* Add some space below the image */
+    float: none;
+    display: block;
+    max-width: 100%;
+}
 
         .project-entry:hover::before {
             content: ''; 
@@ -1115,7 +1114,7 @@
                 <a href="https://github.com/Tejaswini283/End-to-End-MLOps-Fraud-Transaction-Scoring-API" class="project-entry">
                     <span class="image main"><img src="images/MLops.jpeg" alt="" /></span>
                     <p class="project-title">End-to-End MLOps Fraud Transaction Scoring API</p>
-                    <p class="project-description">An end-to-end MLOps project for real-time credit card fraud detection. I architected and deployed a scalable API leveraging a trained LightGBM model. The entire workflow is automated via a CI/CD pipeline using GitHub Actions and Docker, ensuring continuous integrated deployment on Render. This showcases my ability to build and maintain production-ready machine learning systems.</p>
+                    <p class="project-description">An end-to-end MLOps project for real-time credit card fraud detection, project involves architecter and deployment of a scalable API leveraging a trained LightGBM model with an automated workflow via a CI/CD pipeline using GitHub Actions and Docker, ensuring continuous deployment on cloud app render.</p>
                 </a>
             </div>
             <div class="project-entry fade-in-on-scroll">
@@ -1683,5 +1682,6 @@
     </script>
 </body>
 </html>
+
 
 
